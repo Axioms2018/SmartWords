@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_certi_bg_a" >
+
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            
+            <ImageView 
+	            android:id="@+id/iv_ani"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_medal" />
+            
+            <ImageView 
+                android:id="@+id/iv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_certi_text"/>
+            
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                
+                <LinearLayout 
+                    android:id="@+id/ll_txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/template_common_black_text"
+                        android:text="This certifies that "/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/words_certfi_name"/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/template_common_black_text"
+                        android:text=" has successfully completed"/>
+                    
+                </LinearLayout>
+                
+                <LinearLayout 
+                    android:id="@+id/ll_txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_words"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/words_certfi_lv1"/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/template_common_black_text"
+                        android:text=" words of "/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:textColor="@color/words_certfi_lv1"/>
+                    
+                </LinearLayout>
+                
+                <kr.co.moumou.smartwords.customview.CustomTextView
+	                android:id="@+id/tv_date"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="22px"
+	                android:textColor="@color/words_certfi_date"/>
+                
+            </LinearLayout>
+	            
+        </LinearLayout> 
+        
+        <ImageButton 
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_certi_close"
+            android:layout_alignParentRight="true"/>
+        
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal" 
+    >
+
+    <LinearLayout
+        android:id="@+id/lay_speak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/ivSpeaker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_mainbook_equalizer_voice_00"
+            android:gravity="center" />
+
+        <View
+            android:id="@+id/marginSpeakerRight"
+            android:layout_width="0px"
+            android:layout_height="0px" />
+
+        <LinearLayout
+            android:id="@+id/lay_big_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_mainbook_speech_bubble_small"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible" >
+
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tvDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="큰소리로 말하세요"
+                android:textColor="@color/white"
+                android:textSize="50px" />
+
+            <ImageView
+                android:id="@+id/img_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:src="@drawable/icon_dialog_good" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_speed_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+	    android:layout_weight="0"
+        android:visibility="gone" >
+		<kr.co.moumou.smartwords.customview.CustomTextView
+		    android:id="@+id/tv_duration_title"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:textSize="26px"
+		    android:textColor="@color/white"
+		    android:text="speed"
+		    android:gravity="center"
+		    android:background="@drawable/bg_speed_upper"
+		    />
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    >
+            
+		    <ImageButton 
+		        android:id="@+id/ibt_dec"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/sel_btn_word_duration_dec_bg"
+		        android:src="@drawable/sel_btn_word_duration_dec_arrow"
+		        />
+		    
+			<kr.co.moumou.smartwords.customview.CustomTextView
+			    android:id="@+id/tv_current_duration"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+			    android:textSize="18px"
+			    android:textColor="@color/black"
+			    android:text="2"
+			    android:gravity="center"
+			    android:background="@drawable/bg_speed_middle"
+			    />
+					    
+		    <ImageButton 
+		        android:id="@+id/ibt_inc"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/sel_btn_word_duration_inc_bg"
+		        android:src="@drawable/sel_btn_word_duration_inc_arrow"
+		        />
+					    
+			
+		</LinearLayout>   
+		<!-- 
+		<EditText
+		    android:id="@+id/editPer"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:inputType="numberSigned"
+		    android:text="10" />
+		     -->
+		         	
+    </LinearLayout>
+    
+</LinearLayout>

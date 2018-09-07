@@ -1,0 +1,95 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="workbook_common_text_size">22px</dimen>
+
+    <dimen name="top_menu_height">134dp</dimen>
+
+    <dimen name="login_width">600dp</dimen>
+    <dimen name="book_back_width">170dp</dimen>
+    <dimen name="book_back_height">220dp</dimen>
+    <dimen name="book_thumbnail_width">132dp</dimen>
+    <dimen name="book_thumbnail_height">180dp</dimen>
+
+    <dimen name="dialog_view_loading_width">135dp</dimen>
+    <dimen name="dialog_view_loading_height">135dp</dimen>
+    <dimen name="dialog_view_loading_text_size">24sp</dimen>
+    <dimen name="book_study_state_text">120dp</dimen>
+
+    <dimen name="chapter_selector_vod_player_tv_size">22sp</dimen>
+
+    <!-- ebook library Start -->
+    <dimen name="ebook_margin_toggle_earse">5dp</dimen>
+    <dimen name="ebook_margin_toggle_search">12dp</dimen>
+    <dimen name="ebook_btn_size_toggle">12sp</dimen>
+    <dimen name="ebook_tapbar_margin_tv_select">50sp</dimen>
+    <dimen name="ebook_tapbar_margin_common">40dp</dimen>
+    <dimen name="ebook_tapbar_margin_category">50dp</dimen>
+    <dimen name="ebook_book_list_page">10dp</dimen>
+
+    <!-- ebook library End -->
+
+
+    <dimen name="font7">14sp</dimen>
+    <dimen name="font8">16sp</dimen>
+    <dimen name="font9">18sp</dimen>
+    <dimen name="font10">20sp</dimen>
+    <dimen name="font11">22sp</dimen>
+    <dimen name="font12">24sp</dimen>
+    <dimen name="font13">26sp</dimen>
+    <dimen name="font14">28sp</dimen>
+    <dimen name="font15">30sp</dimen>
+    <dimen name="font16">32sp</dimen>
+    <dimen name="font17">34sp</dimen>
+    <dimen name="font18">36sp</dimen>
+    <dimen name="font19">38sp</dimen>
+    <dimen name="font20">40sp</dimen>
+    <dimen name="font21">42sp</dimen>
+    <dimen name="font22">44sp</dimen>
+    <dimen name="font23">46sp</dimen>
+    <dimen name="font24">48sp</dimen>
+    <dimen name="font25">50sp</dimen>
+    <dimen name="font26">52sp</dimen>
+    <dimen name="font40">80sp</dimen>
+    <dimen name="font50">100sp</dimen>
+
+    <!-- ebook history font -->
+
+    <dimen name="efont1">2px</dimen>
+    <dimen name="efont7">14px</dimen>
+    <dimen name="efont8">16px</dimen>
+    <dimen name="efont9">18px</dimen>
+    <dimen name="efont10">20px</dimen>
+    <dimen name="efont11">22px</dimen>
+    <dimen name="efont12">24px</dimen>
+    <dimen name="efont13">26px</dimen>
+    <dimen name="efont14">28px</dimen>
+    <dimen name="efont15">30px</dimen>
+    <dimen name="efont16">32px</dimen>
+    <dimen name="efont17">34px</dimen>
+    <dimen name="efont18">36px</dimen>
+    <dimen name="efont19">38px</dimen>
+    <dimen name="efont20">40px</dimen>
+    <dimen name="efont21">42px</dimen>
+    <dimen name="efont22">44px</dimen>
+    <dimen name="efont23">46px</dimen>
+    <dimen name="efont24">48px</dimen>
+    <dimen name="efont25">50px</dimen>
+    <dimen name="efont26">52px</dimen>
+    <dimen name="efont27">54px</dimen>
+    <dimen name="efont40">80px</dimen>
+    <dimen name="efont42">84px</dimen>
+    <dimen name="efont43">86px</dimen>
+    <dimen name="efont50">100px</dimen>
+
+    <dimen name="icon_cross">23dp</dimen>
+    <dimen name="label_title_size">14sp</dimen>
+    <dimen name="padding_label_view">10dp</dimen>
+    <dimen name="margin_between_labels">3dp</dimen>
+    <dimen name="padding_icon_cross">5dp</dimen>
+
+    <dimen name="top_menu_text_size">22px</dimen>
+</resources>

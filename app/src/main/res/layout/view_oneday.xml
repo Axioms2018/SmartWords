@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_oneday"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_calander_cell"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/efont10"
+                android:textColor="@color/cal_day" />
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/ib_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_cal_more"
+                android:visibility="invisible" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_calander_cell"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_levday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/efont9"
+                    android:textStyle="bold" />
+
+                
+
+                <!-- <moumou.co.kr.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_stdday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/efont9"
+                    android:textStyle="bold" /> -->
+                
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/ll_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/cal_slash"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/efont9"
+                    android:textStyle="bold" />
+                
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_stdday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/efont9"
+                    android:textStyle="bold" />
+                
+                <kr.co.moumou.smartwords.customview.CustomTextView
+	                 android:id="@+id/tv_restudy"
+	                 android:layout_width="wrap_content"
+	                 android:layout_height="wrap_content"
+	                 android:textColor="@color/template_common_red_text"
+	                 android:textSize="@dimen/efont8"
+	                 android:text="(재)"
+	                 android:visibility="gone" />
+                
+            </LinearLayout>
+            
+
+            <LinearLayout
+                android:id="@+id/ll_word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_word_t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cal_word"                    
+                    android:textSize="@dimen/efont9"
+                    android:textColor="@color/words_gray" />
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/efont9"
+                    android:textColor="@color/cal_detail" />
+
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_stdtime_t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cal_time"
+                    android:textSize="@dimen/efont9"
+                    android:textColor="@color/words_gray" />
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_stdtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/efont9"
+                    android:textColor="@color/cal_detail" />
+                
+            </LinearLayout>
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/bt_dailyreport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_cal_report"
+                android:text="@string/cal_report"
+                android:textColor="@color/white"
+                android:textSize="@dimen/efont10"
+                android:textStyle="bold" />
+            
+            <!-- <moumou.co.kr.smartwords.customview.CustomTextView
+                android:id="@+id/tv_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/cal_no_report"
+                android:textSize="@dimen/efont8"
+                android:text="@string/cal_no_report"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="@dimen/efont1"/> -->
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

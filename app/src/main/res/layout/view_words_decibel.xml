@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/ivSpeaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_speak0" />
+
+    <View
+        android:id="@+id/marginSpeakerRight"
+        android:layout_width="0px"
+        android:layout_height="0px" />
+
+    <LinearLayout
+        android:id="@+id/lay_big_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_word_ballon"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tvDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="55px" />
+
+        <ImageView
+            android:id="@+id/img_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:src="@drawable/icon_dialog_good" />
+    </LinearLayout>
+
+</LinearLayout>

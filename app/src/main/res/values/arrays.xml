@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="user_type">
+        <item>회원</item>
+        <item>예비회원</item>
+        <item>온라인회원</item>
+        <item>학부모</item>
+        <item>학습관(원장)</item>
+        <item>학습관(교사)</item>
+        <item>본사</item>
+        <item>관리자</item>
+        <item>비회원</item>
+    </string-array>
+    
+    <string-array name="legend">
+        <item>듣기</item>
+        <item>읽기</item>
+        <item>말하기</item>
+        <item>쓰기</item>
+    </string-array>
+    
+    <string-array name="history_title_1">
+        <item>단어</item>
+        <item>원리</item>
+        <item>문제풀이</item>
+        <item>유창성</item>
+        <item>받아쓰기</item>
+        <item>워크북</item>
+    </string-array>
+    
+    <string-array name="history_title_2">
+        <item>단어</item>
+        <item>Step1</item>
+        <item>Step2</item>
+        <item>Step3</item>
+        <item>Step4</item>
+        <item>워크북</item>
+    </string-array>
+    
+    <string-array name="history_title_3">
+        <item>단어</item>
+        <item>원리</item>
+        <item>문제</item>
+        <item>워크북</item>
+    </string-array>
+    
+    <string-array name="history_title_4">
+        <item>Sub book</item>
+    </string-array>
+    
+    <string-array name="history_title_5">
+        <item>Words</item>
+        <item>Present</item>
+        <item>Exercise</item>
+        <item>Fluency</item>
+        <item>워크북</item>
+    </string-array>
+    
+    <string-array name="history_title_6">
+        <item>단어</item>
+        <item>문제</item>
+        <item>유창성</item>
+        <item>받아쓰기</item>
+        <item>워크북</item>
+    </string-array>
+</resources>

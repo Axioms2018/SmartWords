@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEEEEEE"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <kr.co.moumou.smartwords.customview.ViewTopMenu
+            xmlns:custom="http://schemas.android.com/apk/res/moumou.co.kr.smartwords"
+            android:id="@+id/view_top_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:menuType="4" />
+
+        <LinearLayout
+            android:id="@+id/ll_cons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_global_small"
+            android:orientation="vertical">
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+	                android:id="@+id/btn_level"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:text="Level 1"
+	                android:textColor="@color/white"
+	                android:textSize="24px"
+	                android:textStyle="bold"
+	                android:background="@drawable/btn_navi" />
+                
+                <!-- <moumou.co.kr.smartwords.customview.CustomButton
+	                android:id="@+id/bt_certificate"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:text="Level 1"
+	                android:textColor="@color/white"
+	                android:textSize="24px"
+	                android:textStyle="bold"
+	                android:background="@drawable/btn_darkblue" /> -->
+                
+                <LinearLayout 
+                    android:id="@+id/bt_certificate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/btn_darkblue"
+                    android:gravity="center"
+                    android:visibility="gone">
+                    
+                    <ImageView 
+                        android:id="@+id/iv_icon_cert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_certi_btn"
+                        android:layout_marginRight="10dp"/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center"
+	                    android:text="@string/words_cert"
+	                    android:textColor="@color/white" />
+                    
+                </LinearLayout>
+                
+                <LinearLayout android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"></LinearLayout>
+                
+                <LinearLayout 
+                    android:id="@+id/bt_quiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/sel_words_dialog_btn_relearing"
+                    android:gravity="center">
+                    
+                    <ImageView 
+                        android:id="@+id/iv_icon_pen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_pencil"
+                        android:layout_marginRight="10dp"/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center"
+	                    android:text="@string/note_quiz"
+	                    android:textStyle="bold"
+	                    android:textColor="@color/white" />
+                    
+                </LinearLayout>
+                
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_conts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"/>
+
+                <kr.co.moumou.smartwords.customview.ViewIndicator
+                    android:id="@+id/view_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="46dip"
+                    android:layout_marginTop="20dip"
+                    android:layout_weight="0" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal" >
+            </LinearLayout>
+            
+        </LinearLayout>
+
+    </LinearLayout>
+    
+</FrameLayout>

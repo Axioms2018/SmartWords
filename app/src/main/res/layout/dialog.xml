@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFFFF"
+    >
+
+    <LinearLayout
+        android:id="@+id/lay_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dip"
+            android:textSize="@dimen/font12"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FF393939" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_below="@id/lay_title"
+        android:layout_above="@+id/lay_buttons"
+        >
+
+        <TextView
+            android:id="@+id/tv_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dip"
+            android:textColor="#FF000000"
+            android:textSize="@dimen/font12" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lay_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_first"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+			android:paddingTop="10dip"
+			android:paddingBottom="10dip"
+            android:background="@color/orange"
+            android:textColor="#FFFFFFFF"
+            android:textSize="@dimen/font14" />
+
+        <LinearLayout
+            android:id="@+id/lay_second"
+            android:layout_width="1dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#FF393939" />
+
+            <Button
+                android:id="@+id/btn_second"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                android:background="@color/orange"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/font14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lay_third"
+            android:layout_width="1dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#FF393939" />
+
+            <Button
+                android:id="@+id/btn_third"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                android:background="@color/orange"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/font14" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

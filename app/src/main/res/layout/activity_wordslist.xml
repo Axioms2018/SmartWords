@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_global" >
+        
+        <LinearLayout
+            android:id="@+id/ll_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1" >
+                
+            </LinearLayout>
+            
+            <ImageButton
+                android:id="@+id/bt_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/sel_btn_cal_popup" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ll_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white" >
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout 
+                    android:id="@+id/bt_quiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/sel_words_dialog_btn_relearing"
+                    android:gravity="center">
+                    
+                    <ImageView 
+                        android:id="@+id/iv_icon_pen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_pencil"
+                        android:layout_marginRight="10dp"/>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center"
+	                    android:text="@string/note_quiz"
+	                    android:textStyle="bold"
+	                    android:textColor="@color/white" />
+                    
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1" >
+                    
+                </LinearLayout>
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:imeOptions="flagNoExtractUi"
+                    android:id="@+id/bt_lv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab1"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_left" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab2"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:imeOptions="flagNoExtractUi"
+                    android:id="@+id/bt_lv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab3"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab4"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:imeOptions="flagNoExtractUi"
+                    android:id="@+id/bt_lv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab5"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lvall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_taball"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_right" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                
+                <LinearLayout
+                    android:id="@+id/ll_known"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:imeOptions="flagNoExtractUi"
+                        android:id="@+id/tv_known"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/note_known"
+                        android:textSize="@dimen/efont12"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:background="@color/skyblue" />
+                    
+                    <ListView
+                        android:id="@+id/lv_known"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:divider="@color/bg_dayname"
+                        android:listSelector="#00000000"
+                		android:background="@drawable/bg_box_white" >
+                        
+                    </ListView>
+                    
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/ll_unknown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_unknown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/note_unknown"
+                        android:textSize="@dimen/efont12"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:background="@color/note_unknown_bg" />
+                    
+                    <ListView
+                        android:id="@+id/lv_unknown"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:divider="@color/bg_dayname"
+                        android:listSelector="#00000000"
+                        android:background="@drawable/bg_box_white" >
+                        
+                    </ListView>
+                    
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <!-- <moumou.co.kr.smartwords.customview.ViewSlidingMenuMM
+        android:id="@+id/view_sliding_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" /> -->
+
+</FrameLayout>

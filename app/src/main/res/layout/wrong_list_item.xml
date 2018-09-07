@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<LinearLayout
+        android:id="@+id/ll_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center" >
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_question"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/efont11"
+            android:gravity="center"
+            android:layout_weight="1" />
+        
+        <ImageButton
+            android:id="@+id/btn_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/words_player_btn_selector"
+            android:visibility="gone" />
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_answer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/efont11"
+            android:gravity="center"
+            android:layout_weight="2" />
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_myans"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/daily_wrong_my"
+            android:textSize="@dimen/efont11"
+            android:gravity="center"
+            android:layout_weight="2" />
+        
+    </LinearLayout>
+    
+</LinearLayout>

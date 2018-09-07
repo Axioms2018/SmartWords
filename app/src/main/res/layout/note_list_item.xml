@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+    <LinearLayout
+        android:id="@+id/ll_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_eng"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/note_list_eng"
+            android:textSize="@dimen/efont11"
+            android:gravity="center"
+            android:layout_weight="1" />
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_kor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/efont11"
+            android:gravity="center"
+            android:layout_weight="1" />
+        
+    </LinearLayout>
+
+</LinearLayout>

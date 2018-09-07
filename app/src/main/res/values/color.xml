@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    
+    <!-- Workbook Common -->
+    <color name="template_common_bg">#f3f2f6</color>
+    
+    <color name="template_common_black_text">#3a3a3a</color>
+    <color name="template_common_gray_text">#aaaaaa</color>
+    <color name="template_common_blue_text">#4aace5</color>
+    <color name="template_common_red_text">#c92f2f</color>
+    <color name="template_common_correct_text">#c92f2f</color>
+    <color name="template_common_edit_text">#3a3a3a</color>
+    <color name="template_common_orange_text">#ffa415</color>
+    
+    <!-- Workbook -->
+    <color name="template_menu_bg_default">#ffa415</color>
+    <color name="template_menu_bg_selected">#f68500</color>
+    
+    <color name="template_menu_text_default">#ffe285</color>
+    <color name="template_menu_text_selected">#ffffff</color>
+    
+    <color name="template_menu_text_jisi">#353535</color>
+    
+    <!-- smart words -->
+    <color name="words_start_popup_txt">#1f3e48</color>
+    <color name="words_start_popup_start_pressed">#c8c8c8</color>
+    <color name="words_menu_bg_default">#6fbad2</color>  
+    <color name="words_menu_bg_selected">#478ea4</color>  
+    <color name="words_close_btn_bg_default">#34697a</color>  
+    <color name="words_close_btn_bg_selected">#1f4a58</color>  
+    <color name="words_main_level_txt">#80ffffff</color>  
+    <color name="words_txt_wrong">#f3654d</color>
+    <color name="words_test3_quiz_txt">#306f93</color>
+    <color name="words_pratice_txt_ko">#47b2cd</color>
+    <color name="words_pratice_line">#dadada</color>
+    <color name="words_quiz_corrent_txt">#6db8cf</color>
+    <color name="words_certfi_name">#1999f3</color>
+    <color name="words_certfi_date">#989898</color>
+    <color name="words_certfi_lv1">#176223</color>
+    <color name="words_certfi_lv2">#306f93</color>
+    <color name="words_certfi_lv3">#6e3c21</color>
+    <color name="words_certfi_lv4">#583893</color>
+    <color name="words_certfi_lv5">#a83349</color>
+    <color name="words_review_line_red">#f3654d</color>
+    <color name="words_review_line_blue">#306f93</color>
+    
+    <!-- smart words my page -->
+    <color name="words_gray">#aaaaaa</color>
+    <color name="words_red">#ff0000</color>
+    <color name="words_blue">#14a2ed</color>
+    <color name="skyblue">#6fbad2</color>
+    <color name="custom_black">#3a3a3a</color>
+    <color name="disable">#c9c9c9</color>
+    
+    <color name="bg_dayname">#f3f2f7</color>
+    <color name="cal_day">#478ea4</color>
+    <color name="cal_sunday">#e25d5d</color>
+    <color name="cal_detail">#6fbad2</color>
+    <color name="lv_line">#e1e1e1</color>
+    <color name="cal_no_report">#cebcb3</color>
+    
+    <color name="rank_item">#48bf5c</color>
+    <color name="rank_know">#2aa72a</color>
+    
+    <color name="note_unknown_bg">#d1bc2c</color>
+    <color name="note_list_eng">#48bf5c</color>
+    
+    <color name="report_colorline">#00b3cf</color>
+    <color name="report_line">#e5e5e5</color>
+    
+    <color name="daily_bg_graph">#80ffffff</color>
+    <color name="daily_wrong_my">#ec4141</color>
+    <color name="daily_graph_right">#47b2cd</color>
+    <color name="daily_graph_wrong">#edd42d</color>
+    
+    <color name="menu_bg_default">#6fbad2</color>
+    <color name="menu_bg_selected">#478ea4</color>
+    <color name="btn_menu_close_bg_default">#34697a</color>  
+    <color name="btn_menu_close_bg_selected">#1f4a58</color>
+    <color name="menu_text_default">#ffffff</color>
+    <color name="menu_text_selected">#ffffff</color>
+    
+    <!-- ebook -->
+    <color name="ebook_menu_bg_default">#7ac4dc</color>
+    <color name="ebook_menu_bg_selected">#3988a2</color>
+    <color name="ebook_menu_text_default">#ffffff</color>
+    <color name="ebook_menu_text_selected">#c4e3ee</color>  
+    <color name="ebook_tapbar_toggle">#ffa415</color>
+    <color name="ebook_bookinfo_category">#f68500</color>
+    <color name="ebook_bookinfo_detail">#aaaaaa</color>
+    
+    <color name="ebook_history_bg">#f3f2f7</color>
+    <color name="ebook_history_bg_category">#64b3cd</color>
+    <color name="ebook_history_study_ing">#3d96c9</color>
+    <color name="ebook_history_study_end">#ffa415</color>
+    <color name="ebook_history_black">#3a3a3a</color>
+    <color name="ebook_history_white">#fff</color>
+    <color name="ebook_history_review">#3988a2</color>
+    <color name="ebook_history_aver">#e84242</color>
+    <color name="ebook_history_review_cancle">#7ac4dc</color>
+    <color name="ebook_history_bg_btn_disable">#c9c9c9</color>    
+    
+    
+    <!-- Monthly Test -->
+    <color name="monthly_test_cmm_black_text">#6c6c6c</color>
+    <color name="monthly_test_cmm_glay_text">#a5a5a5</color>
+    <color name="monthly_test_cmm_bg">#ededed</color>
+    
+    <color name="monthly_test_bg">#f6fdff</color>
+    <color name="monthly_test_cover_bg">#eeeeee</color>
+    
+    <color name="monthly_test_sub_title_txt">#575757</color>
+    <color name="monthly_test_sub_title_s_bg">#e3e3e3</color>
+    
+    <color name="monthly_test_listening_bg">#3eb1e8</color>
+    <color name="monthly_test_reading_bg">#7cc829</color>
+    <color name="monthly_test_speaking_bg">#f7a723</color>
+    <color name="monthly_test_writing_bg">#b27ddf</color>
+    
+    <color name="monthly_test_top_bg">#27a8e6</color>
+    <color name="monthly_test_bottom_bg">#d6d6d6</color>
+    <color name="monthly_test_ok_bottom_bg">#def0a6</color>
+    <color name="monthly_test_wrong_bottom_bg">#ffd4cd</color>
+    
+    <color name="monthly_test_next_txt">#898989</color>
+    <color name="monthly_test_next_txt_over">#656565</color>
+    <color name="monthly_test_next_green_txt">#8dad31</color>
+    <color name="monthly_test_next_green_txt_over">#68880d</color>
+    <color name="monthly_test_next_red_txt">#e97874</color>
+    <color name="monthly_test_next_red_txt_over">#be2c27</color>
+    
+    <color name="monthly_test_templete_bg">#ededed</color>
+    <color name="monthly_test_answer_txt">#2ba8e5</color>
+    <color name="monthly_test_templete_explain">#b0d3e6</color>
+    <color name="monthly_test_skyblue">#2ca8e4</color>
+    
+    
+    <!-- 템플릿 하단 음원 플레이 버튼 bg -->
+    <color name="template_btn_playaudio_default">#4aace5</color>
+    <color name="template_btn_playaudio_pressed">#107fc0</color>
+    <color name="template_btn_playaudio_disable">#c9c9c9</color>
+    
+    <!-- 템플릿 하단 다음 버튼 bg -->
+    <color name="template_btn_next_default">#ffa415</color>
+    <color name="template_btn_next_disable">#c9c9c9</color>
+    <color name="template_btn_next_pressed">#f68500</color>
+    
+    <!-- 템플릿 하단 정답보기 버튼 bg -->
+    <color name="template_btn_correct_default">#f06945</color>
+    <color name="template_btn_correct_pressed">#c93913</color>
+    
+    <!-- 템플릿 하단 내답보기 버튼 bg -->
+    <color name="template_btn_input_correct_default">#4aace5</color>
+    <color name="template_btn_input_correct_pressed">#107fc0</color>
+    
+    <color name="template_drop_enable">#caebfe</color>
+    
+    <color name="template_show_selected">#f68500</color>
+    
+    <color name="blue">#FF4AACE5</color>
+    <color name="grahp_red">#FFF46363</color>
+	<color name="gray">#FFAAAAAA</color>
+	<color name="lightgray">#ffc8c8c8</color>
+	<color name="red">#FFC92F2F</color>
+	<color name="orange">#FFFFA415</color>
+	<color name="green">#48bf5c</color>
+	<color name="avg_age_color">#FFF67A00</color>
+	<color name="avg_age_color_text">#FFFF5A00</color>
+	<color name="report_gray">#FF8D8D8D</color>
+	<color name="chart_a">#FF64B3CD</color>
+	<color name="chart_b">#FF7AC4DC</color>
+	<color name="thin_line">#FFE5E5E5</color>
+
+	<color name="wc_background">#f3f2f7</color>
+	<color name="wc_box_bg_1">#bcd4dc</color>
+	<color name="wc_box_bg_2">#bfcc92</color>
+	<color name="wc_box_bg_3">#d0dee3</color>
+	<color name="wc_common_text_1">#3a82a9</color>
+	<color name="wc_common_text_2">#52593a</color>
+	<color name="wc_menu_bg">#64b3cd</color>
+	<color name="wc_menu_bar">#3a8ea9</color>
+	<color name="wc_text_topic">#3a8ea9</color>
+	
+	<!-- WC 에세이취소 -->
+    <color name="wc_essay_cancel_btn_default">#3a8ea9</color>
+    <color name="wc_essay_cancel_btn_pressed">#2d7086</color>
+    <color name="wc_essay_cancel_btn_disable">#c9c9c9</color>
+    
+	<!-- 템플릿 하단 다음 버튼 bg -->
+    <color name="wc_btn_prev_default">#64b3cd</color>
+    <color name="wc_btn_prev_pressed">#40a2c2</color>
+    
+    <!-- 주니어 워크북 템플릿 하단 다음 버튼 bg -->
+    <color name="template_btn_next_ws_default">#5c4e35</color>
+    <color name="template_btn_next_ws_disable">#335c4e35</color>
+    <color name="template_btn_next_ws_pressed">#3a2e1a</color>
+
+	<color name="ws301_color_1">#ff0000</color>
+    <color name="ws301_color_2">#ffa500</color>
+    <color name="ws301_color_3">#fcc8ba</color>
+    <color name="ws301_color_4">#ffff00</color>
+    <color name="ws301_color_5">#2ddc5e</color>
+    <color name="ws301_color_6">#006400</color>
+    <color name="ws301_color_7">#0092e0</color>
+    <color name="ws301_color_8">#2d39dc</color>
+    <color name="ws301_color_9">#9400d3</color>
+    <color name="ws301_color_10">#828282</color>
+    <color name="ws301_color_11">#000000</color>
+    
+    <color name="default_background_label">#ff303030</color>
+    <color name="template_sc104_title_text">#185573</color>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/ll_rankitem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_box_white2"
+        android:orientation="horizontal" >
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_detailrank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/rank_list"
+            android:textColor="@color/rank_item"
+            android:textSize="@dimen/efont10" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_detailname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/rank_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/efont10" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_detailword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/rank_word"
+            android:textColor="@color/black"
+            android:textSize="@dimen/efont10" />
+        
+    </LinearLayout>
+
+</LinearLayout>

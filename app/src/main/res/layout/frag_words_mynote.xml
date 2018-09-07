@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_global_small"
+        android:gravity="center"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+            android:id="@+id/ll_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_wordbook"
+            android:gravity="center_horizontal"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+            
+            <LinearLayout
+                android:id="@+id/ll_known"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center" >
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:id="@+id/iv_leftballoon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"                            
+                            android:src="@drawable/ic_word_3" />
+                        
+                    </LinearLayout>
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_centerInParent="true" >
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/note_known"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/white" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_knowcnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/efont27"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                        
+                    </LinearLayout>
+                    
+                </RelativeLayout>
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal" >
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/note_view"
+                    android:textSize="@dimen/efont11"
+                    android:textColor="@color/white"
+                    android:background="@drawable/sel_btn_dia_report" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_unknown"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center" >
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:id="@+id/iv_rightballoon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_word_4" />
+                        
+                    </LinearLayout>
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_centerInParent="true" >
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/note_unknown"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/white" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_unknowcnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/efont27"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                        
+                    </LinearLayout>
+                    
+                </RelativeLayout>
+
+            </LinearLayout>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">SmartWords</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="se102_next_popup">다음으로 넘어가시겠습니까?</string>
+    <string name="insert_login_data">아이디 혹은 비밀번호를 입력하세요.</string>
+    <string name="insert_num_english">영어 혹은 숫자만 입력가능합니다.</string>
+    <string name="id">아이디</string>
+    <string name="retry">재시도</string>
+    <string name="terminate">종료</string>
+    <string name="pwd">비밀번호</string>
+    <string name="find_id_pw">ID/PW 찾기</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="find_pw">비밀번호 찾기</string>
+    <string name="find">찾기</string>
+    <string name="mcode">M코드</string>
+    <string name="password">비밀번호</string>
+    <string name="password_check">비밀번호 확인</string>
+    <string name="change_password">비밀번호 변경</string>
+    <string name="process_change_password">비밀번호 변경 중입니다.</string>
+    <string name="process_change_password_done">비밀번호가 변경되었습니다.</string>
+    <string name="process_change_password_fail">비밀번호 변경에 실패했습니다.\n잠시후 다시 시도해주세요.</string>
+    <string name="certification">인증</string>
+    <string name="comp_name">학습관명</string>
+    <string name="hint_insert_name">이름을 입력하세요.</string>
+    <string name="hint_insert_mcode">예)M2645642666</string>
+    <string name="hint_insert_id">아이디를 입력하세요.</string>
+    <string name="hint_insert_pwd">비밀번호를 입력하세요.</string>
+    <string name="hint_insert_pwd_check">비밀번호 확인을 입력하세요.</string>
+    <string name="studyroom">학습관</string>
+    <string name="name">이름</string>
+    <string name="program">프로그램</string>
+    <string name="study_category">학습영역</string>
+    <string name="test_date">평가일자</string>
+    <string name="total_book_count">교재총권수</string>
+    <string name="duration">소요시간</string>
+    <string name="score">점수</string>
+    <string name="area">영역</string>
+    <string name="correct_count">맞은개수</string>
+    <string name="my_score">내점수</string>
+    <string name="age_avg">동일연령 평균</string>
+    <string name="avg">평균</string>
+    <string name="lead_time">소요시간\n(적정시간)</string>
+    <string name="listening">듣기</string>
+    <string name="read">읽기</string>
+    <string name="speak">말하기</string>
+    <string name="write">쓰기</string>
+    <string name="monthly_test_info">        학생이 해당 영역에서 적정시간을 초과하여 문제를 풀었을 경우 소요시간이 붉은색으로 표시됩니다.</string>
+    <string name="comment">코멘트</string>
+    <string name="save_id">아이디 저장</string>
+    <string name="study_room_mode">교사점검모드(학습관모드)</string>
+    <string name="login">로그인</string>
+    <string name="logout">로그아웃</string>
+    <string name="experience_login">체험하기</string>
+    <string name="join_member">아이디만들기</string>
+    <string name="check_used_id">아이디 중복확인</string>
+    <string name="comfirm">확인</string>
+    <string name="cancel">취소</string>
+    <string name="book">교재</string>
+    <string name="total_study_time">총 학습시간</string>
+    <string name="left_hand">왼손잡이</string>
+    <string name="controll_ff_rew">빨리감기 / 건너뛰기</string>
+    <string name="loud_level">큰소리 레벨</string>
+    <string name="error_report">오류신고</string>
+    <string name="is_show_background_img">배경 이미지 표시</string>
+
+    <string name="title_study_history">전 교재 학습 현황</string>
+    <string name="title_study_book_select">학습할 교재를 선택하세요</string>
+    <string name="title_study_chapter_select">학습할 차시를 선택하세요</string>
+    <string name="title_monthly_review_report">Monthly Review Report</string>
+    <string name="title_daily_report">Daily Report</string>
+    <string name="request_study_finish">점검을 기다리는 동안 교재를 가져와\n\n학습한 내용을 확인해 보세요.</string>
+    <string name="called_student">선생님께서 부르십니다.</string>
+    <string name="req_study_finish">최종점검 신청</string>
+    <string name="req_study_review">답안지 보기</string>
+    <string name="study_book_name">교재명</string>
+    <string name="book_and_duration">교재명 및 학습 기간</string>
+    <string name="book_study">교재학습</string>
+    <string name="smart_evaluation">스마트 평가</string>
+    <string name="is_invalid_sessionid">죄송합니다.\n일시적인 문제로 로그아웃 되었습니다.</string>
+    <string name="chapter_study_history">차시학습</string>
+    <string name="chapter">차시</string>
+    <string name="studying">학습 중</string>
+    <string name="none_study">미진행</string>
+    <string name="studyed">학습완료</string>
+    <string name="study_goal">교재목표</string>
+    <string name="study_spend_time">소요시간</string>
+    <string name="study_duration">학습가능기간</string>
+    <string name="study_daily_chapter"><xliff:g>%d</xliff:g>차시</string>
+    <string name="study_monthly_chapter">Monthly\nReview<xliff:g>%s</xliff:g></string>
+    <string name="study_monthly_test">Monthly\nTest</string>
+    <string name="study_monthly_test_done">Monthly\nTest 완료</string>
+    <string name="score_monthly_review_point"><xliff:g>%s</xliff:g>점</string>
+    <string name="chaci_monthly_review">Review <xliff:g>%s</xliff:g>차</string>
+    <string name="add_account_terminate">회원가입이 완료 되었습니다.</string>
+    <string name="can_use_id">사용 가능한 아이디입니다.</string>
+    <string name="cannot_use_id">이미 사용중인 아이디입니다.</string>
+    <string name="wait_min">잠시만 기다려주세요.</string>
+    <string name="wait_for_login">로그인 중입니다. 잠시만 기다려주세요.</string>
+    <string name="wait_for_data">데이터 수신 중입니다. 잠시만 기다려 주세요.</string>
+    <string name="wait_for_check_member">회원 정보 확인 중입니다.\n잠시만 기다려주세요.</string>
+    <string name="wait_for_add_account">회원 가입 중입니다.\n잠시만 기다려주세요.</string>
+    <string name="wait_for_check_id_used">아이디 확인 중입니다.\n잠시만 기다려주세요.</string>
+    <string name="sorry_try_again">죄송합니다. 다시 시도해주세요.</string>
+    <string name="sorry_try_again_msg">문제가 발생했습니다.\nException(<xliff:g>%s</xliff:g>) </string>
+    <string name="smart_exam">스마트평가</string>
+    <string name="monthly_test">월말평가</string>
+    <string name="monthly_test_date"><xliff:g>%d</xliff:g>월 <xliff:g>%d</xliff:g>일</string>
+    <string name="detail_history_review_title">Monthly Review <xliff:g>%d</xliff:g></string>
+    <string name="online_workbook">온라인 워크북</string>
+    <string name="study_finish_spend_time">소요시간</string>
+    <string name="study_score">학습성취도</string>
+    <string name="restudy">복습</string>
+    <string name="restudy_all">전체 복습</string>
+    <string name="restudy_socre">복습 점수</string>
+    <string name="do_restudy">복습하기</string>
+    <string name="do_workbook_restudy">워크북\n\n복습하기</string>
+    <string name="moumou_infomation">무무 소식</string>
+    <string name="daily_study">교재학습</string>
+    <string name="loud_study">큰소리학습</string>
+    <string name="workbook_score">워크북 평균</string>
+    <string name="study_score_first">학습성취도\n(1차시도)</string>
+    <string name="study_score_second">학습성취도\n(2차시도)</string>
+    <string name="sorry_canonot_receive_data">수신된 데이터가 없습니다.\n학습을 시작할 수 없습니다.</string>
+    <string name="sorry_data_receive_exception">데이터 수신 중 에러가 발생했습니다.\n<xliff:g>%s</xliff:g></string>
+    <string name="sorry_data_receive_fail">데이터 수신에 실패 했습니다.\n<xliff:g>%s</xliff:g></string>
+    <string name="is_double_login">다른 기기에서 로그인이 되었습니다.\n해당 기기는 로그아웃 됩니다.</string>
+    <string name="sorry_not_ready_book_resource">죄송합니다. 아직 교재가 준비되지 않았습니다.</string>
+    <string name="not_connected_network">네트웍이 연결되지 않았습니다.</string>
+    <string name="sorry_cannot_login_network_change">네트워크가 변경되어 로그인에  실패했습니다.\n다시 로그인 해주세요.</string>
+    <string name="warning_check_pwd">두 비밀번호가 일치하지 않습니다.</string>
+    <string name="wait_user_check_process">회원정보 확인중입니다. 잠시만 기다려주세요.</string>
+    <string name="wait_check_id">아이디 중복 확인 중입니다. 잠시만 기다려주세요.</string>
+    <string name="wait_user_change_pwd_process">비밀번호 변경중입니다. 잠시만 기다려주세요.</string>
+    <string name="warning_insert_id">아이디를 입력하세요.</string>
+    <string name="warning_insert_name">성명을 입력하세요.</string>
+    <string name="warning_insert_pwd">비밀번호를 입력하세요.</string>
+    <string name="warning_insert_mcode">MCode를 입력하세요.</string>
+    <string name="warning_insert_double_check_pwd">비밀번호확인을 입력하세요.</string>
+    <string name="warning_insert_pwd_not_same">두 비밀번호가 일치하지 않습니다.</string>
+    <string name="warning_check_same_id">아이디 중복확인 해주세요.</string>
+    <string name="warning_can_use_id">해당 아이디는 사용 할 수 있습니다.</string>
+    <string name="wraning_nomember">조회된 사용자가 없거나 탈퇴된 회원입니다.\n성명 및 M코드를 확인해주세요.</string>
+    <string name="warning_check_name_mcode">성명 및 M코드를 확인하세요.</string>
+    <string name="again_back_out_activity">백버튼을 한번 더 누르면 이전 화면으로 돌아갑니다.</string>
+    <string name="not_fount_file">파일을 찾을 수 없습니다.\n<xliff:g>%s</xliff:g></string>
+    <string name="sorry_test_not_ready">테스트 교재가 준비되지 않았습니다.</string>
+
+    <string name="waiting_req_study_info">학습 정보를 받아오는 중입니다.</string>
+
+    <string name="sorry_cannot_receive_study_data">학습 데이터를 가져오지 못했습니다.</string>
+    <string name="do_not_see">다시보지않기</string>
+
+    <!-- Player -->
+    <string name="player_start_time">00:00:00</string>
+    <string name="player_ratio">영상크기</string>
+    <string name="set_brightness">밝기\n<xliff:g id="value">%s</xliff:g></string>
+    <string name="set_sound">소리\n<xliff:g id="value">%s</xliff:g></string>
+    <string name="date">날짜</string>
+    <string name="study_menu_0">온라인보드</string>
+    <string name="study_menu_1">단어</string>
+    <string name="study_menu_2">원리</string>
+    <string name="study_menu_3">문제풀이</string>
+    <string name="study_menu_4">유창성</string>
+    <string name="study_menu_5">받아쓰기</string>
+    <string name="study_menu_6">워크북</string>
+    <string name="study_menu_montly_test">평가</string>
+    <string name="study_menu_montly_review">월말리뷰</string>
+    <string name="title_history_total">전 교재 학습 현황</string>
+    <string name="study_request_correct">답안지 요청</string>
+    <string name="study_request_correct_cancel">답안지 요청 취소</string>
+    <string name="study_show_correct">답안지 보기</string>
+    <string name="study_request_check">점검 신청</string>
+    <string name="study_request_check_cancel">점검신청 취소</string>
+    <string name="template_show_correct">정답 보기</string>
+    <string name="template_show_input">내답 보기</string>
+    <string name="template_complete">완료</string>
+    <string name="template_prev">이전</string>
+    <string name="template_next">다음</string>
+    <string name="template_bogi">보기</string>
+    <string name="template_comm">대화문</string>
+    <string name="template_dnd">Drag and Drop</string>
+    <string name="template_rec_listen">녹음 듣기</string>
+    <string name="template_start_restudy">재학습 시작</string>
+    <string name="template_rec_start">시작하기</string>
+    <string name="template_rec_retry">다시하기</string>
+    <string name="template_min_length">글자수 (%1$d / 영문 %2$d-1900 글자, 한글 %3$d-950 글자)</string>
+    <string name="template_input_correct">정답을 입력해 주세요.</string>
+    <string name="template_can_not_input">더이상 입력할 수 없습니다.</string>
+    <string name="workbook_exit">워크북을 종료하시겠습니까?</string>
+    <string name="template_moumou_app">무무 앱</string>
+    <string name="template_recommend_app">추천 앱</string>
+    <string name="notice_download_apk_download">스마트 무무 다운로드</string>
+    <string name="notice_download_apk_download_detail">새로운 버전 다운로드 중.</string>
+    <string name="notice_download_apk_downloading_per">스마트무무 다운로드 중입니다... <xliff:g>%s</xliff:g></string>
+    <string name="download_apk_downloading_per"><xliff:g>%s</xliff:g> 다운로드 중입니다... <xliff:g>%s</xliff:g></string>
+    <string name="notice_download_study_data_title">학습 교재 다운로드</string>
+    <string name="notice_download_other_apk">필수 앱 다운로드</string>
+    <string name="notice_download_other_apk_detail">필수 앱 다운로드 중입니다.</string>
+
+
+    <string name="sorry_not_ready_study_book">죄송합니다.\n아직 주교재가 준비되지 않았습니다.</string>
+    <string name="sorry_not_find_necessary_value">교재 정보의 필수값(<xliff:g>%s</xliff:g>)이 존재하지 않습니다.\n학습이 원활히 진행되지 않을 수 있습니다.</string>
+    <string name="sorry_not_ready_work_book">죄송합니다.\n아직 워크북 교재가 준비되지 않았습니다.</string>
+    <string name="sorry_not_ready_chant_book">죄송합니다.\n아직 준비학습 챈트영상이 준비되지 않았습니다.</string>
+    <string name="sorry_not_ready_answer_book">죄송합니다.\n아직 답안지가 준비되지 않았습니다.</string>
+    <string name="sorry_not_connect_socket">학습관 서버를 찾을 수 없습니다.\n학습하려면 로그인 화면의 교사점검모드를 해제 후 다시 로그인 하세요.\n(<xliff:g>%s</xliff:g>)</string>
+    <string name="sorry_experience_is_only_home">죄송합니다. 채험회원은 학습관모드가 지원되지 않습니다.</string>
+
+    <string name="cannot_find_socket_server">서버를 찾을 수 없습니다. ip:<xliff:g>%s</xliff:g></string>
+
+    <string-array name="string_array_pref_recog_w_thres_item_titles">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="pref_recog_w_thres_item_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="string_array_pref_recog_w_gender_item_titles">
+        <item>영어남성</item>
+        <item>영어여성</item>
+        <item>영어아이</item>
+        <item>영어All</item>
+        <item>한국식영어남성</item>
+        <item>한국식영어여성</item>
+        <item>한국식영어아이</item>
+        <item>한국식영어All</item>
+    </string-array>
+    <string-array name="pref_recog_w_gender_item_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string name="top_menu_study_select">학습 선택</string>
+    <string name="top_menu_study_history">학습 현황</string>
+    <string name="top_menu_smart_words">Smart Words</string>
+    <string name="top_menu_ebook">E-Book</string>
+    <string name="top_menu_more">더보기</string>
+    <string name="top_menu_library">라이브러리</string>
+    <string name="top_menu_support">고객지원</string>
+    <string name="top_menu_faq">FAQ</string>
+    <string name="top_menu_notice">공지사항</string>
+    <string name="top_menu_access_terms">이용약관</string>
+    <string name="top_menu_surpport_service">원격지원 서비스</string>
+
+
+    <string name ="more_remote_msg">원격지원 서비스는 원격으로 상담원의 단말기에 접속하여 상담을 지원해 드립니다.\n\n상단 아이콘을 클릭하고, 상담원 연락 후 상담번호를 입력하세요.</string>
+
+    <string name="experience_member_study_three_step">체험회원은 3차시까지 학습 가능합니다.</string>
+    <string name="prev_chaci_not_finished">이전 차시가 완료되지 않았습니다.</string>
+    <string name="sorry_on_the_anvil">서비스 준비중입니다.</string>
+    <string name="sorry_cannot_show_report_not_study">학습완료 후 리포터를 볼 수 있습니다.</string>
+    <string name="monthly_test_done_first">테스트가 완료 되어야 리뷰를 학습할 수 있습니다.</string>
+    <string name="sorry_current_chapter_is_error">죄송합니다. 해당 차시는 문제가 발생하여 진행하지 못합니다.\n다른 차시를 선택해주세요.</string>
+
+    <!-- ebook -->
+    <string name="action_custom">Custom Action</string>
+    <string name="action_next_page">Next Page</string>
+    <string name="action_prev_page">Prev Page</string>
+    <string name="action_play">Play</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_go_to_bookshelf">책장으로</string>
+    <string name="action_change_style">Change Style</string>
+    <string name="action_to_be_green">BOOK: What does mean to be green</string>
+    <string name="action_staying_safe">BOOK: Staying Safe</string>
+    <string name="action_dolphins">BOOK: Dolphins</string>
+    <string name="action_learning_to_fly">BOOK: Learning to fly</string>
+    <string name="action_what_in_the_world_is_a_cube">BOOK: What is in the world is a cube</string>
+
+    <string name="ebook_reading">읽는 중</string>
+    <string name="ebook_studying">학습 중</string>
+    <string name="ebook_none_study">학습 전</string>
+    <string name="ebook_studyed">학습 완료</string>
+    <string name="ebook_notstudy">-</string>
+
+    <string name="tv_ebook_title">Title</string>
+    <string name="tv_ebook_atos">ATOS</string>
+    <string name="tv_ebook_genre">Genre</string>
+    <string name="tv_ebook_theme">Theme</string>
+    <string name="tv_ebook_pages">Total Pages</string>
+    <string name="tv_ebook_score">점수</string>
+
+    <string name="tv_ebook_report_title1">학습활동</string>
+    <string name="tv_ebook_report_title2">소요시간</string>
+    <string name="tv_ebook_report_title3">성취도</string>
+
+    <string name="tv_ebook_review_title">My Review</string>
+    <string name="tv_ebook_review_hint">200자 이내(한/영)로 작성해주세요.</string>
+
+    <string name="tv_ebook_request_fail">학습 정보를 가져오는데 실패했습니다.</string>
+
+    <string name="tv_ebook_restudy_title">Learning을 다시 하시겠습니까?</string>
+    <string name="tv_ebook_restudy_caution">* ‘전체 다시하기’를 진행할 경우\n리포트에는 새로운 학습결과가 반영됩니다.</string>
+
+    <string name="tv_ebook_atos_title">ATOS 지수란?</string>
+    <string name="tv_ebook_atos_detail">미국의 45,000개 이상의 학교에서 쓰고 있는\n독서 관리 프로그램인 AR(Accelerated-Reader)에서 사용되는,\n책이나 글(Text)의 난이도(Difficulties)를 측정한 지수입니다.</string>
+
+    <string name="btn_ebook_restudy">다시하기  》</string>
+    <string name="btn_ebook_restudy2">전체 다시하기</string>
+    <string name="btn_ebook_review_more">more</string>
+    <string name="btn_ebook_review_edit">수정</string>
+    <string name="btn_ebook_review_write">리뷰 작성하기</string>
+    <string name="btn_ebook_review_entry">등록</string>
+    <string name="btn_ebook_review_cancel">취소</string>
+    <string name= "warning_review_eblike">별점을 체크해주시기 바랍니다.</string>
+    <string name= "warning_review_ebreview">내용을 작성해주시기 바랍니다.</string>
+
+    <string name="title_ebook_select">스마트 이북 라이브러리 입니다. 읽을 책을 선택하세요.</string>
+    <string name="btn_ebook_toggle_all">전체</string>
+    <string name="btn_ebook_toggle_my">My Ebook</string>
+
+    <string name="ebook_search_not">검색하신 Ebook은 없습니다. 다시 검색해주세요.</string>
+    <string name="ebook_search_null">검색하실 문자를 입력해주세요.</string>
+    <!-- ebook end -->
+
+    <!-- monthly test -->
+    <string name="monthly_test_cmmd">한달간 학습한 교재에 대해 여러분이 얼마나 잘 이해 했는지를 확인하는 평가입니다.</string>
+    <string name="monthly_test_cover_1">영역은 총 4개입니다.</string>
+    <string name="monthly_test_cover_3">평가를 모두 완료해야만 결과리포트가 제공됩니다.</string>
+    <string name="monthly_test_listening">듣기영역</string>
+    <string name="monthly_test_reading">읽기영역</string>
+    <string name="monthly_test_speaking">말하기영역</string>
+    <string name="monthly_test_writing">쓰기영역</string>
+    <string name="monthly_test_listening_en">Listening</string>
+    <string name="monthly_test_reading_en">Reading</string>
+    <string name="monthly_test_speaking_en">Speaking</string>
+    <string name="monthly_test_writing_en">Writing</string>
+    <string name="monthly_test_report_btn">리포트 보기</string>
+    <string name="monthly_test_all_btn">전체</string>
+    <string name="monthly_test_wrong_btn">틀린</string>
+    <string name="monthly_test_remain_time">남은시간</string>
+    <string name="monthly_test_prev_btn">이전</string>
+    <string name="monthly_test_next_btn">다음</string>
+    <string name="monthly_test_explain">해설 ▲</string>
+    <string name="monthly_test_explain2">해설 : </string>
+    <string name="monthly_test_answer">정답 : </string>
+    <string name="monthly_test_enter_answer">정답을 입력하세요.</string>
+    <string name="monthly_test_close">닫기</string>
+    <string name="monthly_test_ok">OK</string>
+    <string name="monthly_test_cancel">Cancel</string>
+    <string name="monthly_test_end">종료 하시겠습니까?</string>
+    <string name="monthly_test_review_end">재평가 도중에 그만두면 저장되지 않습니다.\n종료 하시겠습니까?</string>
+    <string name="monthly_test_review_end2">(재평가 도중에 그만두면 저장되지 않습니다.)</string>
+    <string name="monthly_test_wrong_test">틀린문제 풀기는 저장없이 종료됩니다.</string>
+    <string name="monthly_test_frist_quiz">첫번째 문항 입니다.</string>
+    <string name="monthly_test_no_wrong">틀린문제가 없습니다.</string>
+    <string name="monthly_test_temp_qw01_ex">단어를 클릭하여 문장을 완성하세요.</string>
+    <!-- monthly test end -->
+
+    <!-- wordstest -->
+    <string name="wordstest_cant_day">이전 Day를 Pass 하지 않으면 진행할 수 없습니다.</string>
+    <string name="wordstest_cant_review">아직 Review가 Open되지 않았습니다.</string>
+    <string name="wordstest_cant_test">이전 Test를 완료하지 않으면 진행할 수 없습니다.</string>
+    <string name="wordstest_test1_ko">잘 듣고, 영어 단어에 해당하는 우리말 뜻을 고르세요.</string>
+    <string name="wordstest_test1_en">우리말 뜻에 해당하는 영어 단어를 고르세요.</string>
+    <string name="wordstest_test1_en_opt">우리말 뜻에 해당하는 영어 단어를 고르세요.\n(여기부터는 음원이 제공되지 않습니다.)</string>
+    <string name="wordstest_practice">원어민 소리를 큰 소리로 3번씩 따라 하고 우리말 뜻도 1번씩 말하세요. 그런 다음, 영어 단어를 타이핑하세요.</string>
+    <string name="wordstest_test2">잘 듣고 영어 단어를 타이핑한 후, 우리말 뜻도 선택하세요.</string>
+    <string name="wordstest_test3">우리말에 알맞은 영어 단어를 타이핑하세요.</string>
+    <string name="wordstest_review">영어 단어에 알맞은 우리말 뜻을 터치하여 연결하세요.</string>
+    <string name="wordstest_test_end">이미 종료 하셨습니다.</string>
+    <string name="wordstest_test_test1_no_wrong">Test 1에서 틀린 문제가 없습니다.\nPractice를 진행하시겠습니까?</string>
+    <string name="wordstest_resetdata">Test를 재시작합니다.\n재시작하면 기존의 데이터가 삭제됩니다.</string>
+    <string name="wordstest_resetdata_restudy">재학습 시 기존의 재학습 데이터와\nReport 결과가 삭제됩니다.\n재학습을 시작하시겠습니까?</string>
+    <string name="wordstest_quiz_pop0">총</string>
+    <string name="wordstest_quiz_pop1">문제 중</string>
+    <string name="wordstest_quiz_pop2">문제 맞히셨습니다.</string>
+    <string name="wordstest_quiz_no">SmartWords를 진행하지 않아서\n학습할 퀴즈가 없습니다.</string>
+    <!-- wordstest end -->
+
+    <!-- words my page -->
+    <string name="words_cert">인증서</string>
+    <string name="cal_slash">/</string>
+    <string name="cal_word">누적단어</string>
+    <string name="cal_time">소요시간</string>
+    <string name="cal_report">Daily Report</string>
+    <string name="cal_no_report">※최종학습만 Report를\n제공합니다.</string>
+
+    <string name="our">우리 학습관</string>
+    <string name="rank_list">순위</string>
+    <string name="rank_name">이름(ID)</string>
+    <string name="rank_word">아는 단어</string>
+    <string name="rank_count">개</string>
+    <string name="rank_our">학습관 평균 단어</string>
+    <string name="rank_all">전국 평균 단어</string>
+
+    <string name="note_view">단어장 보기</string>
+    <string name="note_quiz">QUIZ</string>
+    <string name="note_tab1">Lv. 1</string>
+    <string name="note_tab2">Lv. 2</string>
+    <string name="note_tab3">Lv. 3</string>
+    <string name="note_tab4">Lv. 4</string>
+    <string name="note_tab5">Lv. 5</string>
+    <string name="note_taball">전체</string>
+    <string name="note_known">아는 단어</string>
+    <string name="note_unknown">모르는 단어</string>
+
+    <string name="report_step">학습단계</string>
+    <string name="report_day">총 학습일수</string>
+    <string name="report_total">총 학습 단어 수</string>
+    <string name="report_known">정답</string>
+    <string name="report_unknown">오답</string>
+    <string name="report_score">정답률</string>
+    <string name="report_word">단어</string>
+
+    <string name="daily_button">Daily Report</string>
+    <string name="review_button">Review Report</string>
+    <string name="daily_step">학습 단계</string>
+    <string name="daily_day">학습일</string>
+    <string name="daily_count">학습 단어</string>
+    <string name="daily_test1">Test 1</string>
+    <string name="daily_test2">Test 2</string>
+    <string name="daily_test3">Test 3</string>
+    <string name="daily_btnwrong">틀린 단어\n보기</string>
+    <string name="daily_btnall">학습 단어\n보기</string>
+    <string name="daily_btnwrong2">틀린 단어 보기</string>
+    <string name="daily_btnall2">학습 단어 보기</string>
+    <string name="daily_std_words">학습 단어</string>
+
+    <string name="diadreport_title1">문제</string>
+    <string name="diadreport_title2">정답</string>
+    <string name="diadreport_title3">내가 선택한 답</string>
+    <string name="diadreport_title3_2">내가 작성한 답</string>
+    <string name="diadreport_no_wrong">틀린 단어가 없습니다.</string>
+    <string name="diadreport_no">No</string>
+    <string name="diadreport_eng_words">영어 단어</string>
+    <string name="diadreport_kor">우리말 뜻</string>
+    <!-- words my page end -->
+
+    <string name="dialog_yes">YES</string>
+    <string name="dialog_no">NO</string>
+    <string name="dialog_test_revalue">재평가</string>
+    <string name="dialog_test_revalue_all">전체 재평가</string>
+    <string name="dialog_test_revalue_all_desc">(재평가는 완료되어야 평가에 반영됩니다.)</string>
+    <string name="dialog_test_revalue_wrong">틀린문제 다시 풀어보기</string>
+    <string name="dialog_test_revalue_wrong_desc">(점수에 반영되지 않습니다.)</string>
+    <string name="dialog_test_report">평가리포트</string>
+
+    <string name="rotate">사진 회전</string>
+    <string name="done">완료</string>
+    <string name="chant_count_is_null">재생 할 채트보드가 존재하지 않습니다.</string>
+    <string name="wait_launch_chantboard">채트보드가 실행중입니다. 잠시만 기다려주세요.</string>
+    <string name="chantboard">챈트보드</string>
+    <string name="experience_tag">체험용 교재</string>
+    <string name="original_test">본평가</string>
+    <string name="retry_test">재평가</string>
+    <string name="teacher_comment">교사 코멘트</string>
+    <string name="network_setting">설정</string>
+    <string name="warning_not_available_network">"네트워크에 연결되어 있지 않습니다.\n네트워크 연결 후 다시 사용해주세요."</string>
+    <string name="sorry_recoding_stop_before_action">녹음 완료 후 점검 신청해주세요.</string>
+    <string name="study_writing_correction">Writing\nCorrection<xliff:g>%s</xliff:g></string>
+
+    <string name="connect">연결</string>
+    <string name="study_continu">계속 학습</string>
+    <string name="study_end_msg">학습이 완료 되었습니다.\n수고하셨습니다.</string>
+    <string name="prev_member_cannot_use">죄송합니다.\n스마트 무무 결제 후 사용할 수 있습니다.</string>
+    <string name="not_found_study_room_server">등록된 학습관 서버가 없습니다.</string>
+    <string name="select_study_room_server">연결할 서버를 선택하세요.</string>
+    <string name="server_checking">서버 확인 중</string>
+    <string name="server_not_available">사용불가</string>
+    <string name="server_available">사용가능</string>
+    <string name="select_available_server">사용 가능한 서버를 선택하세요</string>
+
+    <string name="server_name_ip">서버</string>
+    <string name="teacher">선생님</string>
+    <string name="server_status">서버 상태</string>
+    <string name="teacher_nobody_in">선생님이 없습니다.</string>
+    <string name="main_book">주교재</string>
+    <string name="sub_book">부교재</string>
+    <string name="answer_book">답안지</string>
+    <string name="home_book">홈스터디</string>
+
+    <string name="can_you_delete_study_history">학습 데이터를 삭제 하시겠습니까?</string>
+    <string name="study_history_delete_success">학습 데이터가 삭제 되었습니다.</string>
+    <string name="study_history_delete_fail">학습 삭제에 실패했습니다.(<xliff:g>%s</xliff:g>)</string>
+
+    <string name="study_check_first">최종점검 후 다른 학습을 진행해주세요.</string>
+    <string name="can_not_find_teacher">담당 선생님(<xliff:g>%s</xliff:g>)을 찾을 수 없습니다.\n선생님께 확인 후 학습을 계속하세요. </string>
+    <string name="check_cancel_confirm">점검 취소하시겠습니까?</string>
+    <string name="check_teacher"><xliff:g>%s</xliff:g> 선생님에게\n\n점검을 받으세요.</string>
+    <string name="req_answer_teacher"><xliff:g>%s</xliff:g> 선생님께 학습한 교재를 보여주세요.</string>
+    <string name="id_is_short">아이디는 6자 이상 20자 이하로 입력하셔야 합니다. </string>
+    <string name="show_trans">해석보기</string>
+    <string name="enter_admin_pwd">관리자 비밀번호 입력</string>
+
+    <string name="sc101_tip">정답을 확인한 다음, [녹음] 버튼을 눌러 녹음해보세요.</string>
+    <string name="sc103_touch_msg">여기를 터치하세요.</string>
+
+    <string name="complete">완료</string><!-- 완료 viee -->
+    <string name="ing">진행중</string><!-- 진행중 viee -->
+    <string name="not_start">미진행</string><!-- 미진행 viee -->
+
+    <string name="select_incorrect_area">틀린문제 보기 부분을 선택해 주세요.</string><!-- 틀린문제 보기 부분을 선택해 주세요. viee -->
+    <string name="origin_study">본학습</string><!-- 본학습 viee -->
+    <string name="review">복습</string><!-- 복습 viee -->
+    <string name="no_result_review">복습한 정보가 없습니다.</string><!-- 복습한 정보가 없습니다. viee -->
+    <string name="select_review_area">복습할 부분을 선택해 주세요.</string><!-- 복습할 부분을 선택해 주세요. viee -->
+    <string name="incorrect_quest">틀린문제</string><!-- 틀린문제 viee -->
+    <string name="all">전체</string><!-- 전체 viee -->
+
+    <string name="incorrect_restudy">틀린 문제 풀어보기</string> <!-- 틀린 문제 풀어보기 viee -->
+    <string name="score_2">/100</string> <!-- 점 viee -->
+
+    <string name="gubun">구분</string> <!-- 구분 viee -->
+    <string name="subject">제목</string> <!-- 제목 viee -->
+    <string name="writer">작성자</string> <!-- 작성자 viee -->
+    <string name="moumou_terms">스마트무무 이용약관</string> <!-- 스마트무무 이용약관 viee -->
+    <string name="moumou_terms2">개인정보 취급방침</string> <!-- 개인정보 취급방침 viee -->
+
+    <string name="error">에러</string> <!-- 에러 viee -->
+    <string name="downloading">다운로드 중</string> <!-- 다운로드 중 viee -->
+    <string name="download_complete">다운로드 완료 되었습니다.</string> <!-- 다운로드 완료 되었습니다. viee -->
+    <string name="unzip">압축해제</string> <!-- 압축해제 viee -->
+    <string name="unzip_complete">압축해제 완료</string> <!-- 압축해제 완료 viee -->
+    <string name="check_db">DB 확인 중입니다.</string> <!-- DB 확인 중입니다. viee -->
+    <string name="download_complete_start">다운로드 완료 학습 시작.</string> <!-- 다운로드 완료 학습 시작. viee -->
+
+    <string name="cannot_stop_recoding">녹음학습은 일시정지 되지 않습니다.</string> <!-- 녹음학습은 일시정지 되지 않습니다. viee -->
+    <string name="delete_rec_file_want_re_recoding">이전에 녹음한 파일이 삭제 됩니다.\n재녹음 하시겠습니까?</string> <!-- 이전에 녹음한 파일이 삭제 됩니다.\n재녹음 하시겠습니까? viee -->
+    <string name="wait_for_saving_rec">녹음한 파일을 저장중입니다.\n잠시만 기다려주세요.</string> <!-- 녹음한 파일을 저장중입니다.\n잠시만 기다려주세요. viee -->
+
+    <string name="page_first">첫화면입니다.</string> <!-- 첫화면입니다 viee -->
+    <string name="not_save_exit_study">학습을 저장하지 않고 종료하시겠습니까?</string> <!-- 학습을 저장하지 않고 종료하시겠습니까? viee -->
+    <string name="exit_study">학습을 종료하시겠습니까?</string> <!-- 학습을 종료하시겠습니까? viee -->
+    <string name="restudy_incorrect">틀린문제를 재학습 합니다.</string> <!-- 틀린문제를 재학습 합니다. viee -->
+
+    <string name="exit_panics_chant">파닉스챈트을 종료하시겠습니까?</string> <!-- 파닉스챈트을 종료하시겠습니까? viee -->
+    <string name="ff_enable_studing">학습한 부분까지만 빨리감기 됩니다.</string> <!-- 학습한 부분까지만 빨리감기 됩니다. viee -->
+
+    <string name="next">다음</string> <!-- 다음 viee -->
+
+    <string name="pass_chapter">단계통과</string> <!-- 단계통과 viee -->
+    <string name="pass_quest">문항통과</string> <!-- 문항통과 viee -->
+
+    <string name="already_regist">이미 가입되어있습니다. 사용자 ID는</string> <!-- 이미 가입되어있습니다. 사용자 ID는 viee -->
+    <string name="is">입니다</string> <!-- 입니다 -->
+    <string name="not_receive_ad">광고를 받아오지 못 했습니다.</string> <!-- 광고를 받아오지 못 했습니다. -->
+    <string name="update_info">업데이트 안내</string> <!-- 업데이트 안내 -->
+    <string name="update">업데이트</string> <!-- 업데이트 -->
+    <string name="exit_app">앱종료</string> <!-- 앱종료 -->
+    <string name="setup">설치</string> <!-- 설치 -->
+    <string name="exit">종료</string> <!-- 종료 -->
+    <string name="apk_download_complete_want_setup">다운로드가 완료된 apk파일이 있습니다.\n설치하시겠습니까?</string> <!-- 다운로드가 완료된 apk파일이 있습니다.\n설치하시겠습니까? -->
+    <string name="want_download_app">앱을 다운로드 하시겠습니까?</string> <!-- 앱을 다운로드 하시겠습니까? -->
+    <string name="download">다운로드</string> <!-- 다운로드 -->
+    <string name="not_setup_remove_app">원격지원앱이 설치되어 있지 않습니다. FAQ를 참고하세요.</string> <!-- 원격지원앱이 설치되어 있지 않습니다. FAQ를 참고하세요. -->
+    <string name="etc">기타</string> <!-- 기타 -->
+    <string name="yes">예</string> <!-- 예 -->
+    <string name="no">아니오</string> <!-- 아니오 -->
+    <string name="when_complete_workbook_you_can_review">워크북까지 완료해야\n전체 복습이 가능합니다.</string> <!-- 워크북까지 완료해야\n전체 복습이 가능합니다. -->
+    <string name="non_pay_user_you_can_use_learning_status">학습일이 종료되었습니다. \n학습 현황만 이용하실 수 있습니다.</string> <!-- 미결제 회원입니다. \n학습 현황만 이용하실 수 있습니다. -->
+    <string name="confirm_incorrect_quest">틀린문제 확인</string> <!-- 틀린문제 확인 -->
+    <string name="no_wrong_answer">틀린문제가 없습니다.</string> <!-- 틀린문제가 없습니다. -->
+    <string name="old">세</string> <!-- 세 -->
+    <string name="non_pay_book">구매한 교재가 없습니다.</string> <!-- 구매한 교재가 없습니다. -->
+    <string name="do_not_provide_monthly_test">해당 교재는 Monthly Test를 제공하지 않습니다.</string> <!-- 해당 교재는 Monthly Test를 제공하지 않습니다. -->
+    <string name="restudy_quest">다시풀기</string> <!-- 다시풀기 -->
+    <string name="restudy_wrong_quest">틀린문제 풀기</string> <!-- 틀린문제 풀기 -->
+    <string name="no_view_status">View 상태값이 없습니다.</string> <!-- View 상태값이 없습니다. -->
+    <string name="do_not_provide_monthly_review">해당 교재는 Monthly Review를 제공하지 않습니다.</string> <!-- 해당 교재는 Monthly Review를 제공하지 않습니다. -->
+    <string name="delete">삭제</string> <!-- 삭제 -->
+    <string name="learning_progress">학습진행</string> <!-- 학습진행 -->
+    <string name="chear_up">좀 더 힘내요!</string> <!-- 좀 더 힘내요! -->
+    <string name="fail_saving_data">학습결과 저장에 실패하였습니다.</string> <!-- 학습결과 저장에 실패하였습니다. -->
+    <string name="big_error_1">알수없는 오류가 발생했습니다.\n이전 화면으로 이동합니다.</string> <!-- 알수없는 오류가 발생했습니다.\n이전 화면으로 이동합니다. -->
+    <string name="big_error_2">알수없는 오류가 발생했습니다.\n저장 후 이전 화면으로 이동합니다.</string> <!-- 알수없는 오류가 발생했습니다.\n저장 후 이전 화면으로 이동합니다. -->
+    <string name="big_error_3">알수없는 오류가 발생했습니다. 앱을 재실행 합니다.\n오류 정보는 본사로 전송됩니다.</string> <!-- 알수없는 오류가 발생했습니다. 앱을 재실행 합니다.\n오류 정보는 본사로 전송됩니다. -->
+    <string name="no_file_found">재생할 파일이 없습니다.</string> <!-- 재생할 파일이 없습니다. -->
+    <string name="unable_play_file">음원을 재생할 수 없습니다.</string> <!-- 음원을 재생할 수 없습니다. -->
+    <string name="time_over_thirty_min">문제풀이 학습을 시작한 지 30분이 지났습니다.</string> <!-- 문제풀이 학습을 시작한 지 30분이 지났습니다. -->
+    <string name="connecting_server">서버에 연결 중입니다.</string> <!-- 서버에 연결 중입니다. -->
+    <string name="check_your_network">네트웍 연결을 확인해주세요.</string> <!-- 네트웍 연결을 확인해주세요.  -->
+    <string name="online_workbook_result">온라인 워크북 학습결과</string> <!-- 온라인 워크북 학습결과 -->
+    <string name="workbook">워크북</string><!-- 워크북 -->
+    <string name="wrong">틀린</string><!-- 틀린 -->
+    <string name="choose">선택하세요.</string><!-- 선택하세요. -->
+    <string name="cancel_request_answer">답안지 요청을 취소하시겠습니까?</string><!-- 답안지 요청을 취소하시겠습니까? -->
+    <string name="cancel_request_check">점검 신청을 취소하시겠습니까?</string><!-- 점검 신청을 취소하시겠습니까? -->
+    <string name="check_study_for_wait">점검을 기다리는 동안\n\n학습한 내용을 다시 확인해 보세요.</string><!-- 점검을 기다리는 동안\n\n학습한 내용을 다시 확인해 보세요. -->
+    <string name="unavailable">미진행</string><!-- 미진행 -->
+    <string name="select_update_profile">사진을 가져올 곳을 선택해 주세요.</string><!-- 사진을 가져올 곳을 선택해 주세요. -->
+    <string name="basic_image">기본 이미지</string><!-- 사진을 가져올 곳을 선택해 주세요. -->
+    <string name="gallary">갤러리</string><!-- 갤러리 -->
+    <string name="camera">카메라</string><!-- 카메라 -->
+    <string name="activity_answer_exit">닫기</string>
+    <string name="check_cancel">점검 취소</string>
+
+    <string name="msg_server_error">(서버장애발생)</string>
+</resources>

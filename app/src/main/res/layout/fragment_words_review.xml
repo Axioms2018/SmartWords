@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout 
+        android:id="@+id/ll_cont_bg"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:gravity="center_horizontal">
+    
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+		    <kr.co.moumou.smartwords.customview.CustomTextView
+		        android:id="@+id/tv_quiz"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:textSize="24px"
+		        android:textColor="@color/gray"/>
+		    
+		    <LinearLayout 
+		        android:id="@+id/timer_bg"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/ani1"
+		        android:gravity="center">
+		        
+		        <kr.co.moumou.smartwords.customview.CustomTextView
+			        android:id="@+id/tv_timer"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="30px"
+			        android:textColor="@color/black"
+			        android:textStyle="bold" />
+		        
+		    </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+	        
+	        <LinearLayout 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            android:gravity="center">
+		        
+	            <LinearLayout
+		            android:id="@+id/ll_exam_left"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center"
+		            android:orientation="vertical" >
+		        </LinearLayout>
+		        
+	            <RelativeLayout
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center" >
+		        
+	                <RelativeLayout
+			            android:id="@+id/ll_draw_line"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:gravity="center" >
+			        </RelativeLayout>
+			        
+	                <RelativeLayout
+			            android:id="@+id/ll_correct_line"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:gravity="center"
+			            android:visibility="invisible" >
+			        </RelativeLayout>
+		        
+		        
+		        </RelativeLayout>
+		
+		        <LinearLayout
+		            android:id="@+id/ll_exam_right"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center"
+		            android:orientation="vertical" >
+		        </LinearLayout>
+	            
+	        </LinearLayout>
+	        
+        </LinearLayout>
+        
+        <LinearLayout
+	            android:id="@+id/ll_indicator"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center">
+	
+	            <kr.co.moumou.smartwords.customview.ViewIndicator
+	                android:id="@+id/view_indicator"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/icon_progress" />
+	        </LinearLayout>
+        
+	</LinearLayout>
+	
+    <LinearLayout
+        android:id="@+id/ll_cover_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/monthly_test_templete_bg"
+        android:visibility="gone"></LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+    
+	<RelativeLayout
+	    android:id="@+id/layoutContents"
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content" >
+	    
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:layout_centerHorizontal="true"
+	        android:gravity="center"
+	        android:orientation="vertical">
+	        <kr.co.moumou.smartwords.customview.CustomTextView
+		        android:id="@+id/tv_message_dialog_small"
+		        android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:textAppearance="?android:attr/textAppearanceLarge"
+	    		android:gravity="center"
+	    		android:textColor="@color/template_common_black_text"
+	    		android:ellipsize="end"
+	    		android:text="내용"
+	    		android:textSize="28px" />
+		    
+		    <kr.co.moumou.smartwords.customview.CustomButton
+		        android:id="@+id/btn_delete_data"
+		        android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:visibility="gone"
+	    		android:layout_gravity="center"
+	    		android:gravity="center"
+	    		android:textColor="@color/white"
+	    		android:background="@drawable/workbook_complete_btn_selector"
+	    		android:text="데이터초기화"
+	    		android:textSize="28px" />
+	    </LinearLayout>
+	    
+	</RelativeLayout>
+	
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="1px"
+	    android:background="#f68500" />
+	
+	<RelativeLayout
+	    android:id="@+id/lay_small_button"
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="top"
+    	android:orientation="horizontal" >
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentTop="true"
+	    	android:layout_centerHorizontal="true" >
+	    	<LinearLayout 
+	    	    android:id="@+id/layoutOkDialogSmall"
+	    	    android:layout_width="0px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:gravity="center">
+	    	    <kr.co.moumou.smartwords.customview.CustomButton
+			        android:id="@+id/btn_ok_dialog_small"
+			        android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="1"
+			    	android:background="@drawable/workbook_next_btn_selector"
+			    	android:textAppearance="?android:attr/textAppearanceLarge"
+			    	android:textColor="@color/white"
+			    	android:textStyle="bold"
+			    	android:text="@string/yes"
+			    	android:textSize="25px" />
+	    	</LinearLayout>
+	    	
+	    	<View
+		        android:layout_width="1px"
+		        android:layout_height="match_parent"
+		        android:background="#f68500" />
+	    	
+	    	<LinearLayout 
+	    	    android:id="@+id/layoutNoDialogSmall"
+	    	    android:layout_width="0px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:gravity="center">
+	    	    <kr.co.moumou.smartwords.customview.CustomButton
+			        android:id="@+id/btn_no_dialog_small"
+			        android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="1"
+			    	android:background="@drawable/workbook_next_btn_selector"
+			    	android:textAppearance="?android:attr/textAppearanceLarge"
+			    	android:textColor="@color/white"
+			    	android:textStyle="bold"
+			    	android:text="@string/no"
+			    	android:textSize="25px" />
+	    	</LinearLayout>
+		    
+		    
+		    
+		        
+		    
+	    </LinearLayout>
+	</RelativeLayout>
+</LinearLayout>

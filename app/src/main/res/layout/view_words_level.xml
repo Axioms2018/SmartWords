@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/lay_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_main_blue"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:gravity="center"
+                android:text="Level"
+                android:textColor="@color/words_main_level_txt"
+                android:textSize="18px" />
+
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_level_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dip"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="50px"
+                android:textStyle="bold" />
+        </LinearLayout>
+        
+        <ImageView 
+            android:id="@+id/iv_certi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_certi_main"
+            android:layout_alignBottom="@id/lay_center"
+            android:layout_alignRight="@id/lay_center" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_level_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lay_center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dip"
+            android:text="학습중"
+            android:textColor="@color/orange"
+            android:textSize="18px"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</LinearLayout>

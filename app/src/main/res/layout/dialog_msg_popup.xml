@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/layoutPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_msg_popup2" >
+
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/btn_confirmCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_btn_logout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="@string/check_cancel"
+            android:textColor="@color/white"
+            android:textSize="24px"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+        
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/btn_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_btn_logout"
+            android:layout_toLeftOf="@id/btn_confirmCancel"
+            android:layout_alignBottom="@id/btn_confirmCancel"
+            android:gravity="center"
+            android:text="@string/study_show_correct"
+            android:textColor="@color/white"
+            android:textSize="24px"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+        
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tvMsgPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/msg_popup_textbox"
+            android:layout_alignRight="@id/btn_confirmCancel"
+            android:layout_above="@id/btn_confirmCancel"
+            android:gravity="center"
+            android:text="내용"
+            android:textColor="#3F3F3F"
+            android:textSize="21px" />
+    </RelativeLayout>
+
+</RelativeLayout>

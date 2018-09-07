@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout 
+        android:id="@+id/ll_cont_bg"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:gravity="center_horizontal">
+    
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="24px" />
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            
+            <LinearLayout
+                android:id="@+id/ll_decibel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </LinearLayout>
+	        
+	        <LinearLayout 
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:orientation="vertical"
+	            android:gravity="center_horizontal">
+	            
+	            <LinearLayout 
+		            android:id="@+id/ll_quiz_layout"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dp"
+		            android:layout_weight="1"
+		            android:orientation="horizontal"
+		            android:gravity="center">
+		            
+	                <LinearLayout 
+	                    android:layout_width="0dp"
+				        android:layout_height="wrap_content"
+				        android:layout_weight="1"
+				        android:orientation="vertical"
+				        android:gravity="center">
+	                    
+	                    <kr.co.moumou.smartwords.customview.CustomTextView
+					        android:id="@+id/tv_quiz_en"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:textSize="69px"
+					        android:gravity="center"
+					        android:textColor="@color/black"/>
+	                    
+	                    <LinearLayout 
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:orientation="horizontal">
+	                        
+	                        <ImageView
+                                android:id="@+id/iv_start0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_think_b" />
+	                        
+	                        <ImageView
+                                android:id="@+id/iv_start1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_think_b" />
+	                        
+	                        <ImageView
+                                android:id="@+id/iv_start2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_think_b" />
+	                        
+	                    </LinearLayout>
+	                    
+	                </LinearLayout>
+	                
+	                <LinearLayout 
+	                    android:id="@+id/ll_line"
+	                    android:layout_width="1dp"
+	                    android:layout_height="wrap_content"
+	                    android:background="@color/words_pratice_line"></LinearLayout>
+	                
+	                <LinearLayout 
+	                    android:layout_width="0dp"
+				        android:layout_height="wrap_content"
+				        android:layout_weight="1"
+				        android:orientation="vertical"
+				        android:gravity="center">
+	                
+		                <kr.co.moumou.smartwords.customview.CustomTextView
+					        android:id="@+id/tv_quiz_ko"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:textSize="69px"
+					        android:textColor="@color/words_pratice_txt_ko"
+					        android:gravity="center"/>
+		                
+		                <ImageView
+                                android:id="@+id/iv_start3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_think_b" />
+	                
+	                </LinearLayout>
+		            
+		        </LinearLayout>
+		        
+	            <kr.co.moumou.smartwords.customview.CustomEditText
+			        android:id="@+id/et_answer"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="53px"
+			        android:textColor="@color/black"
+			        android:background="@drawable/words_bg_textfield"
+			        android:singleLine="true"
+			        android:gravity="center"/>
+		        
+	        </LinearLayout>
+  
+        </LinearLayout>
+        
+        <RelativeLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+	        
+	        <LinearLayout
+	            android:id="@+id/ll_indicator"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center">
+	
+	            <kr.co.moumou.smartwords.customview.ViewIndicator
+	                android:id="@+id/view_indicator"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/icon_progress" />
+	        </LinearLayout>
+	        
+	        <kr.co.moumou.smartwords.customview.CustomButton
+	            android:id="@+id/btn_next"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:background="@drawable/workbook_complete_btn_selector"
+	            android:enabled="false"
+	            android:text="@string/template_next"
+	            android:textColor="@color/white"
+	            android:textSize="26px"
+	            android:visibility="visible"
+	            android:focusable="false"
+	            android:textStyle="bold"
+	            android:layout_marginRight="15dp" />
+            
+        </RelativeLayout>
+        
+	</LinearLayout>
+	
+    <LinearLayout
+        android:id="@+id/ll_cover_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/monthly_test_templete_bg"
+        android:visibility="gone"></LinearLayout>
+</RelativeLayout>

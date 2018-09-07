@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_diatitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dayname"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_btns"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/bt_test1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_tab_left"
+                android:gravity="center"
+                android:text="@string/daily_test1"
+                android:textColor="@drawable/sel_tab_textcolor"
+                android:textSize="@dimen/efont10"
+                android:textStyle="bold" />
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/bt_test2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_tab_center"
+                android:gravity="center"
+                android:text="@string/daily_test2"
+                android:textColor="@drawable/sel_tab_textcolor"
+                android:textSize="@dimen/efont10"
+                android:textStyle="bold" />
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/bt_test3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_tab_right"
+                android:gravity="center"
+                android:text="@string/daily_test3"
+                android:textColor="@drawable/sel_tab_textcolor"
+                android:textSize="@dimen/efont10"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_std_words"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:text="@string/daily_std_words"
+            android:textColor="@color/words_test3_quiz_txt"
+            android:textSize="@dimen/efont14"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/bt_allview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_btn_dia_report"
+            android:text="@string/daily_btnall2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont10"
+            android:gravity="center"
+            android:layout_marginRight="20dp" />
+
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/bt_wrongview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_btn_dia_report"
+            android:text="@string/daily_btnwrong2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont10"
+            android:gravity="center"
+            android:layout_marginRight="20dp" 
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/ib_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/sel_btn_cal_popup" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_diasubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skyblue"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/diadreport_title1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/diadreport_title2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/title_user_answer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/diadreport_title3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_diasubtitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skyblue"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/diadreport_no"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+        
+        <ImageButton
+            android:id="@+id/btn_allplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/words_player_btn_selector"/>
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/diadreport_eng_words"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/diadreport_kor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/efont11" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/txt_no_wrong_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/diadreport_no_wrong"
+            android:textColor="@drawable/sel_tab_textcolor"
+            android:textSize="@dimen/efont11"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/lv_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/bg_dayname"
+            android:listSelector="#00000000" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

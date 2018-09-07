@@ -1,0 +1,496 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_global_small" >
+        
+        <LinearLayout
+            android:id="@+id/ll_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white" >
+            
+            <LinearLayout
+                android:id="@+id/ll_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center" >
+                    
+                </LinearLayout>
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab1"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_left" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab2"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab3"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab4"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_tab5"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_center" />
+                
+                <kr.co.moumou.smartwords.customview.CustomButton
+                    android:id="@+id/bt_lvall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note_taball"
+                    android:textSize="@dimen/efont10"
+                    android:textColor="@drawable/sel_tab_textcolor"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/sel_tab_right" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical" >
+                
+                <LinearLayout
+                    android:id="@+id/ll_known"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1" >
+                    
+                    <FrameLayout
+                        android:id="@+id/fl_known"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+                        
+                        <kr.co.moumou.smartwords.wordschart.PieGraph
+                            android:id="@+id/pg_known"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center" >
+                            
+                            <kr.co.moumou.smartwords.customview.CustomTextView
+                                android:id="@+id/tv_kcount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/efont42" />
+                            
+                            <kr.co.moumou.smartwords.customview.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/report_word"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/efont10" />
+                            
+                        </LinearLayout>
+                        
+                    </FrameLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/report_known"
+                        android:textSize="@dimen/efont11"
+                        android:textColor="@color/words_gray" />
+                    
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/ll_unknown"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1" >
+                    
+                    <FrameLayout
+                        android:id="@+id/fl_unknown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        
+                        <kr.co.moumou.smartwords.wordschart.PieGraph
+                            android:id="@+id/pg_unknown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"/>
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            
+                            <kr.co.moumou.smartwords.customview.CustomTextView
+                                android:id="@+id/tv_ucount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/efont42" />
+                            
+                            <kr.co.moumou.smartwords.customview.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/report_word"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/efont10" />
+                            
+                        </LinearLayout>
+                        
+                    </FrameLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/report_unknown"
+                        android:textSize="@dimen/efont11"
+                        android:textColor="@color/words_gray" />
+                    
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/ll_result"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1" >
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_step"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_step_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_step"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_step"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_colorline" />
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_day"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_day_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_day"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_line" />
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_total_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_total"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_line" />
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_knowncount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_known_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_known"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_known"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_line" />
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_unknowncount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_unknown_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_unknown"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_unknown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_line" />
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" >
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_bullet" />
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_score_t"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/report_score"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                        
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1" >
+                            
+                        </LinearLayout>
+                        
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Level 3"
+                            android:textSize="@dimen/efont11"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                        
+                    </LinearLayout>
+                    
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_line" />
+                    
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

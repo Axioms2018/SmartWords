@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:weightSum="20" >
+
+    <kr.co.moumou.smartwords.customview.CustomTextView
+        android:id="@+id/tv_message_dialog_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="#3F3F3F"
+        android:textSize="24px"
+        />
+
+    <View
+        android:id="@+id/view_top_border"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dip"
+        android:layout_below="@id/tv_message_dialog_big"
+        android:background="#ffaeaeae" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_top_border"
+        android:layout_above="@+id/layoutNoDialogBig"
+        android:layout_marginBottom="2dip"
+        >
+
+        <ScrollView
+            android:id="@+id/dialog_big_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" 
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_content_header_dialog_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|top"
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#3F3F3F"
+                    android:textStyle="bold" />
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_content_msg_dialog_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="left|top"
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#3F3F3F" />
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_details_header_dialog_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|top"
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#3F3F3F"
+                    android:textStyle="bold" />
+
+                <kr.co.moumou.smartwords.customview.CustomTextView
+                    android:id="@+id/tv_details_msg_dialog_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="left|top"
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#3F3F3F" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutNoDialogBig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF00"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/btn_ok_dialog_big"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/workbook_next_btn_selector"
+            android:text="예"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:textSize="@dimen/font13"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#f68500" />
+
+        <kr.co.moumou.smartwords.customview.CustomButton
+            android:id="@+id/btn_no_dialog_big"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/workbook_next_btn_selector"
+            android:text="아니요"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:textSize="@dimen/font13"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

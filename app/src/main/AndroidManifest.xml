@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="kr.co.moumou.smartwords">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:replace="android:theme"
+        android:theme="@android:style/Theme.Light.NoTitleBar">
+
+
+        <activity android:name="kr.co.moumou.smartwords.MainActivity"
+                  android:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordTestMain"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordTestDaySelect"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityNetworkCheckDialog"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordsDownload"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordTestTypeSelect"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordsDailyReport"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordTestQuizSelect"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityMywordsMain"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityWordsList"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.FragmentActivityWordTest"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="kr.co.moumou.smartwords.activity.ActivityCertificate"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape" />
+
+    </application>
+
+</manifest>

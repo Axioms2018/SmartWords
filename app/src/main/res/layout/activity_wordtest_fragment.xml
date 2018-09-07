@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEEEEEE"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_conts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_global_small" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/btn_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_navi"
+                android:gravity="center"
+                android:text="Level 1"
+                android:textColor="@color/white"
+                android:textSize="24px"
+                android:textStyle="bold"/>
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/btn_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_navi"
+                android:gravity="center"
+                android:text="Day 1"
+                android:textColor="@color/white"
+                android:textSize="24px"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/btn_testtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_navi"
+                android:gravity="center"
+                android:text="Test 1"
+                android:textColor="@color/white"
+                android:textSize="24px"
+                android:textStyle="bold" />
+            
+            <LinearLayout 
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></LinearLayout>
+            
+            <kr.co.moumou.smartwords.customview.CustomButton
+                android:id="@+id/btn_passBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PassBtn"
+                android:textSize="20px"
+                android:visibility="gone"/>
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_answer_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20px"
+                android:visibility="gone"/>
+            
+            <ImageButton 
+                android:id="@+id/btn_temp_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_words_temp_close"/>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/ll_check_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+        
+        <ImageView 
+            android:id="@+id/iv_check_quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/ll_check_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+        
+        <LinearLayout 
+            android:id="@+id/ll_check_result_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_popup_eva"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            
+            <ImageView 
+	            android:id="@+id/iv_check_result"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"/>
+            
+            <ImageView 
+	            android:id="@+id/iv_check_result_txt"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"/>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/ll_quiz_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#80000000"
+        android:visibility="gone">
+        
+        <LinearLayout 
+            android:id="@+id/quiz_result_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_main"
+            android:orientation="horizontal"
+            android:gravity="center">
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/wordstest_quiz_pop0"
+                android:textColor="@color/gray"
+                android:textSize="36px"/>
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_quiz_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="36px"
+                android:textStyle="bold" />
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/wordstest_quiz_pop1"
+                android:textColor="@color/gray"
+                android:textSize="36px" />
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:id="@+id/tv_quiz_correct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/words_quiz_corrent_txt"
+                android:textSize="36px"
+                android:textStyle="bold" />
+            
+            <kr.co.moumou.smartwords.customview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/wordstest_quiz_pop2"
+                android:textColor="@color/gray"
+                android:textSize="36px" />
+            
+        </LinearLayout> 
+        
+    </LinearLayout>
+    <!---->
+    <!--<moumou.co.kr.smartwords.customview.ViewSlidingMenuMM-->
+        <!--android:id="@+id/view_sliding_menu"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+</FrameLayout>

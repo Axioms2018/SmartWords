@@ -1,0 +1,51 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="sty_dialog_test_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">#474747</item>
+        <item name="android:textSize">26px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LabelTextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/label_title_size</item>
+    </style>
+
+    <!-- <style name="CrossImageView">
+        <item name="android:paddingLeft">@dimen/padding_icon_cross</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:src">@drawable/cross</item>
+    </style> -->
+
+    <style name="Label">
+        <item name="android:padding">@dimen/padding_label_view</item>
+        <item name="android:layout_margin">@dimen/margin_between_labels</item>
+        <item name="android:background">@color/default_background_label</item>
+    </style>
+
+</resources>
