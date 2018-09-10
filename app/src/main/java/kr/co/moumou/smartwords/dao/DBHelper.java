@@ -55,9 +55,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(crateSmartStdyStdyPgssDtl());
 		db.execSQL(crateMonthlyTestTable());
 		db.execSQL(createWordTestTable());
-		
-		db.execSQL(createStudyHistory());
-		db.execSQL(crateSmartStdyWCResult());
+
 		db.execSQL(createWordTestDownloadTable());
 		db.execSQL(createClassRuleTable());
 	}

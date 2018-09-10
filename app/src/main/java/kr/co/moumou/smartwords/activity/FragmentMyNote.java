@@ -260,7 +260,6 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 			        });
 				}
 				break;
-
 			default:
 				break;
 		}
