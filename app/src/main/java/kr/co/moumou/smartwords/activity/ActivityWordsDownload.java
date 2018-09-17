@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.customview.ViewIndicator;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
+import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoBanner;
@@ -68,7 +70,9 @@ public class ActivityWordsDownload extends ActivityBase {
 	private AdpaterAdvertise adapter;
 
 	private TextView tv_state;
-	private Button btn_retry;
+	private Button btn_retry,btn_close;
+	private ImageView img_icon;
+
 
 	@Override
 	public ViewTopMenu getTopManu() {
@@ -90,8 +94,8 @@ public class ActivityWordsDownload extends ActivityBase {
 		setContentView(R.layout.activity_words_download);
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-		int width = (int) (display.getWidth() * 0.7); // Display 사이즈의 70%
-		int height = (int) (display.getHeight() * 0.96); // Display 사이즈의 90%
+		int width = (int) (display.getWidth() * 0.5); // Display 사이즈의 70%
+		int height = (int) (display.getHeight() * 0.76); // Display 사이즈의 90%
 		getWindow().getAttributes().width = width;
 		getWindow().getAttributes().height = height;
 
@@ -149,15 +153,15 @@ public class ActivityWordsDownload extends ActivityBase {
 		});
 
 		tv_state = (TextView) findViewById(R.id.tv_state);
-
-		findViewById(R.id.btn_close).setOnClickListener(new OnClickListener() {
+		img_icon = (ImageView) findViewById(R.id.img_icon);
+		btn_close = (Button) findViewById(R.id.btn_close);
+		btn_close.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				cancelDownload();
 			}
 		});
-
 		btn_retry = (Button) findViewById(R.id.btn_retry);
 		btn_retry.setOnClickListener(new OnClickListener() {
 
@@ -166,6 +170,11 @@ public class ActivityWordsDownload extends ActivityBase {
 				downloadRetry();
 			}
 		});
+
+
+		DisplayUtil.setLayout(this,50,50,img_icon);
+		DisplayUtil.setLayout(this,100,100,btn_close);
+
 
 		downloadStart();
 		advertiseAutoMove();
@@ -329,52 +338,6 @@ public class ActivityWordsDownload extends ActivityBase {
 			advertiseMoveNext();
 		}
 	};
-
-	private void reqAdvertiseUrl() {
-
-		String url = ConstantsCommURL.getUrl(ConstantsCommURL.URL_COMMON,ConstantsCommURL.REQUEST_GET_BANNER);
-		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1578_GET_BENNAER);
-		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_BANNER, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
-			@Override
-			public void success(String response) {
-				LogUtil.e(" Response Msg : " + response);
-
-				VoBanner result = new Gson().fromJson(response, VoBanner.class);
-				advertiseUrl = result.getRES_LIST();
-				COUNT = advertiseUrl.size();
-				adapter.setList(advertiseUrl);
-				view_pager.setAdapter(adapter);
-				view_pager.setCurrentItem(COUNT);
-				adapter.notifyDataSetChanged();
-				view_indicator.setPageCount(COUNT);
-			}
-
-			@Override
-			public void systemcheck(String response) {
-
-			}
-
-			@Override
-			public void fail(VoBase base) {
-				Toast.makeText(ActivityWordsDownload.this, "onResponseFail 광고를 받아오지 못 했습니다. (" + base + ")",
-						Toast.LENGTH_SHORT).show();
-
-			}
-
-			@Override
-			public void exception(ANError error) {
-				Toast.makeText(ActivityWordsDownload.this, "exception 광고를 받아오지 못 했습니다. (" + error.toString() + ")",
-						Toast.LENGTH_SHORT).show();
-
-			}
-
-			@Override
-			public void dismissDialog() {
-
-			}
-		});
-	}
 
 	private class AdpaterAdvertise extends PagerAdapter {
 

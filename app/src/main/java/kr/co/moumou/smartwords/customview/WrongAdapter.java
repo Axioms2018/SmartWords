@@ -94,7 +94,8 @@ public class WrongAdapter extends BaseAdapter {
 			viewHolder.tv_answer = (TextView) view.findViewById(R.id.tv_answer);
 			viewHolder.tv_myans = (TextView) view.findViewById(R.id.tv_myans);
 			viewHolder.btn_player = (ImageButton) view.findViewById(R.id.btn_player);
-			
+
+			DisplayUtil.setLayout((Activity)mContext,45,45,viewHolder.btn_player);
 			DisplayUtil.setLayoutHeight((Activity) mContext, 70, viewHolder.ll_item);
 			
 			view.setTag(viewHolder);			
@@ -183,7 +184,7 @@ public class WrongAdapter extends BaseAdapter {
 			playerView.setSelected(true);
 			
 			LogTraceMin.I("mPos : " + mPos);
-			//String domain = "http://install.moumou.co.kr/smartteam/smartwords/";
+			//String domain = "http://install.kr.co.moumou/smartteam/smartwords/";
 			String url = mpPaths.get(mPos);
 			
 			if(mMediaPlayer == null) {
@@ -274,7 +275,7 @@ public class WrongAdapter extends BaseAdapter {
 		
 		mAllPos = pos;
 		
-		//String domain = "http://install.moumou.co.kr/smartteam/smartwords/";
+		//String domain = "http://install.kr.co.moumou/smartteam/smartwords/";
 		String url = mpPaths.get(mAllPos);
 		
 		if(mMediaPlayer == null) {

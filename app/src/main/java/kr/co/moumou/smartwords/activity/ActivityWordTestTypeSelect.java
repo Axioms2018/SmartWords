@@ -68,7 +68,7 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 		
 		Button btn_level = (Button) findViewById(R.id.btn_level);
 		DisplayUtil.setLayout(this, 104, 52, btn_level);
-		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 0, btn_level);
+		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 71, btn_level);
 		btn_level.setText("Level " + LEVEL);
 		
 		btn_level = (Button) findViewById(R.id.btn_day);
@@ -77,9 +77,9 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 		btn_level.setText("Day " + DAY);
 		
 		LinearLayout ll_conts = (LinearLayout) findViewById(R.id.ll_conts);
-		DisplayUtil.setLayoutHeight(this, 238, ll_conts);
+		DisplayUtil.setLayoutHeight(this, 167, ll_conts);
 		DisplayUtil.setLayoutMargin(this, 90, 60, 90, 0, ll_conts);
-		DisplayUtil.setLayoutPadding(this, 0, 70, 0, 0, ll_conts);
+		DisplayUtil.setLayoutPadding(this, 0, 0, 0, 0, ll_conts);
 		
 //		ImageView iv_char = (ImageView) findViewById(R.id.iv_char);
 //		DisplayUtil.setLayout(this, 251, 258, iv_char);

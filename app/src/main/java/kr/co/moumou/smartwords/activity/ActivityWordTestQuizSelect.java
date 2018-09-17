@@ -43,16 +43,16 @@ public class ActivityWordTestQuizSelect extends ActivityBase {
 		
 		Button btn_level = (Button) findViewById(R.id.btn_level);
 		DisplayUtil.setLayout(this, 104, 52, btn_level);
-		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 0, btn_level);
+		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 71, btn_level);
 		btn_level.setText("Quiz");
 		
 		findViewById(R.id.btn_day).setVisibility(View.GONE);
 
         LinearLayout ll_conts = (LinearLayout) findViewById(R.id.ll_conts);
-		DisplayUtil.setLayoutHeight(this, 238, ll_conts);
+		DisplayUtil.setLayoutHeight(this, 167, ll_conts);
 		DisplayUtil.setLayoutMargin(this, 90, 130, 90, 0, ll_conts);
-		DisplayUtil.setLayoutPadding(this, 0, 70, 0, 0, ll_conts);
-		
+		DisplayUtil.setLayoutPadding(this, 0, 0, 0, 0, ll_conts);
+
 //		findViewById(R.id.iv_char).setVisibility(View.GONE);
 
         btn_temp_close = (ImageButton) findViewById(R.id.btn_temp_close);

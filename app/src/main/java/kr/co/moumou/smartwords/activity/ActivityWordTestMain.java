@@ -78,13 +78,13 @@ public class ActivityWordTestMain extends ActivityBase {
 		ll_low_level = (LinearLayout) findViewById(R.id.ll_low_level);
 		ll_mid_level = (LinearLayout) findViewById(R.id.ll_mid_level);
 		
-		DisplayUtil.setLayout(this, 338, 194, ll_low_level);
-		DisplayUtil.setLayout(this, 478, 194, ll_mid_level);
+		DisplayUtil.setLayout(this, 388, 244, ll_low_level);
+		DisplayUtil.setLayout(this, 538, 244, ll_mid_level);
 		DisplayUtil.setLayoutPadding(this, 20, 0, 20, 0, ll_low_level);
 		DisplayUtil.setLayoutPadding(this, 20, 0, 20, 0, ll_mid_level);
 		
 		ImageView iv_logo = (ImageView) findViewById(R.id.iv_logo);
-		DisplayUtil.setLayout(this, 686, 75, iv_logo);
+		DisplayUtil.setLayout(this, 706, 95, iv_logo);
 		DisplayUtil.setLayoutMargin(this, 0, 0, 0, 54, iv_logo);
 		
 		LinearLayout ll_main = (LinearLayout) findViewById(R.id.ll_main);

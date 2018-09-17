@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:text="Day 1"
                 android:textColor="@color/black"
-                android:textSize="18px"
+                android:textSize="23px"
                 android:textStyle="bold" />
             
             <kr.co.moumou.smartwords.customview.CustomTextView
@@ -38,7 +38,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:textColor="@color/blue"
-	            android:textSize="14px" />
+	            android:textSize="18px" />
         </LinearLayout>
         
         <ImageView 

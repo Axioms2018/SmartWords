@@ -174,11 +174,11 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 		DisplayUtil.setLayoutHeight(this, 30, ll_margin);
 		DisplayUtil.setLayout(this, 110, 60, bt_wrongview);
 		DisplayUtil.setLayoutWidth(this, 636, ll_data);
-		DisplayUtil.setLayoutMargin(this, 48, 56, 44, 0, ll_title1);
-		DisplayUtil.setLayoutMargin(this, 0, 56, 74, 0, ll_info1);
+		DisplayUtil.setLayoutMargin(this, 38, 56, 44, 0, ll_title1);
+		DisplayUtil.setLayoutMargin(this, 0, 56, 40, 0, ll_info1);
 		DisplayUtil.setLayoutMargin(this, 0, 56, 26, 0, ll_title2);
 		DisplayUtil.setLayoutMargin(this, 0, 56, 0, 0, ll_info2);
-		DisplayUtil.setLayoutMargin(this, 48, 0, 0, 0, ll_test3);
+		DisplayUtil.setLayoutMargin(this, 38, 0, 0, 0, ll_test3);
 		DisplayUtil.setLayoutMargin(this, 70, 0, 0, 0, tv_infotest3);
 		DisplayUtil.setLayoutMargin(this, 30, 30, 60, 140, iv_stamp);
 		DisplayUtil.setLayoutMargin(this, 30, 30, 30, 30, iv_dummy);

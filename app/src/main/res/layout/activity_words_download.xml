@@ -31,7 +31,7 @@
                 android:layout_marginLeft="15dip"
                 android:layout_centerVertical="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/font13"
+                android:textSize="@dimen/font7"
                 android:textStyle="bold"
                 android:text="@string/moumou_infomation" />
 
@@ -74,11 +74,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:layout_weight="0"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <kr.co.moumou.smartwords.customview.CustomTextView
                 android:id="@+id/tv_download_progress"
@@ -91,38 +92,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dip"
                 android:layout_marginTop="10dip"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingLeft="20dip"
-                android:paddingRight="20dip" >
+                android:paddingRight="20dip">
 
                 <kr.co.moumou.smartwords.customview.CustomTextView
                     android:id="@+id/tv_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginBottom="10dip"
                     android:layout_marginTop="10dip"
+                    android:layout_weight="1"
                     android:maxLines="2"
                     android:textColor="#FF000000"
-                    android:textSize="@dimen/font13" />
+                    android:textSize="@dimen/font7" />
 
                 <kr.co.moumou.smartwords.customview.CustomButton
                     android:id="@+id/btn_retry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:background="@drawable/sel_btn_error_report"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:text="@string/retry"
-                    android:textSize="@dimen/font13"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font7"
                     android:textStyle="bold"
-					android:textColor="@color/white"
-                    android:background="@drawable/sel_btn_error_report"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

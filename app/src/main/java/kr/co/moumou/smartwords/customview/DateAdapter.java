@@ -111,10 +111,10 @@ public class DateAdapter extends BaseAdapter implements OnClickListener {
 		//viewHolder.tv_report = (CustomTextView) convertView.findViewById(R.id.tv_report);
 		
 		DisplayUtil.setLayoutHeight((Activity) mContext, 52, viewHolder.ll_today);
-		DisplayUtil.setLayoutHeight((Activity) mContext, 150, viewHolder.ll_detail);
+		DisplayUtil.setLayoutHeight((Activity) mContext, 180, viewHolder.ll_detail);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 14, 0, 0, 0, viewHolder.tv_day);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 0, 0, 8, 0, viewHolder.ib_more);
-		DisplayUtil.setLayout((Activity) mContext, 63, 26, viewHolder.ib_more);
+		DisplayUtil.setLayout((Activity) mContext, 63, 35, viewHolder.ib_more);
 		DisplayUtil.setLayoutHeight((Activity) mContext, 44, viewHolder.bt_dailyreport);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 14, 5, 0, 0, viewHolder.ll_levday);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 14, 9, 0, 9, viewHolder.ll_word);
@@ -125,6 +125,7 @@ public class DateAdapter extends BaseAdapter implements OnClickListener {
 		DisplayUtil.setLayoutMargin((Activity) mContext, 5, 0, 0, 0, viewHolder.tv_restudy);
 		
 		viewHolder.ll_day = (LinearLayout) convertView.findViewById(R.id.ll_day);
+		DisplayUtil.setLayoutHeight((Activity)mContext,25,viewHolder.ll_day);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 12, 5, 0, 0, viewHolder.ll_day);
 		
 		viewHolder.tv_day.setTag(position);		

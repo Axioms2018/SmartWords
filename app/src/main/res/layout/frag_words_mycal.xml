@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="@dimen/efont10" />
+                android:textSize="@dimen/efont13" />
             
             <ImageView
                 android:id="@+id/iv_year"
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="@dimen/efont10" />
+                android:textSize="@dimen/efont13" />
             
             <ImageView
                 android:id="@+id/iv_month"
@@ -81,7 +81,7 @@
             android:id="@+id/tv_dayname1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/cal_sunday"
             android:gravity="center"
@@ -91,7 +91,7 @@
             android:id="@+id/tv_dayname2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_gray"
             android:gravity="center"
@@ -101,7 +101,7 @@
             android:id="@+id/tv_dayname3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_gray"
             android:gravity="center"
@@ -111,7 +111,7 @@
             android:id="@+id/tv_dayname4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_gray"
             android:gravity="center"
@@ -121,7 +121,7 @@
             android:id="@+id/tv_dayname5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_gray"
             android:gravity="center"
@@ -131,7 +131,7 @@
             android:id="@+id/tv_dayname6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_gray"
             android:gravity="center"
@@ -141,7 +141,7 @@
             android:id="@+id/tv_dayname7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/efont10"
+            android:textSize="@dimen/efont11"
             android:textStyle="bold"
             android:textColor="@color/words_blue"
             android:gravity="center"

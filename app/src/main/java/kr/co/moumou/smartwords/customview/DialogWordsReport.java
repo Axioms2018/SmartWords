@@ -103,6 +103,7 @@ public class DialogWordsReport extends Dialog implements View.OnClickListener {
 		DisplayUtil.setLayoutMargin((Activity) mContext, 20, 0, 0, 0, bt_test[0]);
 		DisplayUtil.setLayout((Activity) mContext, 756, 70, ll_diasubtitle);
 		DisplayUtil.setLayout((Activity) mContext, 756, 70, ll_diasubtitle2);
+		DisplayUtil.setLayout((Activity)mContext, 45,45,btn_allplayer);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 0, 0, 20, 0, ib_close);
 		DisplayUtil.setLayout((Activity) mContext, 52, 52, ib_close);
 		DisplayUtil.setLayout((Activity) mContext, 756, 525, findViewById(R.id.ll_list));

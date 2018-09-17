@@ -43,6 +43,7 @@ public class ViewWordsBogi extends LinearLayout {
 		
 		DisplayUtil.setLayout((Activity) mContext , 260, 102, btn_bogi);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 15, 0, 15, 0, btn_bogi);
+
 	}
 	
 	View.OnClickListener onClickListener = new OnClickListener() {

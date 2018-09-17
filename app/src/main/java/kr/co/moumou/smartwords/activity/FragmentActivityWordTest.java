@@ -52,7 +52,7 @@ import kr.co.moumou.smartwords.vo.VoWordsTestList.VoWordQuest;
 import kr.co.moumou.smartwords.vo.VoWordsTestList.VoWordsTest;
 import kr.co.moumou.smartwords.dialog.DialogWordsStart;
 import kr.co.moumou.smartwords.dialog.DialogWordsStart.ListenerDialogButton;
-//import moumou.co.kr.smartwords.dialog.DialogReport;
+//import kr.co.moumou.smartwords.dialog.DialogReport;
 
 public class FragmentActivityWordTest extends BaseFragmentActivity implements OnClickListener {
 
@@ -660,7 +660,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 		});
 	}
 	
-	private int[] quizTypeBackground = {R.drawable.wordtest_bg_start, R.drawable.bg_reivew};
+	private int[] quizTypeBackground = {R.drawable.wordtest_bg_start1, R.drawable.bg_reivew};
 	private int[] quizTypeText = {R.string.wordstest_test1_ko, R.string.wordstest_test1_en, R.string.wordstest_practice, 
 							R.string.wordstest_test2, R.string.wordstest_test3, R.string.wordstest_review, R.string.wordstest_test1_en_opt};
 	/**
@@ -1207,6 +1207,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 	 */
 	private void saveDBFromAllInnerDB() {
 		LogTraceMin.I("내부 DB에 있는 데이터 전부 서버에 저장");
+		LogUtil.w("내부 DB에 있는 데이터 전부 서버에 저장");
 		LogTraceMin.I("currentFragment.isDestroy :: " + currentFragment.isDestroy);
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 		SaveWords saveWords = new SaveWords(FragmentActivityWordTest.this);
@@ -1228,7 +1229,9 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 					ActivityWordTestTypeSelect.activityWordTestType = null;
 				}
 				LogTraceMin.I("결과 레포트로 넘어갑니다.");
-				
+				LogUtil.w("결과 레포트로 넘어갑니다.");
+
+
 				if(TestType.ReviewTest2 == currentTestType) {
 					LogTraceMin.I("ReiviewTest 결과");
 					
@@ -1422,7 +1425,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 		quizInfo.setRESULT_YN("Y");
 		saveInnerDB(true);
 		
-		String filePath = "android.resource://moumou.co.kr.smartwords/raw/dingdong";
+		String filePath = "android.resource://kr.co.moumou.smartwords/raw/dingdong";
 		
 		// 정답 음원 재생
 		playSound(filePath, SOUND_PLAY_CORRECT, true);
@@ -1435,7 +1438,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 		quizInfo.setRESULT_YN("N");
 		saveInnerDB(false);
 		
-		String filePath = "android.resource://moumou.co.kr.smartwords/raw/incorrect";
+		String filePath = "android.resource://kr.co.moumou.smartwords/raw/incorrect";
 		
 		// 오답 음원 재생
 		playSound(filePath, SOUND_PLAY_INCORRECT, false);

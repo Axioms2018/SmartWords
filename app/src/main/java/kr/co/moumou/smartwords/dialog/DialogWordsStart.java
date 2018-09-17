@@ -69,7 +69,7 @@ public class DialogWordsStart extends Dialog implements OnClickListener {
 		btn_start.setOnClickListener(this);
 		btn_start.requestFocus();
 		
-		DisplayUtil.setLayout(activity, 637, 214, rl_bg);
+		DisplayUtil.setLayout(activity, 637, 250, rl_bg);
 		DisplayUtil.setLayoutMargin(activity, 32, 46, 0, 0, tv_cont);
 		DisplayUtil.setLayoutMargin(activity, 32, 0, 0, 30, btn_start);
 	}

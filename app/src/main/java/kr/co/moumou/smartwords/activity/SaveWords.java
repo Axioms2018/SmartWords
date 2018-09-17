@@ -43,9 +43,9 @@ public class SaveWords {
 		}
 		String json = new Gson().toJson(VoWordsSaveList.getInstance().getSAVE_WORDS_LIST());
 		LogTraceMin.I("SaveWords 저장할 DATA JSON :: " + json);
-		
-		VoWordsSaveList.VoWordsSave voWordSave = VoWordsSaveList.getInstance().getSAVE_WORDS_LIST().get(0);
-		saveTxt("Lv" + voWordSave.getSTD_LEVEL() + "_Day" + voWordSave.getSTD_DAY(), json);
+
+//		VoWordsSaveList.VoWordsSave voWordSave = VoWordsSaveList.getInstance().getSAVE_WORDS_LIST().get(0);
+//		saveTxt("Lv" + voWordSave.getSTD_LEVEL() + "_Day" + voWordSave.getSTD_DAY(), json);
 		
 		reqSaveWords();
 	}
@@ -69,9 +69,12 @@ public class SaveWords {
 			@Override
 			public void success(String response) {
 				LogTraceMin.D("onResponse " + response);
+				LogUtil.w("onResponse : " + response);
+
+				WordTestRsltDao.getInstance(mContext).deleteAllWordTest();
 
 				//VoWordSaveList 모두 삭제
-				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
+				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
 				if(null != saveWordsComplete) saveWordsComplete.success();	//전송 완료후 해야할 액션이 있을 경우
 			}
 
@@ -83,17 +86,17 @@ public class SaveWords {
 			@Override
 			public void fail(VoBase base) {
 				LogTraceMin.D("onResponseFail :: " + base);
-				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
+				//WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
 
-				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();	//성공해도 실패해도 VoWordsSaveList에 든 모든 데이터는 삭제한다.
+				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();	//성공해도 실패해도 VoWordsSaveList에 든 모든 데이터는 삭제한다.
 				if(null != saveWordsComplete) saveWordsComplete.fail();
 			}
 
 			@Override
 			public void exception(ANError error) {
 				LogTraceMin.D("exception :: " + error.toString());
-				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
-				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
+				//WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
+				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
 				if(null != saveWordsComplete) saveWordsComplete.exception();
 			}
 
@@ -117,7 +120,7 @@ public class SaveWords {
 //				if(null != saveWordsComplete) saveWordsComplete.fail();
 //			}
 //
-//			@Override
+//			@Overridenaaw
 //			public void onResponse(String msg) {
 //				LogTraceMin.D("onResponse " + msg);
 //

@@ -48,11 +48,10 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 	
 	LinearLayout ll_background;
 	LinearLayout ll_known;
-	ImageView iv_leftballoon;
+	ImageView iv_leftballoon,iv_rightballoon,iv_bg_ic_word,iv_bg_ic_word1;
 	TextView tv_knowncnt;
 	Button bt_view;
 	LinearLayout ll_unknown;
-	ImageView iv_rightballoon;
 	TextView tv_unknowncnt;
 
 	int all;
@@ -92,14 +91,18 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
         ll_unknown = (LinearLayout) getView().findViewById(R.id.ll_unknown);
         iv_rightballoon = (ImageView) getView().findViewById(R.id.iv_rightballoon);
         tv_unknowncnt = (CustomTextView) getView().findViewById(R.id.tv_unknowcnt);
+        iv_bg_ic_word = (ImageView) getView().findViewById(R.id.bg_ic_word);
+		iv_bg_ic_word1 = (ImageView) getView().findViewById(R.id.bg_ic_word1);
 
 
+		DisplayUtil.setLayout(wordsMain, 1200,630, ll_background);
         DisplayUtil.setLayout(wordsMain, 206, 187, iv_leftballoon);
         DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 0, tv_knowncnt);
-        DisplayUtil.setLayout(wordsMain, 184, 60, bt_view);
-        DisplayUtil.setLayoutMargin(wordsMain, 0, 44, 0, 0, bt_view);
+        DisplayUtil.setLayout(wordsMain, 184, 80, bt_view);
+        DisplayUtil.setLayoutMargin(wordsMain, 0, 50, 0, 0, bt_view);
         DisplayUtil.setLayout(wordsMain, 206, 187, iv_rightballoon);
         DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 0, tv_unknowncnt);
+
         
         rate = (int) DisplayUtil.getWidthUsingRate(wordsMain, 2);
         

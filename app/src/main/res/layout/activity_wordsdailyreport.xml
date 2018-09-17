@@ -154,7 +154,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/report_known"
                                         android:textColor="@color/words_gray"
-                                        android:textSize="@dimen/efont11" />
+                                        android:textSize="@dimen/efont12" />
 
                                     <kr.co.moumou.smartwords.customview.CustomTextView
                                         android:id="@+id/tv_kcount"
@@ -192,7 +192,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/report_unknown"
                                         android:textColor="@color/words_gray"
-                                        android:textSize="@dimen/efont11" />
+                                        android:textSize="@dimen/efont12" />
 
                                     <kr.co.moumou.smartwords.customview.CustomTextView
                                         android:id="@+id/tv_ucount"
@@ -273,7 +273,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_step"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -281,7 +281,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_day"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -289,7 +289,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_test1"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_test2"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
                             
                         </LinearLayout>
 
@@ -314,7 +314,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_step"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infoday"
@@ -323,7 +323,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_day"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infotest1"
@@ -332,7 +332,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_test1"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infotest2"
@@ -341,7 +341,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_test2"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
                             
                         </LinearLayout>
 
@@ -357,7 +357,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_count"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -365,7 +365,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_known"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -373,7 +373,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_unknown"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
@@ -381,7 +381,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_score"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
                             
                         </LinearLayout>
 
@@ -398,7 +398,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/daily_count"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infoknown"
@@ -407,7 +407,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_known"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infounknown"
@@ -416,7 +416,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_unknown"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infoscore"
@@ -425,7 +425,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/report_score"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
                             
                         </LinearLayout>
                         
@@ -448,7 +448,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/daily_test3"
                                 android:textColor="@color/rank_item"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_infotest3"
@@ -456,7 +456,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/daily_test3"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/efont11" />
+                                android:textSize="@dimen/efont12" />
                             
                         </LinearLayout>
                         
@@ -500,7 +500,7 @@
         
     </RelativeLayout>
     
-    <!-- <moumou.co.kr.smartwords.customview.ViewSlidingMenuMM
+    <!-- <kr.co.moumou.smartwords.customview.ViewSlidingMenuMM
         android:id="@+id/view_sliding_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent" /> -->

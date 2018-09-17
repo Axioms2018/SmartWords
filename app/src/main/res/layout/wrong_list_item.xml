@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:textColor="@color/black"
-            android:textSize="@dimen/efont11"
+            android:textSize="@dimen/efont12"
             android:gravity="center"
             android:layout_weight="2" />
         
@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:textColor="@color/daily_wrong_my"
-            android:textSize="@dimen/efont11"
+            android:textSize="@dimen/efont12"
             android:gravity="center"
             android:layout_weight="2" />
         

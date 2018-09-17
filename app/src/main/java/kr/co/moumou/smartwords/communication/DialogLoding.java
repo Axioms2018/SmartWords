@@ -44,8 +44,8 @@ public class DialogLoding extends Dialog {
 
 		tv_loding_text = (TextView) findViewById(R.id.tv_loding_text);
 		tv_loding_text2 = (TextView) findViewById(R.id.tv_loding_text2);
-		
-		View loding_moumou = findViewById(R.id.loding_moumou);
+
+		View loding_moumou = findViewById(R.id.loading);
 		
 //		DisplayUtil.setLayout((Activity)context, 135, 140, loding_moumou);
 	}

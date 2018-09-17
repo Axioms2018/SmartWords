@@ -4,8 +4,8 @@ import android.os.Environment;
 
 public class Constant {
 
-	public static String APP_PACKAGE_NAME = "moumou.co.kr.smartwords";
-	public static String OTHER_APK_URL = "http://install.moumou.co.kr/firmware/";
+	public static String APP_PACKAGE_NAME = "kr.co.moumou.smartwords";
+	public static String OTHER_APK_URL = "http://install.kr.co.moumou/firmware/";
 	public static String SILENT_INSTALL_APK_NAME = "SystemManagerForMooMoo.apk";
 	public static String SECOND_FIRMWARE_UPDATE_APK_NAME = "MPGIO_RKUpdater.apk";
 	public class IntentAction{

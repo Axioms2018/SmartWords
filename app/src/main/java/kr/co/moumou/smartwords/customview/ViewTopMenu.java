@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import kr.co.moumou.smartwords.activity.ActivityMywordsMain;
 import kr.co.moumou.smartwords.common.Constant;
 import kr.co.moumou.smartwords.R;
-//import moumou.co.kr.smartwords.activity.ActivityMywordsMain;
+//import kr.co.moumou.smartwords.activity.ActivityMywordsMain;
 import kr.co.moumou.smartwords.activity.ActivityWordTestMain;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.SharedPrefData;
@@ -180,7 +180,7 @@ public class ViewTopMenu extends LinearLayout {
 		for (int i = 0; i < size; i++) {
 			VoTopMenuItem item = menu.get(i);
 
-			TextView tv = new CustomTextView(context);
+			CustomTextView tv = new CustomTextView(context);
 			tv.setText(item.getTitle());
 			tv.setTag(item.getLaunchActivity());
 			tv.setTag(tv.getId(), i);
@@ -188,9 +188,9 @@ public class ViewTopMenu extends LinearLayout {
 
 			tv.setBackgroundResource(R.drawable.words_menu_bg_selector);
 			tv.setTextColor(context.getResources().getColorStateList(R.drawable.ebook_menu_text_color_selector));
-
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1.0f);
 			params.gravity= Gravity.CENTER;
+			tv.setTextSizeCustom(getResources().getDimension(R.dimen.efont16));
 			tv.setLayoutParams(params);
 			tv.setOnClickListener(new OnClickListener() {
 				@Override
@@ -199,6 +199,8 @@ public class ViewTopMenu extends LinearLayout {
 					launchActivity((Class<?>)v.getTag(), (Integer)v.getTag(v.getId()), true);
 				}
 			});
+
+
 
 			lay_menu.addView(tv);
 		}

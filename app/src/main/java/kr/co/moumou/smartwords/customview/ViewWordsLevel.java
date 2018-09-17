@@ -47,17 +47,15 @@ public class ViewWordsLevel extends RelativeLayout implements OnTouchListener {
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		base = inflater.inflate(R.layout.view_words_level, this);
 		base.setOnTouchListener(this);
-		
 		lay_center = (LinearLayout) base.findViewById(R.id.lay_center);
 		tv_level_num = (TextView) base.findViewById(R.id.tv_level_num);
 		tv_level_state = (TextView) base.findViewById(R.id.tv_level_state);
 		iv_certi = (ImageView) base.findViewById(R.id.iv_certi);
-		TextView tv_level_state = (TextView) base.findViewById(R.id.tv_level);
-		
-		DisplayUtil.setLayout((Activity) context, 110, 112, lay_center);
-		DisplayUtil.setLayout((Activity) context, 34, 47, iv_certi);
-		DisplayUtil.setLayoutMargin((Activity) context, 0, 10, 0, 0, tv_level_state);
-		DisplayUtil.setLayoutMargin((Activity) context, 0, 7, 0, 0, tv_level_num);
+
+		DisplayUtil.setLayout((Activity) context, 140, 145, lay_center);
+		DisplayUtil.setLayout((Activity) context, 44, 57, iv_certi);
+		DisplayUtil.setLayoutMargin((Activity) context, 0, 5, 0, 0, tv_level_state);
+		DisplayUtil.setLayoutMargin((Activity) context, 0, 4, 0, 7, tv_level_num);
 	}
 	
 	public void setActivity(ActivityWordTestMain activity){

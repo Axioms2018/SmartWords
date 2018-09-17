@@ -224,7 +224,6 @@ public class FragmentReview extends BaseFragmentWordTest {
 			//tvExam.setText("(둘 중) 어느 것도 ~ 아니다");
 			
 			layoutItem = (LinearLayout) rightExamViews[i].findViewById(R.id.layoutItem);
-			
 			rightExamViews[i].setTag(wordQuizMeanList[i]);
 			layoutItem.setTag(i);
 			rightExamViews[i].setOnClickListener(rigthOnClickListener);

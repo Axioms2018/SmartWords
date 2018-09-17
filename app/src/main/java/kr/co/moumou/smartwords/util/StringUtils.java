@@ -51,7 +51,7 @@ public class StringUtils {
 	/**
 	 * 확장자 제외한 파일 이름 반환 
 	 * ex) 
-	 * parameter : http://moumou.co.kr/2234_232_TDL_1.jgp  
+	 * parameter : http://kr.co.moumou/2234_232_TDL_1.jgp
 	 * return : 2234_232_TDL_1
 	 * 
 	 * @param path
@@ -64,7 +64,7 @@ public class StringUtils {
 	/**
 	 * 확장자 포함된 파일 이름 반환 
 	 * ex) 
-	 * parameter : http://moumou.co.kr/2234_232_TDL_1.jgp  
+	 * parameter : http://kr.co.moumou/2234_232_TDL_1.jgp
 	 * return : 2234_232_TDL_1.jgp
 	 * 
 	 * @param path

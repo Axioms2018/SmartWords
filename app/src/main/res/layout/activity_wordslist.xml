@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_tab1"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_tab2"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_tab3"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -119,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_tab4"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_tab5"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/note_taball"
-                    android:textSize="@dimen/efont10"
+                    android:textSize="@dimen/efont11"
                     android:textColor="@drawable/sel_tab_textcolor"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -220,7 +220,7 @@
         
     </LinearLayout>
     
-    <!-- <moumou.co.kr.smartwords.customview.ViewSlidingMenuMM
+    <!-- <kr.co.moumou.smartwords.customview.ViewSlidingMenuMM
         android:id="@+id/view_sliding_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent" /> -->

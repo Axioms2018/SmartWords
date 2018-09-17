@@ -57,7 +57,8 @@ public class DialogCal extends Dialog implements View.OnClickListener{
 		
 		DisplayUtil.setLayout((Activity) mContext, 584, 84, ll_diatitle);
 		DisplayUtil.setLayoutMargin((Activity) mContext, 26, 0, 0, 0, tv_date);
-		DisplayUtil.setLayoutMargin((Activity) mContext, 0, 0, 20, 0, ib_close);
+		DisplayUtil.setLayout((Activity)mContext,70,70,ib_close);
+		DisplayUtil.setLayoutMargin((Activity) mContext, 0, 0, 10, 0, ib_close);
 		DisplayUtil.setLayout((Activity) mContext, 584, 462, lv_stdhistory);
 		
 		date = mData.getSTD_DD();

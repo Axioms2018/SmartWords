@@ -32,9 +32,9 @@ import java.util.TimerTask;
 
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.activity.ActivityWordTestMain;
-//import moumou.co.kr.smartwords.activity.ActivityWordsDownload;
+//import kr.co.moumou.smartwords.activity.ActivityWordsDownload;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
-//import moumou.co.kr.smartwords.dao.DaoStudyProgress;
+//import kr.co.moumou.smartwords.dao.DaoStudyProgress;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoSocketComm;
 
@@ -469,7 +469,7 @@ public class AppUtil {
             return;
         }
 
-        String pathSound = "android.resource://moumou.co.kr.smartwords.raw/" + fileName;
+        String pathSound = "android.resource://kr.co.moumou.smartwords.raw/" + fileName;
         LogUtil.d("pathSound : " + pathSound);
 
         try {

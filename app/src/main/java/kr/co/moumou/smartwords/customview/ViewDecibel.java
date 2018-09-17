@@ -160,7 +160,7 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 
 		DisplayUtil.setLayout(activity, 126, 88, ivSpeaker);
 		DisplayUtil.setLayout(activity, 654, 98, lay_big_voice);
-		
+
 		
 		activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 	}
@@ -202,11 +202,13 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 		case CHECK_VOICE_BUBBLE_SMALL:
 			lay_big_voice.setVisibility(View.VISIBLE);
 			tvDialog.setText(StringUtil.getVoiceMsg(false));
+			DisplayUtil.setLayoutPadding(activity,30,0,0,0,tvDialog);
 			img_state.setImageResource(R.drawable.icon_dialog_good_bad);
 			break;
 		case CHECK_VOICE_BUBBLE_BIG:
 			lay_big_voice.setVisibility(View.VISIBLE);
 			tvDialog.setText(StringUtil.getVoiceMsg(true));
+			DisplayUtil.setLayoutPadding(activity,30,0,0,0,tvDialog);
 			img_state.setImageResource(R.drawable.icon_dialog_good);
 			break;
 		case CHECK_VOICE_BUBBLE_NOT:

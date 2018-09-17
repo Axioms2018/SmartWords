@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.vo.VoWordsSaveList;
 import kr.co.moumou.smartwords.vo.VoWordsSaveList.VoWordsSave;
 
@@ -130,7 +131,7 @@ public class WordTestRsltDao extends BaseDao {
 	public void putVoDataFromInnerDB() {
 		
 		LogTraceMin.D("putWordInfoFromInnerDB()");
-		
+		LogUtil.w("putWordInfoFromInnerDB()");
 		SQLiteDatabase db = DBHelper.getReadableInstance(ctx);
 		
 		cursor = db.query(tableName, 

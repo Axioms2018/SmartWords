@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:id="@+id/lay_center"
@@ -24,7 +26,7 @@
                 android:gravity="center"
                 android:text="Level"
                 android:textColor="@color/words_main_level_txt"
-                android:textSize="18px" />
+                android:textSize="25px" />
 
             <kr.co.moumou.smartwords.customview.CustomTextView
                 android:id="@+id/tv_level_num"
@@ -33,7 +35,7 @@
                 android:layout_marginTop="7dip"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="50px"
+                android:textSize="57px"
                 android:textStyle="bold" />
         </LinearLayout>
         
@@ -54,7 +56,7 @@
             android:layout_marginTop="3dip"
             android:text="학습중"
             android:textColor="@color/orange"
-            android:textSize="18px"
+            android:textSize="24px"
             android:visibility="invisible" />
     </RelativeLayout>
 

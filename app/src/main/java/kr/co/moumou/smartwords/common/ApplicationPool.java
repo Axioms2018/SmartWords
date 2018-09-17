@@ -52,7 +52,7 @@ import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.NetworkState;
 import kr.co.moumou.smartwords.util.SharedPrefData;
 import kr.co.moumou.smartwords.util.StringUtil;
-//import moumou.co.kr.smartwords.vo.VoReplaceWord;
+//import kr.co.moumou.smartwords.vo.VoReplaceWord;
 
 public class ApplicationPool extends Application {
 
@@ -72,9 +72,9 @@ public class ApplicationPool extends Application {
 	public static String PATH_DOWNLOAD_CHANT_RESOURCE = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator + "files/chant/";
 	public static String PATH_DOWNLOAD_WORDS_RESOURCE = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator + "files/smartwords/";
 	
-	public static String PATH_BOOK_RESOURCE = "data/data/moumou.co.kr.smartwords/files/";
-	public static String PATH_CHANT_RESOURCE = "data/data/moumou.co.kr.smartwords/files/chant/";
-	public static String PATH_WORDS_RESOURCE = "data/data/moumou.co.kr.smartwords/files/smartwords/";
+	public static String PATH_BOOK_RESOURCE = "data/data/kr.co.moumou.smartwords/files/";
+	public static String PATH_CHANT_RESOURCE = "data/data/kr.co.moumou.smartwords/files/chant/";
+	public static String PATH_WORDS_RESOURCE = "data/data/kr.co.moumou.smartwords/files/smartwords/";
 
 	private final static boolean	TRACE				= false;
 	private final static String TRACE_TAG			= "ApplicationPool";

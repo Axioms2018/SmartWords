@@ -67,7 +67,7 @@ public class ViewDay extends RelativeLayout implements OnClickListener {
 		iv_certi = (ImageView)base.findViewById(R.id.iv_certi);
 		
 		DisplayUtil.setLayout((Activity) context, 75, 75, img_state);
-		DisplayUtil.setLayoutMargin((Activity) context, 0, 13, 0, 0, tv_day);
+		DisplayUtil.setLayoutMargin((Activity) context, 0, 8, 0, 0, tv_day);
 		DisplayUtil.setLayoutMargin((Activity) context, 0, 3, 0, 0, tv_study_state);
 		
 		DisplayUtil.setLayout((Activity) context, 22, 32, iv_certi);

@@ -103,12 +103,12 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 		DisplayUtil.setLayoutHeight(this, 67, view_top_menu);
 		
 		Button btn_level = (Button) findViewById(R.id.btn_level);
-		DisplayUtil.setLayout(this, 104, 52, btn_level);
-		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 26, btn_level);
+		DisplayUtil.setLayout(this, 104, 66, btn_level);
+		DisplayUtil.setLayoutMargin(this, 36, 28, 0, 20, btn_level);
 		btn_level.setText("Level " + LEVEL);
 		
 		LinearLayout ll_conts = (LinearLayout) findViewById(R.id.ll_conts);
-		DisplayUtil.setLayoutHeight(this, 390, ll_conts);
+		DisplayUtil.setLayoutHeight(this, 380, ll_conts);
 		DisplayUtil.setLayoutMargin(this, 34, 0, 34, 0, ll_conts);
 		
 		view_pager = (ViewPager) findViewById(R.id.view_pager);
@@ -132,8 +132,8 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 		DisplayUtil.setLayoutMargin(this, 34, 20, 34, 0, ll_reviews);
 		
 		bt_quiz = (LinearLayout) findViewById(R.id.bt_quiz);
-		DisplayUtil.setLayout(this, 138, 52, bt_quiz);
-		DisplayUtil.setLayoutMargin(this, 0, 30, 35, 30, bt_quiz);
+		DisplayUtil.setLayout(this, 138, 66, bt_quiz);
+		DisplayUtil.setLayoutMargin(this, 0, 30, 35, 0, bt_quiz);
 		DisplayUtil.setLayout(this, 28, 28, findViewById(R.id.iv_icon_pen));
 		bt_quiz.setOnClickListener(new OnClickListener() {
 			
@@ -639,7 +639,7 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 		isShowCerBtn = true;
 		
 		bt_certificate = (LinearLayout) findViewById(R.id.bt_certificate);
-		DisplayUtil.setLayout(this, 140, 60, bt_certificate);
+		DisplayUtil.setLayout(this, 140, 74, bt_certificate);
 		DisplayUtil.setLayoutMargin(this, 20, 20, 0, 0, bt_certificate);
 		DisplayUtil.setLayout(this, 27, 33, findViewById(R.id.iv_icon_cert));
 		

@@ -49,7 +49,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 		ll_answer = (LinearLayout) v.findViewById(R.id.ll_answer);
 		DisplayUtil.setLayoutMargin(wordTestAcitivity, 0, 62, 0, 0, ll_answer);
 		tv_answer = (TextView) v.findViewById(R.id.tv_answer);
-		DisplayUtil.setLayoutHeight(wordTestAcitivity, 102, tv_answer);
+		DisplayUtil.setLayoutHeight(wordTestAcitivity, 120, tv_answer);
 		DisplayUtil.setLayoutPadding(wordTestAcitivity, 20, 12, 20, 0, tv_answer);
 		setNextBtn(v);
 		
@@ -102,7 +102,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 			if(str.contains(Constant.GUBUN_SHARP)) {	//add EditText
 				LogTraceMin.I("answerSizeArr :: " + answerSizeArr[i]);
 				
-				label = new Label(getActivity(), true, answerSizeArr[i] * 20, 30, Color.BLACK, R.drawable.bg_textfield_white, 5, keyListener);
+				label = new Label(getActivity(), true, answerSizeArr[i] * 20, 35, Color.BLACK, R.drawable.bg_textfield_white, 5, keyListener);
 				label.setText("");
 
 				ll_quiz.addLabel(label);
@@ -111,7 +111,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 				i++;
 
 			}else{	//add TextView
-				label = new Label(getActivity(), false, 0, 30, Color.BLACK, Color.TRANSPARENT, 3, keyListener);
+				label = new Label(getActivity(), false, 0, 35, Color.BLACK, Color.TRANSPARENT, 3, keyListener);
 				label.setText(str);
 				ll_quiz.addLabel(label);
 			}

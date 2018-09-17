@@ -1,5 +1,6 @@
 package kr.co.moumou.smartwords.customview;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -9,6 +10,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import kr.co.moumou.smartwords.R;
+import kr.co.moumou.smartwords.util.DisplayUtil;
 
 public class DialogLoding extends Dialog {
 
@@ -44,10 +46,10 @@ public class DialogLoding extends Dialog {
 
 		tv_loding_text = (TextView) findViewById(R.id.tv_loding_text);
 		tv_loding_text2 = (TextView) findViewById(R.id.tv_loding_text2);
-		
-		View loding_moumou = findViewById(R.id.loding_moumou);
-		
-//		DisplayUtil.setLayout((Activity)context, 135, 140, loding_moumou);
+
+		View loding_moumou = findViewById(R.id.loading);
+
+		DisplayUtil.setLayout((Activity)context, 70, 70, loding_moumou);
 	}
 
 	public void setText(String msg) {

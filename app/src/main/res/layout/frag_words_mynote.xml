@@ -15,17 +15,18 @@
             android:id="@+id/ll_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_wordbook"
+            android:background="@color/daily_bg_graph"
             android:gravity="center_horizontal"
             android:baselineAligned="false"
             android:orientation="horizontal" >
-            
+
             <LinearLayout
                 android:id="@+id/ll_known"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
+                android:layout_marginLeft="50dp"
                 android:gravity="center" >
                 
                 <RelativeLayout
@@ -45,9 +46,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"                            
                             android:src="@drawable/ic_word_3" />
-                        
+
                     </LinearLayout>
-                    
+
+                    <ImageView
+                        android:id="@+id/bg_ic_word"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="@dimen/dimen_88.0dp"
+                        android:layout_height="@dimen/dimen_320dp"
+                        android:layout_marginTop="@dimen/dimen_95.0dp"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/ic_word_1"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -59,7 +69,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/note_known"
-                            android:textSize="@dimen/efont11"
+                            android:textSize="@dimen/efont13"
                             android:textColor="@color/white" />
                         
                         <kr.co.moumou.smartwords.customview.CustomTextView
@@ -72,10 +82,13 @@
                             android:textStyle="bold" />
                         
                     </LinearLayout>
+
                     
                 </RelativeLayout>
 
             </LinearLayout>
+
+
             
             <LinearLayout
                 android:id="@+id/ll_view"
@@ -91,7 +104,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/note_view"
-                    android:textSize="@dimen/efont11"
+                    android:textSize="@dimen/efont12"
                     android:textColor="@color/white"
                     android:background="@drawable/sel_btn_dia_report" />
                 
@@ -103,8 +116,9 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
+                android:layout_marginRight="50dp"
                 android:gravity="center" >
-                
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -124,6 +138,16 @@
                             android:src="@drawable/ic_word_4" />
                         
                     </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/bg_ic_word1"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="@dimen/dimen_160dp"
+                        android:layout_height="@dimen/dimen_300dp"
+                        android:layout_marginBottom="@dimen/dimen_160dp"
+                        android:layout_marginLeft="@dimen/dimen_80.0dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ic_word_2"/>
                     
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -136,7 +160,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/note_unknown"
-                            android:textSize="@dimen/efont11"
+                            android:textSize="@dimen/efont13"
                             android:textColor="@color/white" />
                         
                         <kr.co.moumou.smartwords.customview.CustomTextView

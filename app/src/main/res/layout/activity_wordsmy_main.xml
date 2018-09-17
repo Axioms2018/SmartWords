@@ -28,7 +28,7 @@
             </LinearLayout>
 
             <!--
-             <moumou.co.kr.smartwords.customview.ViewSlidingMenuMM
+             <kr.co.moumou.smartwords.customview.ViewSlidingMenuMM
             android:id="@+id/view_sliding_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

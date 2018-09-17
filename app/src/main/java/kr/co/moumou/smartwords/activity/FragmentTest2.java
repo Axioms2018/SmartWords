@@ -250,8 +250,9 @@ public class FragmentTest2 extends BaseFragmentWordTest {
 				editText.setFocusable(false);
 				editText.setFocusableInTouchMode(false);
 				ll_quiz_layout.addView(editText);
-				DisplayUtil.setLayout(wordTestAcitivity, 64, 64, editText);
+				DisplayUtil.setLayout(wordTestAcitivity, 70, 70, editText);
 				DisplayUtil.setLayoutMargin(wordTestAcitivity, 5, 0, 5, 0, editText);
+				DisplayUtil.setLayoutPadding(wordTestAcitivity, 0, 3, 0, 0, editText);
 				editTextIndex++;
 			}
 		}
