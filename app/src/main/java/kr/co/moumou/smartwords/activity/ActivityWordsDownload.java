@@ -61,18 +61,9 @@ public class ActivityWordsDownload extends ActivityBase {
 	private int totalFileCnt;
 	private int currentFileCnt;
 
-	private int COUNT = 3;
-	private ArrayList<BannerInfo> advertiseUrl = new ArrayList<BannerInfo>();
-	private ImageLoader imgLoader;
-
-	private ViewPager view_pager;
-	private ViewIndicator view_indicator;
-	private AdpaterAdvertise adapter;
-
 	private TextView tv_state;
 	private Button btn_retry,btn_close;
 	private ImageView img_icon;
-
 
 	@Override
 	public ViewTopMenu getTopManu() {
@@ -94,8 +85,8 @@ public class ActivityWordsDownload extends ActivityBase {
 		setContentView(R.layout.activity_words_download);
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-		int width = (int) (display.getWidth() * 0.5); // Display 사이즈의 70%
-		int height = (int) (display.getHeight() * 0.76); // Display 사이즈의 90%
+		int width = (int) (display.getWidth() * 0.40); // Display 사이즈의 70%
+		int height = (int) (display.getHeight() * 0.38); // Display 사이즈의 90%
 		getWindow().getAttributes().width = width;
 		getWindow().getAttributes().height = height;
 
@@ -104,56 +95,7 @@ public class ActivityWordsDownload extends ActivityBase {
 		wordsDownloadArry = (ArrayList<VoFileWordsDownload>) intent.getSerializableExtra(C_PARAM_DOWNLOAD_DATA);
 		totalFileCnt = wordsDownloadArry.size();
 
-		imgLoader = ImageLoader.getInstance();
-		view_pager = (ViewPager) findViewById(R.id.view_pager);
-		view_indicator = (ViewIndicator) findViewById(R.id.view_indicator);
-		view_pager.setOnTouchListener(new OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				switch (event.getAction()) {
-				case MotionEvent.ACTION_DOWN:
-					adveriseAutoMoveCancel();
-					break;
-				case MotionEvent.ACTION_UP:
-					advertiseAutoMove();
-					break;
-				default:
-					break;
-				}
-				return false;
-			}
-		});
-
-		view_pager.setOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int position) {
-				int movePos = position;
-				if (position < COUNT) {// 1번째 아이템에서 마지막 아이템으로 이동하면
-					movePos = (position + COUNT);
-					view_pager.setCurrentItem(position + COUNT, false); // 이동
-																		// 애니메이션을
-																		// 제거 해야
-																		// 한다
-				} else if (position >= COUNT * 2) {// 마지막 아이템에서 1번째 아이템으로 이동하면
-					movePos = (position - COUNT);
-					view_pager.setCurrentItem(movePos, false);
-				}
-				view_indicator.setCurrentPage(movePos %= COUNT);
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-			}
-		});
-
 		tv_state = (TextView) findViewById(R.id.tv_state);
-		img_icon = (ImageView) findViewById(R.id.img_icon);
 		btn_close = (Button) findViewById(R.id.btn_close);
 		btn_close.setOnClickListener(new OnClickListener() {
 
@@ -172,12 +114,11 @@ public class ActivityWordsDownload extends ActivityBase {
 		});
 
 
-		DisplayUtil.setLayout(this,50,50,img_icon);
-		DisplayUtil.setLayout(this,100,100,btn_close);
+		DisplayUtil.setLayout(this,72,72,btn_close);
 
 
 		downloadStart();
-		advertiseAutoMove();
+
 	}
 
 	@Override
@@ -187,19 +128,6 @@ public class ActivityWordsDownload extends ActivityBase {
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction(Constant.IntentAction.ACTION_DOWNLOAD_CANCEL);
 		registerReceiver(broadcastReceiver, intentFilter);
-
-		if (adapter == null) {
-			adapter = new AdpaterAdvertise(this, advertiseUrl);
-		}
-
-		if (advertiseUrl.size() <= 0) {
-//			reqAdvertiseUrl();
-			return;
-		}
-
-		view_pager.setAdapter(adapter);
-		view_pager.setCurrentItem(COUNT);
-		view_indicator.setPageCount(COUNT);
 	}
 
 	@Override
@@ -314,84 +242,7 @@ public class ActivityWordsDownload extends ActivityBase {
 		});
 	}
 
-	// 광고 관련
-	private void adveriseAutoMoveCancel() {
-		advertiseMoveHandler.removeMessages(WHAT_ADVERTISE_AUTO_MOVE_TIME);
-	}
 
-	private void advertiseAutoMove() {
-		advertiseMoveHandler.removeMessages(WHAT_ADVERTISE_AUTO_MOVE_TIME);
-		advertiseMoveHandler.sendEmptyMessageDelayed(WHAT_ADVERTISE_AUTO_MOVE_TIME, ADVERTISE_AUTO_MOVE_TIME);
-	}
 
-	private void advertiseMoveNext() {
-		view_pager.setCurrentItem((view_pager.getCurrentItem() + 1));
-		view_indicator.setCurrentPage((view_pager.getCurrentItem() % COUNT));
-
-		advertiseMoveHandler.removeMessages(WHAT_ADVERTISE_AUTO_MOVE_TIME);
-		advertiseMoveHandler.sendEmptyMessageDelayed(WHAT_ADVERTISE_AUTO_MOVE_TIME, ADVERTISE_AUTO_MOVE_TIME);
-	}
-
-	private Handler advertiseMoveHandler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			advertiseMoveNext();
-		}
-	};
-
-	private class AdpaterAdvertise extends PagerAdapter {
-
-		private Context context;
-		private ArrayList<BannerInfo> list;
-
-		public void setList(ArrayList<BannerInfo> list) {
-			this.list = list;
-		}
-
-		public AdpaterAdvertise(Context context, ArrayList<BannerInfo> list) {
-			this.list = list;
-			this.context = context;
-		}
-
-		@Override
-		public int getCount() {
-			return COUNT * 3;
-		}
-
-		@Override
-		public Object instantiateItem(View pager, int position) {
-			position %= COUNT;
-
-			ImageView v = new ImageView(context);
-			imgLoader.displayImage(list.get(position).getIMG_URL(), v, ApplicationPool.getAUILDisplayOptions());
-			final String linkUrl = list.get(position).getLINK_URL();
-
-			((ViewPager) pager).addView(v, 0);
-
-			v.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					if (StringUtil.isNull(linkUrl)) {
-						return;
-					}
-					Intent intent = new Intent(Intent.ACTION_VIEW);
-					intent.setData(Uri.parse(linkUrl));
-					startActivity(intent);
-				}
-			});
-
-			return v;
-		}
-
-		@Override
-		public void destroyItem(View pager, int position, Object view) {
-			((ViewPager) pager).removeView((View) view);
-		}
-
-		@Override
-		public boolean isViewFromObject(View arg0, Object arg1) {
-			return arg0 == arg1;
-		}
-	}
 
 }

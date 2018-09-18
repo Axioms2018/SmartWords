@@ -527,6 +527,7 @@
     <string name="moumou_terms2">개인정보 취급방침</string> <!-- 개인정보 취급방침 viee -->
 
     <string name="error">에러</string> <!-- 에러 viee -->
+    <string name="download1">다운로드</string> <!-- 다운로드 중 viee -->
     <string name="downloading">다운로드 중</string> <!-- 다운로드 중 viee -->
     <string name="download_complete">다운로드 완료 되었습니다.</string> <!-- 다운로드 완료 되었습니다. viee -->
     <string name="unzip">압축해제</string> <!-- 압축해제 viee -->

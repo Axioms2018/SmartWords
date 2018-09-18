@@ -32,7 +32,9 @@
 
     <!-- ebook library End -->
 
-
+    <dimen name="font3">6sp</dimen>
+    <dimen name="font4">8sp</dimen>
+    <dimen name="font5">10sp</dimen>
     <dimen name="font7">14sp</dimen>
     <dimen name="font8">16sp</dimen>
     <dimen name="font9">18sp</dimen>
@@ -80,6 +82,7 @@
     <dimen name="efont25">50px</dimen>
     <dimen name="efont26">52px</dimen>
     <dimen name="efont27">54px</dimen>
+    <dimen name="efont29">58px</dimen>
     <dimen name="efont40">80px</dimen>
     <dimen name="efont42">84px</dimen>
     <dimen name="efont43">86px</dimen>

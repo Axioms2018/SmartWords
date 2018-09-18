@@ -96,11 +96,11 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 
 
 		DisplayUtil.setLayout(wordsMain, 1200,630, ll_background);
-        DisplayUtil.setLayout(wordsMain, 206, 187, iv_leftballoon);
+        DisplayUtil.setLayout(wordsMain, 506, 487, iv_leftballoon);
         DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 0, tv_knowncnt);
         DisplayUtil.setLayout(wordsMain, 184, 80, bt_view);
         DisplayUtil.setLayoutMargin(wordsMain, 0, 50, 0, 0, bt_view);
-        DisplayUtil.setLayout(wordsMain, 206, 187, iv_rightballoon);
+        DisplayUtil.setLayout(wordsMain, 506, 487, iv_rightballoon);
         DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 0, tv_unknowncnt);
 
         
@@ -146,7 +146,7 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-			
+
 			if(msg.arg1 == 0 && msg.arg2 == 0) {
 				msg.arg1 = 0;
 				msg.arg2 = 0;
@@ -154,26 +154,26 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 				right_width = 0;
 			}
 			else{
-				
+
 				//바구니 크기
-				if(msg.arg1 > 0) {
-					LinearLayout.LayoutParams left_params = new LinearLayout.LayoutParams(width + msg.arg1, height + msg.arg1);
-					left_params.bottomMargin = -13;
-					iv_leftballoon.setLayoutParams(left_params);
-				}
-				
-				if(msg.arg2 > 0) {
-					LinearLayout.LayoutParams right_params = new LinearLayout.LayoutParams(width + msg.arg2, height + msg.arg2);
-					right_params.bottomMargin = -13;
-					iv_rightballoon.setLayoutParams(right_params);
-				}
-				
-				setAnimation(passRate, wrongRate);
+//				if(msg.arg1 > 0) {
+//					LinearLayout.LayoutParams left_params = new LinearLayout.LayoutParams(width + msg.arg1, height + msg.arg1);
+//					left_params.bottomMargin = -13;
+//					iv_leftballoon.setLayoutParams(left_params);
+//				}
+//
+//				if(msg.arg2 > 0) {
+//					LinearLayout.LayoutParams right_params = new LinearLayout.LayoutParams(width + msg.arg2, height + msg.arg2);
+//					right_params.bottomMargin = -13;
+//					iv_rightballoon.setLayoutParams(right_params);
+//				}
+
+//				setAnimation(passRate, wrongRate);
 			}
-			
+
 			LogTraceMin.I("pass : " + (passRate * rate) + " / arg1 : " + msg.arg1);
 			LogTraceMin.I("wrong : " + (wrongRate * rate) + " / arg2 : " + msg.arg2);
-		}				
+		}
 	};
 
 	public void setData() {
@@ -189,7 +189,7 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 		tv_knowncnt.setText(known + "");
 		tv_unknowncnt.setText(unknown + "");
 
-		setAnimation(passRate, wrongRate);
+//		setAnimation(passRate, wrongRate);
 	}
 	
 	private void requestData() {		
@@ -272,8 +272,8 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 	public void onResume() {
 		super.onResume();
 		//LogTraceMin.I("재실행 풍선 애니메이션");
-		DisplayUtil.setLayout(wordsMain, 206, 187, iv_leftballoon);
-		DisplayUtil.setLayout(wordsMain, 206, 187, iv_rightballoon);
+		DisplayUtil.setLayout(wordsMain, 506, 487, iv_leftballoon);
+		DisplayUtil.setLayout(wordsMain, 506, 487, iv_rightballoon);
 		saveDBFromAllInnerDB();
 	}
 	
