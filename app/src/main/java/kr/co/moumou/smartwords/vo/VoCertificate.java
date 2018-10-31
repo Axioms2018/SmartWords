@@ -11,7 +11,7 @@ public class VoCertificate extends VoResponseBase implements Serializable {
 	private int RIGHT_CNT;
 	private int WRONG_CNT;
 	private int MAX_DAY;
-	
+
 	public String getSTD_LEVEL() {
 		return STD_LEVEL;
 	}
@@ -48,4 +48,7 @@ public class VoCertificate extends VoResponseBase implements Serializable {
 	public void setMAX_DAY(int mAX_DAY) {
 		MAX_DAY = mAX_DAY;
 	}
+
+
+
 }

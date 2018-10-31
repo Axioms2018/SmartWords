@@ -151,7 +151,7 @@ public class ActivityMywordsMain extends FragmentActivity implements MenuClickLi
     private HashMap<String, Object> getErrorReportInfo(){
         HashMap<String, Object> bookInfo = new HashMap<String, Object>();
 		bookInfo.put(DialogReport.KEY_SYSGB, ConstantsCommParameter.Values.SYSBG_MOUMOU_WORDS);
-		bookInfo.put(DialogReport.KEY_USERID, VoMyInfo.getInstance().getUSERID());
+		bookInfo.put(DialogReport.KEY_USERID, "sessionid_pass");
 		bookInfo.put(DialogReport.KEY_VIEW, findViewById(R.id.lay_base));
 		bookInfo.put(DialogReport.KEY_IS_LIVE, true);
 		bookInfo.put(DialogReport.KEY_PCODE, "99999999");

@@ -22,6 +22,7 @@ import kr.co.moumou.smartwords.listener.SimpleFileConrollerProgressListener;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 public class FileUpDownloaderWithSocket implements FileUpDownloader{
 
@@ -31,7 +32,7 @@ public class FileUpDownloaderWithSocket implements FileUpDownloader{
 
 	public FileUpDownloaderWithSocket() {
 	}
-
+	public VoUserInfo mUserInfo;
 	@Override
 	public void setListener(FileControllerProgress listener){
 		this.listener = listener;
@@ -111,7 +112,7 @@ public class FileUpDownloaderWithSocket implements FileUpDownloader{
 
 			HashMap<String, String> data = new HashMap<String, String>();
 			data.put(ConstantsCommParameter.Keys.COMMAND, ConstantsCommCommand.COMMAND_105_TRANFER_SEND_FILE);
-			data.put(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
+			data.put(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
 			data.put(ConstantsCommParameter.Keys.TEACHERID, VoMyInfo.getInstance().getTEACHERID());
 			data.put(ConstantsCommParameter.Keys.FILE_NAME, getFileName(filePath));
 

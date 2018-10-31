@@ -39,11 +39,13 @@ import kr.co.moumou.smartwords.dao.WordTestDownloadDao;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCertificate;
 import kr.co.moumou.smartwords.vo.VoFileWordsDownload;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsDayList;
 import kr.co.moumou.smartwords.vo.VoWordsDayList.VoDay;
 import kr.co.moumou.smartwords.vo.VoWordsTestDownload;
@@ -78,7 +80,9 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	private WordDayPagerAdapter adapter;
 	private LinearLayout ll_reviews, bt_quiz;
 	private LinearLayout bt_certificate;
-	
+
+	private VoUserInfo voUserInfo;
+
 	private int pager_total = 0;			//총 페이지 수
 	private int day_total = 0;				//총 Day 수
 	private final int day_count = 20;		//한 화면에 Day 수
@@ -282,11 +286,11 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 		
 		for(VoWordsTestDownload voDownload : VoWordsTestList.getInstance().getDOWNLOAD()) {
 			
-			if(!WordTestDownloadDao.getInstance(this).isExistWords(voDownload.getFILE_NAME(), voDownload.getFILE_DATE())){
+			if(!WordTestDownloadDao.getInstance(this).isExistWords(voDownload.getFILE_NAME())){
 				LogTraceMin.I("DB없음 URL" + voDownload.getFILE_NAME());
 				VoFileWordsDownload voFileWords = new VoFileWordsDownload();
 				voFileWords.setFilename(voDownload.getFILE_NAME());
-				voFileWords.setDate(voDownload.getFILE_DATE());
+//				voFileWords.setDate(voDownload.getFILE_DATE());
 				downloadArray.add(voFileWords);
 			}
 		}
@@ -554,12 +558,14 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	 * DayList 정보 가져오기
 	 */
 	private void reqDayInfo1(final boolean isReset){
+		showLoadingProgress(getResources().getString(R.string.wait_for_data));
+
+
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_GETDAYINFO);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, voUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
 		builder.appendQueryParameter("STD_LEVEL", LEVEL);
-		builder.appendQueryParameter("COMMAND", ConstantsCommCommand.COMMAND_1111_SMARTWORDS_DAYS);
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_GETDAYINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override
@@ -673,15 +679,16 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	 * Day 정보 가져오기
 	 */
 	private void reqStdInfo1(String url, final int day, final boolean isStudy, final String std_gb, final boolean isReview, boolean isDelete){
+		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, voUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_LEVEL, LEVEL);
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_DAY, Integer.toString(day));
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_STD_GB, std_gb);
 		if(isDelete) builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_DELETE, "Y");
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1112_SMARTWORDS_QUIZ);
+
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_GETLEVELINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override
@@ -767,9 +774,9 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_QUIZINFO);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1112_SMARTWORDS_QUIZ);
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
+
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_QUIZINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

@@ -277,7 +277,7 @@ public class DialogStudent extends Dialog implements OnClickListener {
 //
 //				// 서버 api호출
 //				Uri.Builder builder = Uri.parse(ConstantsCommURL.getUrl("DeleteUserDataMoumouStdy")).buildUpon();
-//				builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
+//				builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, "sessionid_pass");
 //				builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, SharedPrefData.getStringSharedData(activity, SharedPrefData.SHARED_USER_ID_S, Constant.STRING_DEFAULT));
 //
 //				Request.getInstance().sendMessage(ConstantsCommCommand.COMMAND_133_DELETE_USER_DATA, "GET", builder.toString(), null, new CommunicationEventListener() {

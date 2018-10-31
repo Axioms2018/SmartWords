@@ -44,6 +44,7 @@ import kr.co.moumou.smartwords.util.LogTraceMin;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsLevelList.VoWordsLevel;
 import kr.co.moumou.smartwords.vo.VoWordsSaveList;
 import kr.co.moumou.smartwords.vo.VoWordsSaveList.VoWordsSave;
@@ -62,6 +63,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 	protected static final int reviewTestQuizCnt = 4;
 	
 	public enum TestType {Review, Test1, Practice, Test2, Test3, Quiz, ReviewTest1, ReviewTest2, ReviewTest3}
+	public VoUserInfo mUserInfo;
 
 	public enum ReviewType {None, Practice, Test2}
 	//public enum ReviewTestType {None, ReviewTest1, ReviewTest2}
@@ -166,8 +168,8 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 			notChangeCrrtZone = true;
 		
 
-		if("08".equals(VoMyInfo.getInstance().getUSERGB()) || "ssss02".equals(VoMyInfo.getInstance().getUSERID()) 
-				|| "ss02".equals(VoMyInfo.getInstance().getUSERID())){
+		if("08".equals(VoMyInfo.getInstance().getUSERGB()) || "ssss02".equals(VoUserInfo.getInstance().getSID())
+				|| "ss02".equals(VoUserInfo.getInstance().getSID())){
 			tv_answer_test.setVisibility(View.VISIBLE);
 			
 			Button btn_passBtn = (Button) findViewById(R.id.btn_passBtn);
@@ -765,7 +767,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 	private void setSaveWordsInfo(VoWordQuest info) {
 		
 		VoWordsSave wordSave = VoWordsSaveList.getInstance().new VoWordsSave();
-		wordSave.setUSERID(VoMyInfo.getInstance().getUSERID());
+		wordSave.setUSERID(VoUserInfo.getInstance().getUSERID());
 		wordSave.setSTD_GB(info.getSTD_GB());
 		wordSave.setSTD_W_GB(info.getSTD_W_GB());
 		wordSave.setSTD_LEVEL(info.getSTD_LEVEL());

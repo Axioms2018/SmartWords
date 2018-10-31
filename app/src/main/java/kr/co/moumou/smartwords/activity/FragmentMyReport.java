@@ -1,6 +1,11 @@
 package kr.co.moumou.smartwords.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +23,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 
@@ -26,14 +32,16 @@ import java.util.ArrayList;
 import kr.co.moumou.smartwords.common.ApplicationPool;
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
-import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
+import kr.co.moumou.smartwords.communication.Const;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.customview.CustomButton;
 import kr.co.moumou.smartwords.customview.CustomTextView;
+import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
-import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsReportData;
 import kr.co.moumou.smartwords.vo.VoWordsReportDetail;
 import kr.co.moumou.smartwords.wordschart.PieGraph;
@@ -43,20 +51,22 @@ import kr.co.moumou.smartwords.wordschart.PieSlice;
 public class FragmentMyReport extends Fragment implements OnClickListener {
 	private ActivityMywordsMain wordsMain = null;
 	Resources resources;
-	
+	public VoUserInfo mUserInfo;
+	private Activity activity;
+
 	VoWordsReportData voReportData;
 	ArrayList<VoWordsReportDetail> reportDetail;
 	
 	LinearLayout ll_bg,ll_toggle;
 
 	Button bt_lv[] = new CustomButton[6];
-	
+
 	LinearLayout ll_known,ll_unknown;
 	TextView tv_kcount,tv_ucount;
 	PieGraph pg_known,pg_unknown;
 
 	LinearLayout ll_result;
-	TextView tv_step_t,tv_step,tv_line1,tv_day_t,tv_day,tv_line2,tv_total_t,tv_total,tv_line3,tv_known_t,tv_known,tv_line4,tv_unknown_t,tv_unknown,tv_line5,tv_score_t,tv_score,tv_line6;
+	TextView tv_step_t,tv_step,tv_line1,tv_day_t,tv_day,tv_line2,tv_total_t,tv_total,tv_line3,tv_known_t,tv_known,tv_line4,tv_unknown_t,tv_unknown,tv_line5,tv_score_t,tv_score,tv_line6,tv_line7,tv_name,tv_logout;
 	
 	private String Level;
 	private int Day = 0;
@@ -73,6 +83,15 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);		
 		wordsMain = (ActivityMywordsMain) getActivity();
+	}
+
+	@Override
+	public void onAttach(Context context) {
+		super.onAttach(context);
+
+		if(context instanceof Activity){
+			activity = (Activity) context;
+		}
 	}
 
 	@Override
@@ -112,9 +131,37 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 		tv_score_t = (CustomTextView) wordsMain.findViewById(R.id.tv_score_t);
 		tv_score = (CustomTextView) wordsMain.findViewById(R.id.tv_score);
 		tv_line6 = (CustomTextView) wordsMain.findViewById(R.id.tv_line6);
-		
+		tv_name = (CustomTextView) wordsMain.findViewById(R.id.tv_name);
+		tv_logout = (CustomTextView) wordsMain.findViewById(R.id.tv_logout);
+		tv_line7 = (CustomTextView) wordsMain.findViewById(R.id.tv_line7);
+
+
+		tv_logout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+				builder.setTitle("로그아웃");
+				builder.setMessage(R.string.dialog_logout);
+				builder.setPositiveButton("예",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								logoutGoLoginActivity();
+							}
+						});
+				builder.setNegativeButton("아니오",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								return;
+							}
+						});
+				builder.show();
+			}
+		});
+
+
 		DisplayUtil.setLayoutMargin(wordsMain, 30, 30, 30, 30, ll_bg);
-		DisplayUtil.setLayoutMargin(wordsMain, 0, 30, 0, 60, ll_toggle);
+		DisplayUtil.setLayoutMargin(wordsMain, 10, 30, 0, 0, ll_toggle);
 		DisplayUtil.setLayout(wordsMain, 109, 52, bt_lv[1]);
 		DisplayUtil.setLayout(wordsMain, 109, 52, bt_lv[2]);
 		DisplayUtil.setLayout(wordsMain, 109, 52, bt_lv[3]);
@@ -145,6 +192,8 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 		DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 30, tv_line5);
 		DisplayUtil.setLayoutHeight(wordsMain, 2, tv_line6);
 		DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 30, tv_line6);
+		DisplayUtil.setLayoutHeight(wordsMain, 2, tv_line7);
+		DisplayUtil.setLayoutMargin(wordsMain, 0, 20, 0, 30, tv_line7);
 		
 		for(int i = 0 ; i < 6 ; i ++) {
 			bt_lv[i].setEnabled(false);
@@ -258,9 +307,10 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_LEVELREPORT);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
 
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());		
-		builder.appendQueryParameter("COMMAND", ConstantsCommCommand.COMMAND_1894_SMARTWORDS_MY);
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(getContext(),Preferences.PREF_USER_ID,null));
+
+
 
 		AndroidNetworkRequest.getInstance(getActivity()).StringRequest(ConstantsCommURL.REQUEST_TAG_LEVELREPORT, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override
@@ -349,10 +399,28 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 				setSelect(0);
 				break;
 
+
 			default:
 				break;
 		}
 		
+	}
+	private void logoutGoLoginActivity() {
+		//Preferences.putPref(mContext, Preferences.PREF_USER_ID, null);
+
+		Preferences.putPref(activity, Preferences.PREF_USER_PW, null);
+		Preferences.putPref(activity, Preferences.PREF_IS_MEMBER, false);
+		VoUserInfo.getInstance().clear();
+
+		Intent intent = new Intent(activity, ActivityLogin.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+		intent.putExtra(Const.IntentKeys.INTENT_DOUBLE_LOGIN, true);
+		activity.startActivity(intent);
+
+//		activity.finish();
+
+
 	}
 	
 }

@@ -34,15 +34,18 @@ import kr.co.moumou.smartwords.customview.CustomTextView;
 import kr.co.moumou.smartwords.customview.DateAdapter;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCalData;
 import kr.co.moumou.smartwords.vo.VoCalFrame;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 public class FragmentMyCal extends Fragment implements OnClickListener {
 	
 	private final static int SMARTWORDS_START_YEAR = 2016;
-	
+	public VoUserInfo mUserInfo;
+
 	private ActivityMywordsMain wordsMain = null;
 	GridView mGridView;
 	DateAdapter dAdapter;
@@ -265,14 +268,15 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_USERCALENDAR);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(getContext(),Preferences.PREF_USER_ID,null));
+
 		if(month < 10) {
 			builder.appendQueryParameter("STD_DATE", String.valueOf(year) + "0" + String.valueOf(month));
 		} else {
 			builder.appendQueryParameter("STD_DATE", String.valueOf(year) + String.valueOf(month));
 		}
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1894_SMARTWORDS_MY);
+
 
 		AndroidNetworkRequest.getInstance(getActivity()).StringRequest(ConstantsCommURL.REQUEST_TAG_USERCALENDAR, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

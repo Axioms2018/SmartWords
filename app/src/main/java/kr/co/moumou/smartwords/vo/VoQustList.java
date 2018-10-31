@@ -82,7 +82,7 @@ public class VoQustList extends VoResponseBase {
 		}
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		result.put(ConstantsCommParameter.Keys.COMMAND, getCOMMAND());
-		result.put(ConstantsCommParameter.Keys.ERROR_MSG, "");
+		result.put(ConstantsCommParameter.Keys.RES_MSG, "");
 		result.put(ConstantsCommParameter.Keys.SESSIONID, getSESSIONID());
 		result.put(ConstantsCommParameter.Keys.USERID, getUSERID());
 		
@@ -116,7 +116,7 @@ public class VoQustList extends VoResponseBase {
 		}
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		result.put(ConstantsCommParameter.Keys.COMMAND, getCOMMAND());
-		result.put(ConstantsCommParameter.Keys.ERROR_MSG, "");
+		result.put(ConstantsCommParameter.Keys.RES_MSG, "");
 		result.put(ConstantsCommParameter.Keys.SESSIONID, getSESSIONID());
 		result.put(ConstantsCommParameter.Keys.USERID, getUSERID());
 		

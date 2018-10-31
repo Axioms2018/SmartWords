@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import kr.co.moumou.smartwords.R;
 
 public class FileDownloadController {
-	
+
 	public final static int DOWNLOAD_BUFFER_SIZE = 1024*10;
 
 	private FileUpDownloaderWithHttp http;
@@ -36,7 +36,7 @@ public class FileDownloadController {
 
 
 		private void createDownloader(Context context, String url, String sessionID, String fileName, long fileSize, String pCode, String chaci, FileControllerProgress listener){
-			
+
 			listener.onConnectingServer(context.getResources().getString(R.string.connecting_server));
 
 			if(http == null){

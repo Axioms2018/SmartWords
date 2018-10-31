@@ -2,7 +2,9 @@ package kr.co.moumou.smartwords.customview;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -20,10 +22,15 @@ import kr.co.moumou.smartwords.common.Constant;
 import kr.co.moumou.smartwords.R;
 //import kr.co.moumou.smartwords.activity.ActivityMywordsMain;
 import kr.co.moumou.smartwords.activity.ActivityWordTestMain;
+import kr.co.moumou.smartwords.communication.Const;
+import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.SharedPrefData;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoTopMenuItem;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 public class ViewTopMenu extends LinearLayout {
 
@@ -101,7 +108,6 @@ public class ViewTopMenu extends LinearLayout {
 
 		base = infaltor.inflate(R.layout.view_top_menu_words, this);
 
-
 		lay_menu = (LinearLayout)base.findViewById(R.id.lay_top_menu);
 		DisplayUtil.setLayoutHeight((Activity)context, 66, lay_menu);
 		DisplayUtil.setLayoutHeight((Activity)context, 67, lay_menu);
@@ -112,10 +118,43 @@ public class ViewTopMenu extends LinearLayout {
 				btn_close_words.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					//10번 마지막창에서 종료시 로그아웃 안내 나오게 만들기
+					//test1 practice test2,3 선택화면도 첫화면으로되서 그상황에 눌러도 로그아웃 안내 나와서 수정필요
+
+					LogTraceMin.I("actList SIZE : " + ActivityWordTestMain.actList.size());
+
 					activity.finish();
-//					for(int i = 0; i < ActivityWordTestMain.actList.size(); i++){
-//						ActivityWordTestMain.actList.get(i).finish();
-					}
+
+
+
+
+
+
+//					for (int i = 0; i < ActivityWordTestMain.actList.size(); i++) {
+//						if(i == 0){
+//							AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+//							builder.setTitle("로그아웃");
+//							builder.setMessage(R.string.dialog_logout);
+//							builder.setPositiveButton("예",
+//									new DialogInterface.OnClickListener() {
+//										public void onClick(DialogInterface dialog, int which) {
+//											logoutGoLoginActivity();
+//										}
+//									});
+//							builder.setNegativeButton("아니오",
+//									new DialogInterface.OnClickListener() {
+//										public void onClick(DialogInterface dialog, int which) {
+//											return;
+//										}
+//									});
+//							builder.show();
+//						}else {
+//							for(int j = 1; i < j ; j++)
+//							ActivityWordTestMain.actList.get(i).finish();
+//						}
+//
+//					}
+				}
 			});
 
 
@@ -443,5 +482,24 @@ public class ViewTopMenu extends LinearLayout {
 
 	public void setTitleVisibility(int visibility) {
 		layoutTitle.setVisibility(visibility);
+	}
+
+
+	private void logoutGoLoginActivity() {
+		//Preferences.putPref(mContext, Preferences.PREF_USER_ID, null);
+
+		Preferences.putPref(activity, Preferences.PREF_USER_PW, null);
+		Preferences.putPref(activity, Preferences.PREF_IS_MEMBER, false);
+		VoUserInfo.getInstance().clear();
+
+		Intent intent = new Intent(activity, ActivityLogin.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+		intent.putExtra(Const.IntentKeys.INTENT_DOUBLE_LOGIN, true);
+		activity.startActivity(intent);
+
+//		activity.finish();
+
+
 	}
 }

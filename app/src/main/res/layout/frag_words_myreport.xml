@@ -21,16 +21,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimen_30.0dp"
                 android:orientation="horizontal" >
                 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center" >
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center" >-->
                     
-                </LinearLayout>
+                <!--</LinearLayout>-->
                 
                 <kr.co.moumou.smartwords.customview.CustomButton
                     android:id="@+id/bt_lv1"
@@ -99,63 +100,62 @@
                     android:background="@drawable/sel_tab_right" />
                 
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical" >
-                
+                android:orientation="horizontal">
+
                 <LinearLayout
                     android:id="@+id/ll_known"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_weight="1" >
-                    
+                    android:orientation="vertical">
+
                     <FrameLayout
                         android:id="@+id/fl_known"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-                        
+                        android:layout_height="wrap_content">
+
                         <kr.co.moumou.smartwords.wordschart.PieGraph
                             android:id="@+id/pg_known"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center" />
-                        
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_gravity="center"
-                            android:gravity="center" >
-                            
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_kcount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/efont42" />
-                            
+
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/report_word"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/efont13" />
-                            
+
                         </LinearLayout>
-                        
+
                     </FrameLayout>
-                    
+
                     <kr.co.moumou.smartwords.customview.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/report_known"
-                        android:textSize="@dimen/efont13"
-                        android:textColor="@color/words_gray" />
+                        android:textColor="@color/words_gray"
+                        android:textSize="@dimen/efont13" />
 
                 </LinearLayout>
 
@@ -163,9 +163,9 @@
                     android:id="@+id/ll_unknown"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_weight="1" >
+                    android:orientation="vertical">
 
                     <FrameLayout
                         android:id="@+id/fl_unknown"
@@ -176,14 +176,14 @@
                             android:id="@+id/pg_unknown"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_gravity="center"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <kr.co.moumou.smartwords.customview.CustomTextView
                                 android:id="@+id/tv_ucount"
@@ -207,8 +207,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/report_unknown"
-                        android:textSize="@dimen/efont13"
-                        android:textColor="@color/words_gray" />
+                        android:textColor="@color/words_gray"
+                        android:textSize="@dimen/efont13" />
 
                 </LinearLayout>
 
@@ -216,15 +216,57 @@
                     android:id="@+id/ll_result"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dimen_20.0dp"
+                        android:orientation="horizontal">
+
+
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="홍길동"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/efont11" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                        <kr.co.moumou.smartwords.customview.CustomTextView
+                            android:id="@+id/tv_logout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="로그아웃"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/efont11" />
+
+                    </LinearLayout>
+
+                    <kr.co.moumou.smartwords.customview.CustomTextView
+                        android:id="@+id/tv_line7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/report_colorline" />
 
                     <LinearLayout
                         android:id="@+id/ll_step"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -236,14 +278,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_step"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -252,8 +294,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                     </LinearLayout>
 
@@ -261,14 +303,14 @@
                         android:id="@+id/tv_line1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/report_colorline" />
+                        android:background="@color/report_line" />
 
                     <LinearLayout
                         android:id="@+id/ll_day"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -280,14 +322,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_day"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -296,8 +338,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                     </LinearLayout>
 
@@ -311,8 +353,8 @@
                         android:id="@+id/ll_total"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -324,14 +366,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_total"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -340,8 +382,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                     </LinearLayout>
 
@@ -355,8 +397,8 @@
                         android:id="@+id/ll_knowncount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -368,14 +410,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_known"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -384,8 +426,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                     </LinearLayout>
 
@@ -399,8 +441,8 @@
                         android:id="@+id/ll_unknowncount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -412,14 +454,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_unknown"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -428,8 +470,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/efont11" />
 
                     </LinearLayout>
 
@@ -443,8 +485,8 @@
                         android:id="@+id/ll_score"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -456,15 +498,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/report_score"
-                            android:textSize="@dimen/efont11"
                             android:textColor="@color/black"
+                            android:textSize="@dimen/efont11"
                             android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1" >
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
 
@@ -473,20 +515,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Level 3"
-                            android:textSize="@dimen/efont11"
                             android:textColor="@color/black"
+                            android:textSize="@dimen/efont11"
                             android:textStyle="bold" />
-                        
+
                     </LinearLayout>
-                    
+
                     <kr.co.moumou.smartwords.customview.CustomTextView
                         android:id="@+id/tv_line6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/report_line" />
-                    
+
                 </LinearLayout>
-                
+
             </LinearLayout>
             
         </LinearLayout>

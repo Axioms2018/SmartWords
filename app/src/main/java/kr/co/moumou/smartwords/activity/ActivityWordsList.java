@@ -25,17 +25,20 @@ import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
 import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
+import kr.co.moumou.smartwords.communication.GlobalApplication;
 import kr.co.moumou.smartwords.customview.CustomButton;
 import kr.co.moumou.smartwords.customview.NoteAdapter;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
 import kr.co.moumou.smartwords.dao.WordTestDownloadDao;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoFileWordsDownload;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoNoteData;
 import kr.co.moumou.smartwords.vo.VoNoteDetail;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsTestDownload;
 import kr.co.moumou.smartwords.vo.VoWordsTestList;
 import kr.co.moumou.smartwords.vo.VoWordsTestList.VoWordQuest;
@@ -47,7 +50,7 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
 	
 	NoteAdapter known;
 	NoteAdapter unknown;
-	
+	public VoUserInfo mUserInfo;
 	ArrayList<VoNoteData> all;
 	
 	@SuppressWarnings("unchecked")
@@ -191,14 +194,18 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_QUIZINFO);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter("COMMAND", ConstantsCommCommand.COMMAND_1112_SMARTWORDS_QUIZ);
+
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
+
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_QUIZINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override
 			public void success(String response) {
 				hideProgress();
+
+
+
 				ApplicationPool.getGson().fromJson(response, VoWordsTestList.class);
 
 				createPractice();   //퀴즈로 Practice만들기
@@ -296,11 +303,11 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
 		
 		for(VoWordsTestDownload voDownload : VoWordsTestList.getInstance().getDOWNLOAD()) {
 			
-			if(!WordTestDownloadDao.getInstance(this).isExistWords(voDownload.getFILE_NAME(), voDownload.getFILE_DATE())){
+			if(!WordTestDownloadDao.getInstance(this).isExistWords(voDownload.getFILE_NAME())){
 				LogTraceMin.I("DB없음 URL" + voDownload.getFILE_NAME());
 				VoFileWordsDownload voFileWords = new VoFileWordsDownload();
 				voFileWords.setFilename(voDownload.getFILE_NAME());
-				voFileWords.setDate(voDownload.getFILE_DATE());
+//				voFileWords.setDate(voDownload.getFILE_DATE());
 				downloadArray.add(voFileWords);
 			}
 		}
@@ -430,7 +437,7 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
     private HashMap<String, Object> getErrorReportInfo(){
         HashMap<String, Object> bookInfo = new HashMap<String, Object>();
 		bookInfo.put(DialogReport.KEY_SYSGB, ConstantsCommParameter.Values.SYSBG_MOUMOU_WORDS);
-		bookInfo.put(DialogReport.KEY_USERID, VoMyInfo.getInstance().getUSERID());
+		bookInfo.put(DialogReport.KEY_USERID, "sessionid_pass");
 		bookInfo.put(DialogReport.KEY_VIEW, findViewById(R.id.lay_base));
 		bookInfo.put(DialogReport.KEY_IS_LIVE, true);
 		bookInfo.put(DialogReport.KEY_PCODE, "99999999");

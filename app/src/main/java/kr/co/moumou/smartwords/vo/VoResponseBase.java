@@ -15,8 +15,8 @@ public class VoResponseBase {
 	private String RES_MSG;
 	private int RES_CODE;
 
-	
-	
+
+
 	public int getRES_CODE() {
 		return RES_CODE;
 	}
@@ -80,7 +80,7 @@ public class VoResponseBase {
 	public boolean isDoubleLogin() {
 		return (RSLT_COMMAND == IS_DOUBLE_LOGIN);
 	}
-	
+
 	public boolean isNotFoundTeacher(){
 		return (RSLT_COMMAND == IS_NOT_FOUND_TEACHER);
 	}

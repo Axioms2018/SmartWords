@@ -21,10 +21,12 @@ import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoRankData;
 import kr.co.moumou.smartwords.vo.VoRankDetail;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 public class FragmentMyRank extends Fragment {
 	
@@ -38,7 +40,8 @@ public class FragmentMyRank extends Fragment {
 	LinearLayout ll_rank;
 	LinearLayout ll_ranktitle;
 	LinearLayout ll_ranklist;
-	
+	public VoUserInfo mUserInfo;
+
 	LinearLayout ll_myscore;
 	LinearLayout ll_knowword;
 	TextView tv_myname;
@@ -149,9 +152,9 @@ public class FragmentMyRank extends Fragment {
 
 
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter("COMMAND", ConstantsCommCommand.COMMAND_1894_SMARTWORDS_MY);
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(getContext(),Preferences.PREF_USER_ID,null));
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+
 
 		AndroidNetworkRequest.getInstance(getActivity()).StringRequest(ConstantsCommURL.REQUEST_TAG_WORDRANKING, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

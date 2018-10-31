@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class VoNoteFrame {
 	private int COMMAND;
-	private int RSLT_COMMAND;
-	private String ERROR_MSG;
+	private int RES_CODE;
+	private String RES_MSG;
 	private String SESSIONID;
 	private String USERID;
 	private int RIGHT_CNT;
@@ -20,20 +20,20 @@ public class VoNoteFrame {
 		COMMAND = cOMMAND;
 	}
 	
-	public int getRSLT_COMMAND() {
-		return RSLT_COMMAND;
+	public int getRES_CODE() {
+		return RES_CODE;
 	}
 	
-	public void setRSLT_COMMAND(int rSLT_COMMAND) {
-		RSLT_COMMAND = rSLT_COMMAND;
+	public void setRES_CODE(int rSLT_COMMAND) {
+		RES_CODE = rSLT_COMMAND;
 	}
 	
-	public String getERROR_MSG() {
-		return ERROR_MSG;
+	public String getRES_MSG() {
+		return RES_MSG;
 	}
 	
-	public void setERROR_MSG(String eRROR_MSG) {
-		ERROR_MSG = eRROR_MSG;
+	public void setRES_MSG(String eRROR_MSG) {
+		RES_MSG = eRROR_MSG;
 	}
 	
 	public String getSESSIONID() {

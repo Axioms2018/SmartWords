@@ -28,20 +28,20 @@ public class WordTestDownloadDao extends BaseDao {
 		return instance;
 	}
 	
-	public void insertWordTestDownload(String name, String createDate) {
-		LogTraceMin.I("insertWordTestDownload : " + name + " / " + createDate);
+	public void insertWordTestDownload(String name) {
+		LogTraceMin.I("insertWordTestDownload : " + name);
 		ContentValues values = new ContentValues();
 		values.put(DaoColumns.Columns.DOWNLOAD_NM, name);
-		values.put(DaoColumns.Columns.DOWNLOAD_TM, createDate);
+//		values.put(DaoColumns.Columns.DOWNLOAD_TM, createDate);
 		DBHelper.getInstance(ctx).insertWithOnConflict(Table.T_SMART_WORD_DOWNLOAD, null, values, SQLiteDatabase.CONFLICT_REPLACE);
 	}
 	
-	public boolean isExistWords(String name, String createDate) {
+	public boolean isExistWords(String name) {
 		Cursor cursor = DBHelper.getReadableInstance(ctx).query(
 				Table.T_SMART_WORD_DOWNLOAD, 
-				new String[]{DaoColumns.Columns.DOWNLOAD_NM, DaoColumns.Columns.DOWNLOAD_TM},
-				DaoColumns.Columns.DOWNLOAD_NM + "=? and " + DaoColumns.Columns.DOWNLOAD_TM + "=?",
-				new String[]{name, createDate}, null, null, null);
+				new String[]{DaoColumns.Columns.DOWNLOAD_NM},
+				DaoColumns.Columns.DOWNLOAD_NM + "=? ",
+				new String[]{name}, null, null, null);
 		
 		if(cursor.getCount() > 0) {
 			cursor.close();

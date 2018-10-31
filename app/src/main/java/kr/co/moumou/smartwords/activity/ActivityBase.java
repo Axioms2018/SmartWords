@@ -20,32 +20,44 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.parceler.Parcels;
+
 import java.text.DecimalFormat;
 
 import kr.co.moumou.smartwords.MainActivity;
 import kr.co.moumou.smartwords.R;
+import kr.co.moumou.smartwords.communication.Const;
 import kr.co.moumou.smartwords.communication.DialogLoding;
 import kr.co.moumou.smartwords.communication.MouMouDialog;
 import kr.co.moumou.smartwords.communication.MouMouDialog.DialogButtonListener;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
+import kr.co.moumou.smartwords.dialog.LoadingDialog;
 import kr.co.moumou.smartwords.util.AppUtil;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.NetworkState;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.common.Constant;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 
 public abstract class ActivityBase extends Activity {
 
 	private DialogLoding progress;
+	public VoUserInfo mUserInfo;
 	private boolean isBack = false;
 	public static final String BROADCAST_ACTION_WRING = "com.mm.waring";
 	public static final int MM_WARING_NETWORK_NOT_AVAILABLE = 4;
+	private LoadingDialog mLoadingDialog = null;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		super.onCreate(savedInstanceState);
+
+
+		mUserInfo = VoUserInfo.getInstance();
+
 	}
 
 	ServiceReceiver serviceReceiver;
@@ -363,6 +375,43 @@ public abstract class ActivityBase extends Activity {
 		
 		return super.dispatchTouchEvent(ev);
 	}
-	
-	
+
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		super.onSaveInstanceState(savedInstanceState);
+		// Save UI state changes to the savedInstanceState.
+		// This bundle will be passed to onCreate if the process is
+		// killed and restarted.
+
+		savedInstanceState.putParcelable(Const.SAVE_USER_INFO, Parcels.wrap(mUserInfo));
+
+
+	}
+
+	/**
+	 * 로딩바 show
+	 */
+	public void showDialog() {
+		LogUtil.i("showDialog");
+		if(mLoadingDialog == null) {
+			mLoadingDialog = new LoadingDialog(this);
+			mLoadingDialog.setCancelable(false);
+			mLoadingDialog.show();
+		}else{
+			if(!mLoadingDialog.isShowing())
+				mLoadingDialog.show();
+		}
+	}
+
+	/**
+	 * 로딩바 hide
+	 */
+	public void hideDialog1() {
+		LogUtil.i("hideDialog");
+		if (mLoadingDialog == null) return;
+		if (mLoadingDialog.isShowing()) mLoadingDialog.dismiss();
+
+	}
+
+
 }

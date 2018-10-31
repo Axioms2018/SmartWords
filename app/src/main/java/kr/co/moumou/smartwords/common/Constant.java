@@ -94,29 +94,16 @@ public class Constant {
 	public final static int BIC_VOICE_LEVEL_4 = 75;
 	public final static int BIC_VOICE_LEVEL_5 = 86;
 
-	public final static int[] BIC_VOICE_LEVELS = new int[]{BIC_VOICE_LEVEL_1, BIC_VOICE_LEVEL_2, BIC_VOICE_LEVEL_3, BIC_VOICE_LEVEL_4, BIC_VOICE_LEVEL_5};
-
-	public static boolean CONTROLL_FORWARD = false;	//빨리감기 제어 플러그
-	public static boolean CONTROLL_WARNING = true;	//큰소리학습 간격 플러그
-	public static boolean CONTROLL_QUST_PASS = false;	//문항 건너뛰기
 	
 	public static final String BROADCAST_ACTION_VOD_PLAYER_STATE 		= "BROADCAST_ACTION_VOD_PLAYER_STATE";
 	public static final String BROADCAST_ACTION_SLIDE_STATE 		= "BROADCAST_ACTION_SLIDE_STATE";
 
-	public final static String FILE_PATH = "file:///";
-	
-	public final static String BOOK_TYPE_M = "M"; // 다독 교재
-	public final static String BOOK_TYPE_J = "J"; // 주니어 교재
-	public final static String BOOK_TYPE_S = "S"; // BOOK READING
 	
 	public final static String STD_GB_S = "S"; // 본학습
 	public final static String STD_GB_R = "R"; // 재학습
 	
 	public final static String STD_W_GB_D = "D"; // 데일리
 	public final static String STD_W_GB_R = "R"; // Reivew
-	
-	public final static String STD_BOOK_E = "E"; // 체험모드(프리스터디)
-	public final static String STD_BOOK_T = "R"; // 전체사용(교사/관리자)
-	public final static String STD_BOOK_O = "O"; // 교재주문대상(회원용)
+
 	
 }

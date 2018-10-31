@@ -37,11 +37,13 @@ import kr.co.moumou.smartwords.customview.ViewTopMenu;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.SharedPrefData;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCertificate;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsDReportData;
 import kr.co.moumou.smartwords.vo.VoWordsDReportDetail;
 import kr.co.moumou.smartwords.vo.VoWordsDReportFrame;
@@ -56,7 +58,7 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 	
 	private String LEVEL;
 	private int DAY;
-	
+	public VoUserInfo mUserInfo;
 	LinearLayout ll_top;
 	ImageButton bt_bon;
 	ImageButton bt_jae;
@@ -272,12 +274,12 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_DAYREPORT);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
 		builder.appendQueryParameter("STD_LEVEL", LEVEL);
 		builder.appendQueryParameter("STD_DAY", String.valueOf(DAY));
 		builder.appendQueryParameter("STD_W_GB", stdWGb);
-		builder.appendQueryParameter("COMMAND", ConstantsCommCommand.COMMAND_1894_SMARTWORDS_MY);
+
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_DAYREPORT, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

@@ -123,6 +123,7 @@ public class MediaDecibelAudio {
 	}
 
 	private boolean isSave = false;
+
 	public void startReader(boolean isSave, Listener listener){
 		this.listener = listener;
 		this.isSave = isSave;

@@ -23,8 +23,10 @@ import kr.co.moumou.smartwords.customview.ViewWordsTestType.TestState;
 import kr.co.moumou.smartwords.customview.ViewWordsTestType.WordTestTypeClickListener;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsLevelList.VoWordsLevel;
 import kr.co.moumou.smartwords.vo.VoWordsTestList;
 import kr.co.moumou.smartwords.vo.VoWordsTestList.VoWordQuest;
@@ -39,7 +41,8 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 	public static final String PARAM_WORDTEST_DAY = "wordtest_day";
 	protected static final String PARAM_WORDTEST_STD_DB = "wordtest_std_gb";
 	protected static final int WORDTEST_TEST_TYPE = 3;
-	
+	public VoUserInfo mUserInfo;
+
 	private String LEVEL;
 	private String LEVEL_TYPE;
 	private int DAY;
@@ -259,12 +262,12 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_STDINFO);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(this,Preferences.PREF_USER_ID,null));
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_LEVEL, LEVEL);
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_DAY, Integer.toString(DAY));
 		builder.appendQueryParameter(ConstantsCommParameter.Keys.WORDTEST_STD_GB, STD_GB);
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1112_SMARTWORDS_QUIZ);
+
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_STDINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

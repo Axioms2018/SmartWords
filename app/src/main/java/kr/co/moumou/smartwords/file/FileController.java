@@ -51,11 +51,11 @@ public class FileController {
 	}
 
 	public static boolean isChant(String fileName){
-        return !(fileName.toLowerCase().indexOf("study") > -1 || fileName.toLowerCase().indexOf("work") > -1
-                || fileName.toLowerCase().indexOf("eval") > -1 || fileName.toLowerCase().indexOf("evla") > -1
-                || fileName.toLowerCase().indexOf("answer") > -1
-                || fileName.toLowerCase().indexOf("test") > -1);
-    }
+		return !(fileName.toLowerCase().indexOf("study") > -1 || fileName.toLowerCase().indexOf("work") > -1
+				|| fileName.toLowerCase().indexOf("eval") > -1 || fileName.toLowerCase().indexOf("evla") > -1
+				|| fileName.toLowerCase().indexOf("answer") > -1
+				|| fileName.toLowerCase().indexOf("test") > -1);
+	}
 
 	public static String getFileName(String fileName){
 		if(isChant(fileName)){
@@ -114,13 +114,13 @@ public class FileController {
 			@Override
 			public void onDownloadComplete() {
 				listener.onDownloadComplete();
-				LogUtil.d(" onDownloadComplete ");				
+				LogUtil.d(" onDownloadComplete ");
 			}
 
 			@Override
 			public void onDecompressing(String path, int currentPos, int totalCount) {
 				listener.onDecompressing(path, currentPos, totalCount);
-				LogUtil.d(" Decompressing " + path  +  " " +  currentPos +" / " + totalCount);				
+				LogUtil.d(" Decompressing " + path  +  " " +  currentPos +" / " + totalCount);
 			}
 
 			@Override
@@ -137,7 +137,7 @@ public class FileController {
 			@Override
 			public void onConnectingServer(String url) {
 				listener.onConnectingServer(url);
-				LogUtil.d(" ServerCOnnecteding  " + url);				
+				LogUtil.d(" ServerCOnnecteding  " + url);
 			}
 
 			@Override
@@ -224,7 +224,7 @@ public class FileController {
 				download();                               //다운로드도 받았고 압축도 풀었으니 다음으로.
 				return;
 			}
-			bookResourceDecompress(info.getName(), info.getpCode(), info.getCreateDate()); //다운로드는 받았으나 압축을 풀지 않아 압축 풀러 
+			bookResourceDecompress(info.getName(), info.getpCode(), info.getCreateDate()); //다운로드는 받았으나 압축을 풀지 않아 압축 풀러
 			return;
 		}
 
@@ -421,8 +421,8 @@ public class FileController {
 	private boolean isDecompressed(String pCode, String name){
 		String fileName = (pCode + File.separator + name);
 
-        return getDB().getBookFileCount(getFileName(fileName)) > 0;
-    }
+		return getDB().getBookFileCount(getFileName(fileName)) > 0;
+	}
 
 	private void insertDecompressFileCount(String pCode, String name, int count){
 		String fileName = (pCode + File.separator + name);

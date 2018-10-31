@@ -2,6 +2,7 @@ package kr.co.moumou.smartwords.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.androidnetworking.error.ANError;
 
 import java.util.ArrayList;
 
+
 import kr.co.moumou.smartwords.common.ApplicationPool;
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
@@ -31,18 +33,22 @@ import kr.co.moumou.smartwords.customview.CustomTextView;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoNoteData;
 import kr.co.moumou.smartwords.vo.VoNoteFrame;
 import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.dialog.DialogStudent.ListenerDialogButton;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
+
 
 @SuppressLint("HandlerLeak")
 public class FragmentMyNote extends Fragment implements OnClickListener {
 	
 	private ActivityMywordsMain wordsMain = null;
-	
+
+
 	VoNoteFrame voNoteFrame;
 	ArrayList<VoNoteData> noteData = new ArrayList<VoNoteData>();
 	
@@ -53,6 +59,7 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 	Button bt_view;
 	LinearLayout ll_unknown;
 	TextView tv_unknowncnt;
+	public VoUserInfo mUserInfo;
 
 	int all;
 	int known;
@@ -197,9 +204,9 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 
         String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_USERNOTE);
         Uri.Builder builder = Uri.parse(url).buildUpon();
-        builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1894_SMARTWORDS_MY);
+        builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, Preferences.getPref(getContext(),Preferences.PREF_USER_ID,null));
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+
 
 		AndroidNetworkRequest.getInstance(getActivity()).StringRequest(ConstantsCommURL.REQUEST_TAG_USERNOTE, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override

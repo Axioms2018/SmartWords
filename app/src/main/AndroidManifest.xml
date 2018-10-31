@@ -33,6 +33,10 @@
 
         </activity>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="840bb2c06fc5bb73be6c03f95eb46149007196e3" />
+
         <activity
             android:name="kr.co.moumou.smartwords.activity.ActivityWordTestMain"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
@@ -83,6 +87,11 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name="kr.co.moumou.smartwords.activity.ActivityCertificate"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="kr.co.moumou.smartwords.sign.ActivityLogin"
+            android:theme="@style/Theme.AppCompat"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
             android:screenOrientation="sensorLandscape" />
 

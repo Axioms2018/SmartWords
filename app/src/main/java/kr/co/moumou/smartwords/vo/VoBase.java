@@ -1,33 +1,23 @@
 package kr.co.moumou.smartwords.vo;
 
 
+import org.parceler.Parcel;
+
 /**
  * Created by 김민정 on 2018-03-28.
  */
 
+@Parcel
 public class VoBase {
-//    public static final int RES_STOP_SERVICE = -1;     //서비스 제한
+    public static final int RES_STOP_SERVICE = -1;     //서비스 제한
     public static final int RES_SERVER_ERROR = -2;     //서버 장애
     public static final int RES_SYSTEM = 0;            //시스템 점검
-    public int RSLT_COMMAND = -1;
-
-    private String SESSIONID;
-    private String ERROR_MSG;
-
-    public static final int RES_SUCCESS = 777;           //성공
-    public static final int IS_CHECK_LOGIN = 001;       //강제 로그아웃 >> 3개 이상의 기계
+    public static final int RES_SUCCESS = 1;           //성공
+    public static final int RES_POINT= 2;              //포인트
+    public static final int IS_CHECK_LOGIN = 3;       //강제 로그아웃 >> 3개 이상의 기계
     public String RES_MSG;
-    public int RES_CODE;
-    private String COMMAND;
-
-
-    public int getRES_CODE() {
-        return RES_CODE;
-    }
-
-    public void setRES_CODE(int RES_CODE) {
-        this.RES_CODE = RES_CODE;
-    }
+    public int RES_CODE = 1;
+    public String RSLT_COMMAND;
 
     public String getRES_MSG() {
         return RES_MSG;
@@ -37,65 +27,45 @@ public class VoBase {
         this.RES_MSG = RES_MSG;
     }
 
-    public String getSESSIONID() {
-        return SESSIONID;
+    public int getRES_CODE() {
+        return RES_CODE;
     }
 
-    public void setSESSIONID(String sESSIONID) {
-        SESSIONID = sESSIONID;
+    public void setRES_CODE(int RES_CODE) {
+        this.RES_CODE = RES_CODE;
     }
 
-    public String getCOMMAND() {
-        return COMMAND;
-    }
+    public String getRSLT_COMMAND() { return RSLT_COMMAND; }
 
-    public void setCOMMAND(String cOMMAND) {
-        COMMAND = cOMMAND;
-    }
-
-    public String getERROR_MSG() {
-        return ERROR_MSG;
-    }
-
-    public void setERROR_MSG(String eRROR_MSG) {
-        ERROR_MSG = eRROR_MSG;
-    }
-
-
-    public int getIS_CHECK_LOGIN() {return IS_CHECK_LOGIN;}
-
-    public int getRES_SUCCESS() {
-        return RES_SUCCESS;
-    }
-
-
-    public int getRSLT_COMMAND() { return RSLT_COMMAND; }
-
-    public void setRSLT_COMMAND(int RSLT_COMMAND) { this.RSLT_COMMAND = RSLT_COMMAND; }
+    public void setRSLT_COMMAND(String RSLT_COMMAND) { this.RSLT_COMMAND = RSLT_COMMAND; }
 
     public boolean isSuccess() {
-        if(RSLT_COMMAND == RES_SUCCESS) return true;
+        if(RES_CODE == RES_SUCCESS) return true;
         return false;
     }
 
     public boolean isSystemCheck() {
-        if(RSLT_COMMAND == RES_SYSTEM) return true;
+        if(RES_CODE == RES_SYSTEM) return true;
         return false;
     }
 
+    public boolean isSetPoint() {
+        if(RES_CODE == RES_POINT) return true;
+        return false;
+    }
 
     public boolean loginError() {
-        if(RSLT_COMMAND == IS_CHECK_LOGIN) return true;
+        if(RES_CODE == IS_CHECK_LOGIN) return true;
         return false;
     }
 
     public boolean isStopService() {
-//        if(RES_CODE == RES_STOP_SERVICE) return true;
+        if(RES_CODE == RES_STOP_SERVICE) return true;
         return false;
     }
 
     public boolean isServerError() {
-        if(RSLT_COMMAND == RES_SERVER_ERROR) return true;
+        if(RES_CODE == RES_SERVER_ERROR) return true;
         return false;
     }
 }

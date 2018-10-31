@@ -118,10 +118,14 @@ public class AndroidNetworkRequest {
 //                            result.setRES_MSG("ORA-00936: 누락된 표현식-1-1-1");
 //                        }
 
+                        LogUtil.w("rescode : " + result.getRES_CODE());
+                        LogUtil.w("rescode : " + result.getRES_MSG());
                         if(result.isSuccess()) {
                             listener.success(response);
                             return;
                         }
+
+                        LogUtil.e("fail");
 
                         if(result.loginError()) {
                             listener.dismissDialog();

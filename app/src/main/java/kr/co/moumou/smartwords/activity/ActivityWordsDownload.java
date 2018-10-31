@@ -86,7 +86,7 @@ public class ActivityWordsDownload extends ActivityBase {
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		int width = (int) (display.getWidth() * 0.40); // Display 사이즈의 70%
-		int height = (int) (display.getHeight() * 0.38); // Display 사이즈의 90%
+		int height = (int) (display.getHeight() * 0.30); // Display 사이즈의 90%
 		getWindow().getAttributes().width = width;
 		getWindow().getAttributes().height = height;
 
@@ -174,12 +174,14 @@ public class ActivityWordsDownload extends ActivityBase {
 	}
 
 	private void downloadStart() {
-
+//		showLoadingProgress("다운로드 기다려주세요");
 		WordsController.getInstance(this).setURL(download_path);
 		WordsController.getInstance(this).setListener(new WordsControllerProgress() {
 
+
 			@Override
 			public void onFileExist() {
+
 				LogUtil.d(" FILE Exist ");
 			}
 

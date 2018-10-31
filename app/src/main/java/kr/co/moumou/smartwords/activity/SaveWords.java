@@ -15,6 +15,7 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.dao.WordTestRsltDao;
@@ -22,13 +23,15 @@ import kr.co.moumou.smartwords.util.LogTraceMin;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsSaveList;
 import kr.co.moumou.smartwords.common.ApplicationPool;
 
 public class SaveWords {
 
 	private Context mContext;
-	
+	public VoUserInfo mUserInfo;
+
 	public SaveWords(Context context) {
 		this.mContext = context;
 	}
@@ -57,6 +60,7 @@ public class SaveWords {
 	private void reqSaveWords() {
 
 		String jsonData = new ApplicationPool().getGson().toJson(VoWordsSaveList.getInstance().getSAVE_WORDS_LIST());
+		WordTestRsltDao.getInstance(mContext).deleteAllWordTest();	//InnerDB에 있는 WordTest전부 삭제
 
 		JSONArray jsonArray = null;
 		try{
@@ -69,12 +73,9 @@ public class SaveWords {
 			@Override
 			public void success(String response) {
 				LogTraceMin.D("onResponse " + response);
-				LogUtil.w("onResponse : " + response);
-
-				WordTestRsltDao.getInstance(mContext).deleteAllWordTest();
 
 				//VoWordSaveList 모두 삭제
-				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
+				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
 				if(null != saveWordsComplete) saveWordsComplete.success();	//전송 완료후 해야할 액션이 있을 경우
 			}
 
@@ -86,17 +87,17 @@ public class SaveWords {
 			@Override
 			public void fail(VoBase base) {
 				LogTraceMin.D("onResponseFail :: " + base);
-				//WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
+				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
 
-				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();	//성공해도 실패해도 VoWordsSaveList에 든 모든 데이터는 삭제한다.
+				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();	//성공해도 실패해도 VoWordsSaveList에 든 모든 데이터는 삭제한다.
 				if(null != saveWordsComplete) saveWordsComplete.fail();
 			}
 
 			@Override
 			public void exception(ANError error) {
 				LogTraceMin.D("exception :: " + error.toString());
-				//WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
-				//VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
+				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
+				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
 				if(null != saveWordsComplete) saveWordsComplete.exception();
 			}
 
@@ -105,47 +106,6 @@ public class SaveWords {
 
 			}
 		});
-		
-//		String jsonData = new Gson().toJson(VoWordsSaveList.getInstance().getSAVE_WORDS_LIST());
-//		WordTestRsltDao.getInstance(mContext).deleteAllWordTest();	//InnerDB에 있는 WordTest전부 삭제
-		
-//		CommToHttp.getInstance().JsonObjectRequest(false, Method.POST, url, jsonData, new CommunicationEventListener() {
-//
-//			@Override
-//			public void onResponseFail(String msg) {
-//				LogTraceMin.D("onResponseFail :: " + msg);
-//				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
-//
-//				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();	//성공해도 실패해도 VoWordsSaveList에 든 모든 데이터는 삭제한다.
-//				if(null != saveWordsComplete) saveWordsComplete.fail();
-//			}
-//
-//			@Overridenaaw
-//			public void onResponse(String msg) {
-//				LogTraceMin.D("onResponse " + msg);
-//
-//				//VoWordSaveList 모두 삭제
-//				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
-//				if(null != saveWordsComplete) saveWordsComplete.success();	//전송 완료후 해야할 액션이 있을 경우
-//			}
-//
-//			@Override
-//			public void exception(Exception e) {
-//				LogTraceMin.D("exception :: " + e.toString());
-//				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
-//				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
-//				if(null != saveWordsComplete) saveWordsComplete.exception();
-//			}
-//
-//			@Override
-//			public void networkNotAvailable(String msg) {
-//				WordTestRsltDao.getInstance(mContext).putInnerDBFromVoData();	//실패시 모든 VO데이터를 InnerDB에 다시 담는다.
-//				VoWordsSaveList.getInstance().deleteSAVE_WORDS_LIST();
-//				if(null != saveWordsComplete) saveWordsComplete.success();
-//			}
-//
-//		});
-		
 	}
 	
 	private SaveWordsComplete saveWordsComplete = null;
@@ -167,7 +127,7 @@ public class SaveWords {
 		String currentDate = sdf.format(new Date());
 		
 		String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/LOG/";
-		String fileName = dirPath + VoMyInfo.getInstance().getUSERID() + "_" + title + "_" + currentDate +".txt";
+		String fileName = dirPath + VoUserInfo.getInstance().getSID() + "_" + title + "_" + currentDate +".txt";
 		
 		File file = new File(dirPath);
 		

@@ -81,7 +81,7 @@ public class WordsController {
 			@Override
 			public void onFileExist() {
 				listener.onFileExist();
-				LogUtil.d(" FILE EXIST");
+				LogUtil.d("FILE EXIST");
 			}
 			
 			@Override
@@ -98,7 +98,7 @@ public class WordsController {
 			@Override
 			public void onDownloadComplete() {
 				listener.onDownloadComplete();
-				insertDownloadInfo(filename, createDate);
+				insertDownloadInfo(filename);
 				download();
 			}
 			
@@ -126,8 +126,8 @@ public class WordsController {
 		return daoFileDownload;
 	}
 	
-	private void insertDownloadInfo(String filename, String createDate) {
-		getDB().insertWordTestDownload(filename, createDate);
+	private void insertDownloadInfo(String filename) {
+		getDB().insertWordTestDownload(filename);
 	}
 	
 }

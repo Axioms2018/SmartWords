@@ -292,7 +292,7 @@ public class StringUtil {
 //		}
 //
 //		String recPath = Constant.EXTERNAL_PATH_MOUMOU
-//				+ VoMyInfo.getInstance().getUSERID() + "_"
+//				+ "sessionid_pass" + "_"
 //				+ templateInfo.getPCODE() + "_"
 //				+ templateInfo.getQUST_SEQ() + "_"
 //				+ templateInfo.getSTDY_GUBN() + "_"
@@ -305,7 +305,7 @@ public class StringUtil {
 //	}
 //
 //	static public String getRecShortPath(VoQuest templateInfo, String fileName) {
-//		String recPath = VoMyInfo.getInstance().getUSERID() + "_"
+//		String recPath = "sessionid_pass" + "_"
 //				+ templateInfo.getPCODE() + "_"
 //				+ templateInfo.getCHACI() + "_"
 //				+ templateInfo.getQUST_SEQ() + "_"
@@ -326,7 +326,7 @@ public class StringUtil {
 //		}
 //
 //		String recPath = Constant.EXTERNAL_PATH_MOUMOU
-//				+ VoMyInfo.getInstance().getUSERID() + "_"
+//				+ "sessionid_pass" + "_"
 //				+ templateInfo.getPCODE() + "_"
 //				+ templateInfo.getCHACI() + "_"
 //				+ templateInfo.getQUST_SEQ() + "_"
@@ -340,7 +340,7 @@ public class StringUtil {
 //
 //	static public String getDrawFileName(VoWS301 ws301) {
 //
-//		String drawPath = VoMyInfo.getInstance().getUSERID() + "_"
+//		String drawPath = "sessionid_pass" + "_"
 //				+ ws301.getSTDY_GUBN() + "_"
 //				+ ws301.getSTDY_TYPE() + "_"
 //				+ ws301.getIMG_PATH();
@@ -366,7 +366,7 @@ public class StringUtil {
 //
 //	static public String getDrawFileName(VoQuest tempalteInfo, String fileName) {
 //
-//		String drawPath = VoMyInfo.getInstance().getUSERID() + "_"
+//		String drawPath = "sessionid_pass" + "_"
 //				+ tempalteInfo.getSTDY_GUBN() + "_"
 //				+ tempalteInfo.getSTDY_TYPE() + "_"
 //				+ fileName;
@@ -385,7 +385,7 @@ public class StringUtil {
 //		}
 //
 //		String drawPath = filePath
-//				+ VoMyInfo.getInstance().getUSERID() + "_"
+//				+ "sessionid_pass" + "_"
 //				+ templateInfo.getSTDY_GUBN() + "_"
 //				+ templateInfo.getSTDY_TYPE() + "_"
 //				+ fileName;

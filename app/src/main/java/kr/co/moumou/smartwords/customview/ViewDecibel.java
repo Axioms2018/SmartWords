@@ -25,6 +25,7 @@ import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.SharedPrefData;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 
 public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.DecibelCheckListener {
@@ -45,6 +46,7 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 	public final static int CHECK_VOICE_BUBBLE_NOT = 0;
 	protected final int CHECK_VOICE_BUBBLE_SMALL = 1; // 큰소리학습시 목소리가 작을때 텍스트뷰 변경
 	protected final int CHECK_VOICE_BUBBLE_BIG = 2; // 큰소리학습시 목소리가 클때 텍스트뷰 변경
+	public VoUserInfo mUserInfo;
 
 	private boolean isBigVoice = false;	//큰소리로 말했다구!
 	private boolean isStop = false;
@@ -486,8 +488,8 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 	}
 	
 	private void setUserSpeed(){
-		currentDuration = SharedPrefData.getIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_VALUE_ID_ +templateCode + "_" +VoMyInfo.getInstance().getUSERID(), 0);
-//		currentPer = SharedPrefData.getIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_TEST_VALUE_ID_ +templateCode + "_" +VoMyInfo.getInstance().getUSERID(), 20);
+		currentDuration = SharedPrefData.getIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_VALUE_ID_ +templateCode + "_" +VoUserInfo.getInstance().getSID(), 0);
+//		currentPer = SharedPrefData.getIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_TEST_VALUE_ID_ +templateCode + "_" +"sessionid_pass", 20);
 		if(currentDuration <= 0){
 			tv_current_duration.setText(Math.abs(currentDuration)+ "");
 		}else{
@@ -532,8 +534,8 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 			}
 		}
 		
-		SharedPrefData.setIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_VALUE_ID_ +templateCode + "_" +VoMyInfo.getInstance().getUSERID(), currentDuration);
-//		SharedPrefData.setIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_TEST_VALUE_ID_ +templateCode + "_" +VoMyInfo.getInstance().getUSERID(), Integer.valueOf(editPer.getText().toString()));
+		SharedPrefData.setIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_VALUE_ID_ +templateCode + "_" +VoUserInfo.getInstance().getSID(), currentDuration);
+//		SharedPrefData.setIntSharedData(activity, SharedPrefData.SHARED_USER_DURATION_TEST_VALUE_ID_ +templateCode + "_" +"sessionid_pass", Integer.valueOf(editPer.getText().toString()));
 		setUserSpeed();
 	}
 	

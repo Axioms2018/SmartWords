@@ -4,7 +4,7 @@ package kr.co.moumou.smartwords.communication;
 public class ConstantsCommParameter {
     public class Keys{
         public static final String COMMAND = "COMMAND";               			//명령어
-        public static final String SESSIONID = "SESSIONID";                 		//세션아이디
+        public static final String SESSIONID = "SID";                 		//세션아이디
         public static final String USERID = "USERID";             			             //아이디
         public static final String COMPCODE = "COMPCODE";             			             //학습관아이디
         public static final String USERNAME = "USERNAME";           		       //이름
@@ -39,8 +39,8 @@ public class ConstantsCommParameter {
         public static final String FILE_NAME = "FILE_NAME";          		          //파일명
         public static final String FILE_SIZE = "FILE_SIZE";          		                 //파일 사이즈
         public static final String LAP_TM = "LAP_TM";             			                  //다운로드 시간
-        public static final String RSLT_COMMAND = "RSLT_COMMAND";       	  //명령실행결과
-        public static final String ERROR_MSG = "ERROR_MSG";          		         //에러메세지
+        public static final String RES_CODE = "RES_CODE";       	  //명령실행결과
+        public static final String RES_MSG = "RES_MSG";          		         //에러메세지
         public static final String RANDOM_NUMBER = "RANDOM_NUMBER";    //난수(접속된 소켓의 고유값)
         public static final String MEMNO = "MEMNO";      	                      //UserNname과 같은데 삭제 예정.
         public static final String MEMNAME = "MEMNAME";      	                      //UserNname과 같은데 삭제 예정.

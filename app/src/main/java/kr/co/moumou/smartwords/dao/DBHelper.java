@@ -90,40 +90,40 @@ public class DBHelper extends SQLiteOpenHelper {
 //			db.execSQL(createWordTestDownloadTable());
 //		}
 		
-		switch(oldVersion){
-			case 1:
-			case 2:	
-				db.execSQL(crateSmartStdyRsltTable());
-				db.execSQL(crateSmartStdyStdyPgss());
-				db.execSQL(crateSmartStdyStdyPgssDtl());
-				
-				db.execSQL(crateMonthlyTestTable());
-				db.execSQL(crateSmartStdyWCResult());
-			case 3:
-				db.execSQL(crateSmartStdyWCResult());
-			case 4:
-			case 5:
-			case 6:
-				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_STDY_WC_RESULT);
-				db.execSQL(crateSmartStdyWCResult());
-			case 7:
-				db.execSQL(createWordTestTable());
-			case 8:
-				db.execSQL(createWordTestDownloadTable());
-			case 9:
-				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_STDY_RSLT);
-				db.execSQL(crateSmartStdyRsltTable());
-			case 10:
-				db.execSQL(createWordTestTable());
-			case 11:
-				db.execSQL(createWordTestDownloadTable());
-			case 12:
-				db.execSQL(createClassRuleTable());
-			case 13:
-				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_WORD_TEST);
-				db.execSQL(createWordTestTable());
-				
-		}
+//		switch(oldVersion){
+//			case 1:
+//			case 2:
+//				db.execSQL(crateSmartStdyRsltTable());
+//				db.execSQL(crateSmartStdyStdyPgss());
+//				db.execSQL(crateSmartStdyStdyPgssDtl());
+//
+//				db.execSQL(crateMonthlyTestTable());
+//				db.execSQL(crateSmartStdyWCResult());
+//			case 3:
+//				db.execSQL(crateSmartStdyWCResult());
+//			case 4:
+//			case 5:
+//			case 6:
+//				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_STDY_WC_RESULT);
+//				db.execSQL(crateSmartStdyWCResult());
+//			case 7:
+//				db.execSQL(createWordTestTable());
+//			case 8:
+//				db.execSQL(createWordTestDownloadTable());
+//			case 9:
+//				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_STDY_RSLT);
+//				db.execSQL(crateSmartStdyRsltTable());
+//			case 10:
+//				db.execSQL(createWordTestTable());
+//			case 11:
+//				db.execSQL(createWordTestDownloadTable());
+//			case 12:
+//				db.execSQL(createClassRuleTable());
+//			case 13:
+//				db.execSQL("DROP TABLE IF EXISTS " + Table.T_SMART_WORD_TEST);
+//				db.execSQL(createWordTestTable());
+//
+//		}
 	}
 	
 	
@@ -261,8 +261,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("Create table IF NOT EXISTS " + Table.T_SMART_WORD_DOWNLOAD + " ( ");
-		query.append(DaoColumns.Columns.DOWNLOAD_NM	+ " VARCHAR (30) PRIMARY KEY, ");
-		query.append(DaoColumns.Columns.DOWNLOAD_TM + " VARCHAR (20) NOT NULL ");
+		query.append(DaoColumns.Columns.DOWNLOAD_NM	+ " VARCHAR (30) PRIMARY KEY ");
+//		query.append(DaoColumns.Columns.DOWNLOAD_TM + " VARCHAR (20) NOT NULL ");
 		query.append(" ); ");
 		
 		return query.toString();
@@ -275,7 +275,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		query.append(DaoColumns.Columns.CR_POPUP_CHECK + " VARCHAR(5), ");
 		query.append(DaoColumns.Columns.CR_DATE_CEHCK + " VARCHAR(5)");
 		query.append(" ); ");
-		
+
 		return query.toString();
 	}
 	

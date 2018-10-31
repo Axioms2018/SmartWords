@@ -5,6 +5,19 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 public class Preferences {
+
+    public static final String PREF_TOKEN_KEY               = "pref_token_key";
+    public static final String PREF_APP_VERSION_NM          = "pref_app_version_nm";
+    public static final String PREF_APP_VERSION_CODE        = "pref_app_version_code";
+
+
+    public static final String PREF_IS_CHECK_FIRST          = "pref_is_first";          //최초 실행인지 체크
+    public static final String PREF_USER_ID                 = "pref_user_id";
+    public static final String PREF_USER_PW                 = "pref_user_password";
+    public static final String PREF_IS_MEMBER               = "pref_is_member";
+
+
+
     private static final String PREFERENCE_NAME         = "MOUMOU_PREFERENCE";
     private static final String KEY_SCREEN_WIDTH		= "KEY_SCREEN_WIDTH";
     private static final String KEY_SCREEN_HEIGHT		= "KEY_SCREEN_HEIGHT";
@@ -252,5 +265,60 @@ public class Preferences {
         }
 
         return sp.getInt(KEY_STATUS_BAR_HEIGHT, 0);
+    }
+    public static void putPref(Context context, String key, String value) {
+        SharedPreferences.Editor editor = getPreferencesEditor(context);
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static void putPref(Context context, String key, int value) {
+        SharedPreferences.Editor editor = getPreferencesEditor(context);
+        editor.putInt(key, value);
+        editor.commit();
+    }
+
+    public static void putPref(Context context, String key, boolean value) {
+        SharedPreferences.Editor editor = getPreferencesEditor(context);
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
+    public static void putPref(Context context, String key, long value) {
+        SharedPreferences.Editor editor = getPreferencesEditor(context);
+        editor.putLong(key, value);
+        editor.commit();
+    }
+
+    public static String getPref(Context context, String key, String defaultValue) {
+        try {
+            return getPreferences(context).getString(key, defaultValue);
+        }catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
+    public static int getPref(Context context, String key, int defaultValue) {
+        try {
+            return getPreferences(context).getInt(key, defaultValue);
+        }catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
+    public static boolean getPref(Context context, String key, boolean defaultValue) {
+        try {
+            return getPreferences(context).getBoolean(key, defaultValue);
+        }catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
+    public static long getPref(Context context, String key, long defaultValue) {
+        try {
+            return getPreferences(context).getLong(key, defaultValue);
+        }catch (Exception e) {
+            return defaultValue;
+        }
     }
 }

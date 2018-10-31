@@ -17,18 +17,22 @@ import com.androidnetworking.error.ANError;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import kr.co.moumou.smartwords.MainActivity;
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
 import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
+import kr.co.moumou.smartwords.communication.GlobalApplication;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
 import kr.co.moumou.smartwords.customview.ViewWordsLevel;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
+import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsLevelList;
 import kr.co.moumou.smartwords.vo.VoWordsLevelList.VoWordsLevel;
 import kr.co.moumou.smartwords.common.ApplicationPool;
@@ -38,7 +42,6 @@ public class ActivityWordTestMain extends ActivityBase {
 	public static ArrayList<Activity> actList = new ArrayList<Activity>();
 	
 	private final int WORDTEST_LEVEL_SELECT = 1;
-	
 	private ViewTopMenu view_top_menu;
 //	private StudyDataComm studyDataComm;
 	
@@ -50,7 +53,10 @@ public class ActivityWordTestMain extends ActivityBase {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wordtest_main);
 
-		getTestData();
+
+		boolean isMember = Preferences.getPref(ActivityWordTestMain.this, Preferences.PREF_IS_MEMBER, false);
+
+//		getTestData();
 		
 		if(ConstantsCommURL.ISTEST) {
 			findViewById(R.id.iv_logo).setOnClickListener(new OnClickListener() {
@@ -89,6 +95,7 @@ public class ActivityWordTestMain extends ActivityBase {
 		
 		LinearLayout ll_main = (LinearLayout) findViewById(R.id.ll_main);
 		DisplayUtil.setLayoutPadding(this, 0, 0, 0, 70, ll_main);
+//		requestMyInfo();
 		reqWordsLevelinfo1();
 	}
 
@@ -148,19 +155,28 @@ public class ActivityWordTestMain extends ActivityBase {
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 
+		String userId = Preferences.getPref(this, Preferences.PREF_USER_ID, null);
+
 //		Uri.Builder builder = Uri.parse(ConstantsCommURL.getWordUrl("GetLevelInfo")).buildUpon();
+
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_GETLEVELINFO);
 		Uri.Builder builder = Uri.parse(url).buildUpon();
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoMyInfo.getInstance().getSESSIONID());
-		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, VoMyInfo.getInstance().getUSERID());
-		builder.appendQueryParameter("COMMAND",ConstantsCommCommand.COMMAND_1110_SMARTWORDS_MAIN);
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.SESSIONID, VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter(ConstantsCommParameter.Keys.USERID, userId);
 
 		AndroidNetworkRequest.getInstance(this).StringRequest(ConstantsCommURL.REQUEST_TAG_GETLEVELINFO, builder.toString(), new AndroidNetworkRequest.ListenerAndroidResponse() {
 			@Override
 			public void success(String response) {
 				hideProgress();
+
+//				GlobalApplication.getGson().fromJson(response, VoUserInfo.class);
+//				ApplicationPool.getGson().fromJson(response, VoUserInfo.class);
+//				mUserInfo= VoUserInfo.getInstance();
+
 				VoWordsLevelList levelList = ApplicationPool.getGson().fromJson(response, VoWordsLevelList.class);
 				addWordsLevel(levelList);
+
+
 			}
 
 			@Override
@@ -220,9 +236,48 @@ public class ActivityWordTestMain extends ActivityBase {
 		
 		if(requestCode == WORDTEST_LEVEL_SELECT) {
 			LogTraceMin.I("정보 재실행");
+//			requestMyInfo();
 			reqWordsLevelinfo1();
 		}
 		
 	}
+
+	private void requestMyInfo() {
+
+		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_USERINFO);
+		String tag = ConstantsCommURL.REQUEST_TAG_USERINFO;
+
+		String userId = Preferences.getPref(this, Preferences.PREF_USER_ID, null);
+
+		Uri.Builder builder = Uri.parse(url).buildUpon();
+		builder.appendQueryParameter("SID",  VoUserInfo.getInstance().getSID());
+		builder.appendQueryParameter("USERID",  userId);
+
+
+		AndroidNetworkRequest.getInstance(this).StringRequest(tag, builder.toString(),
+				new AndroidNetworkRequest.ListenerAndroidResponse() {
+					@Override
+					public void success(String response) {
+
+						ApplicationPool.getGson().fromJson(response, VoUserInfo.class);
+
+					}
+
+					@Override
+					public void systemcheck(String response) {}
+
+	   				@Override
+					public void fail(VoBase voBase) {}
+
+					@Override
+					public void exception(ANError error) {}
+
+					@Override
+					public void dismissDialog() {}
+
+				});
+	}
+
+
 
 }
