@@ -47,10 +47,12 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 		DisplayUtil.setLayoutMargin(wordTestAcitivity, 34, 0, 34, 0, ll_cont_quiz);
 		DisplayUtil.setLayoutPadding(wordTestAcitivity, 20, 20, 20, 20, ll_cont_quiz);
 		ll_answer = (LinearLayout) v.findViewById(R.id.ll_answer);
-		DisplayUtil.setLayoutMargin(wordTestAcitivity, 0, 62, 0, 0, ll_answer);
+
+		DisplayUtil.setLayoutMargin(wordTestAcitivity, 0, 15, 0, 0, ll_answer);
+
 		tv_answer = (TextView) v.findViewById(R.id.tv_answer);
-		DisplayUtil.setLayoutHeight(wordTestAcitivity, 120, tv_answer);
-		DisplayUtil.setLayoutPadding(wordTestAcitivity, 20, 12, 20, 0, tv_answer);
+		DisplayUtil.setLayoutHeight(wordTestAcitivity, 100, tv_answer);
+		DisplayUtil.setLayoutPadding(wordTestAcitivity, 30, 20, 30, 10, tv_answer);
 		setNextBtn(v);
 		
 		mHandler = new Handler();
@@ -102,7 +104,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 			if(str.contains(Constant.GUBUN_SHARP)) {	//add EditText
 				LogTraceMin.I("answerSizeArr :: " + answerSizeArr[i]);
 				
-				label = new Label(getActivity(), true, answerSizeArr[i] * 20, 35, Color.BLACK, R.drawable.bg_textfield_white, 5, keyListener);
+				label = new Label(getActivity(), true, answerSizeArr[i] * 22, 35, Color.BLACK, R.drawable.bg_textfield_white, 5, keyListener);
 				label.setText("");
 
 				ll_quiz.addLabel(label);
@@ -111,7 +113,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 				i++;
 
 			}else{	//add TextView
-				label = new Label(getActivity(), false, 0, 35, Color.BLACK, Color.TRANSPARENT, 3, keyListener);
+				label = new Label(getActivity(), false, 0, 30, Color.BLACK, Color.TRANSPARENT, 3, keyListener);
 				label.setText(str);
 				ll_quiz.addLabel(label);
 			}
@@ -165,13 +167,13 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 	ArrayList<Label> labelArr = new ArrayList<>();	//EditText Array
 	
 	private void addAnswerArray(ArrayList<String> answerArray, String answer) {
-		if(answer.contains(Constant.GUBUN_APO)) {
-			for(String aa : answer.split(Constant.GUBUN_APO)){
-				answerArray.add(aa);
-			}
-			signArry.add(Constant.GUBUN_APO);
-
-		}else
+//		if(answer.contains(Constant.GUBUN_APO)) {
+//			for(String aa : answer.split(Constant.GUBUN_APO)){
+//				answerArray.add(aa);
+//			}
+//			signArry.add(Constant.GUBUN_APO);
+//
+//		}else
 		if(answer.contains(Constant.GUBUN_HYPHEN)) {
 			for(String aa : answer.split(Constant.GUBUN_HYPHEN)){
 				answerArray.add(aa);

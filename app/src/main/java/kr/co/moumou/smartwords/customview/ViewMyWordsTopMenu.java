@@ -82,7 +82,7 @@ public class ViewMyWordsTopMenu extends LinearLayout {
 		result.add(new VoMyWordsTopMenuItem("결과레포트"));
 		result.add(new VoMyWordsTopMenuItem("단어장"));
 		result.add(new VoMyWordsTopMenuItem("학습달력"));
-		result.add(new VoMyWordsTopMenuItem("단어왕"));
+//		result.add(new VoMyWordsTopMenuItem("단어왕"));
 
 		return result;
 	}	

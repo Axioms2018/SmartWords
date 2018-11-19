@@ -3,69 +3,161 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            app:layout_constraintStart_toStartOf="@+id/edit_email"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="43dp"
+            android:paddingBottom="@dimen/dimen_20.0dp"
+            android:src="@drawable/logo_main"
+            app:layout_constraintBottom_toTopOf="@+id/layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-        <EditText
-            android:id="@+id/edit_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="이메일 입력"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="500dp"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_main"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PassWord"
-            app:layout_constraintStart_toStartOf="@+id/edit_email"
-            app:layout_constraintTop_toBottomOf="@id/edit_email" />
-
-        <EditText
-            android:id="@+id/edit_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="비밀번호 입력"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/edit_email"
-            app:layout_constraintTop_toBottomOf="@id/tv_pwd" />
-
-        <Button
-            android:id="@+id/btn_sign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-
-            android:layout_marginStart="8dp"
-            android:text="로그인"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_pwd" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
 
-    </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/layout_email"
+                    android:layout_width="360dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_pwd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Email"
+                        android:textColor="@color/words_close_btn_bg_default"
+                        app:layout_constraintBottom_toTopOf="@+id/edit_email"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/edit_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@null"
+                        android:hint="이메일 입력"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="40"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/words_menu_bg_default"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/divider_email"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#e6e6e6"
+                        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/layout_pwd"
+                    android:layout_width="360dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_sign"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PassWord"
+                        android:textColor="@color/words_close_btn_bg_default"
+                        app:layout_constraintBottom_toTopOf="@+id/edit_pwd"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/edit_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@null"
+                        android:hint="비밀번호 입력"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        android:maxLength="40"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/words_menu_bg_default"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <View
+                        android:id="@+id/divider_pwd"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#e6e6e6"
+                        app:layout_constraintTop_toBottomOf="@+id/edit_pwd" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <Button
+                    android:id="@+id/btn_sign"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/workbook_complete_btn_selector"
+                    android:text="로그인"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+
 
 
 

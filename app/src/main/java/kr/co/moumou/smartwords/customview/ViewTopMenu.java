@@ -2,11 +2,16 @@ package kr.co.moumou.smartwords.customview;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.moumou.smartwords.activity.ActivityMywordsMain;
 import kr.co.moumou.smartwords.common.Constant;
@@ -23,6 +29,7 @@ import kr.co.moumou.smartwords.R;
 //import kr.co.moumou.smartwords.activity.ActivityMywordsMain;
 import kr.co.moumou.smartwords.activity.ActivityWordTestMain;
 import kr.co.moumou.smartwords.communication.Const;
+import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
@@ -47,6 +54,8 @@ public class ViewTopMenu extends LinearLayout {
 	private int menuType = -1;
 
 	private ImageButton btn_close_words;
+
+	private boolean isMain = false;
 
 	private static int CURRENT_TABI_NDEX = 0;
 	public ViewTopMenu(Context context, AttributeSet attrs, int defStyle) {
@@ -87,6 +96,10 @@ public class ViewTopMenu extends LinearLayout {
 	public void setActivity(Activity activity){
 		this.activity = activity;
 	}
+
+	public void setaaa(boolean abc){
+		isMain = abc;
+	}
 	public void setTitle(String title){
 		tv_title.setText(title);
 	}
@@ -103,6 +116,8 @@ public class ViewTopMenu extends LinearLayout {
 		String userId = SharedPrefData.getStringSharedData(context, SharedPrefData.SHARED_USER_ID_S, Constant.STRING_DEFAULT);
 
 
+
+
 	public void init(int menuType){
 		LayoutInflater infaltor = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -115,19 +130,42 @@ public class ViewTopMenu extends LinearLayout {
 		btn_close_words = (ImageButton) base.findViewById(R.id.btn_close_words);
 		DisplayUtil.setLayout((Activity) context, 84, 67, btn_close_words);
 
+
+
+
 				btn_close_words.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					//10번 마지막창에서 종료시 로그아웃 안내 나오게 만들기
 					//test1 practice test2,3 선택화면도 첫화면으로되서 그상황에 눌러도 로그아웃 안내 나와서 수정필요
 
-					LogTraceMin.I("actList SIZE : " + ActivityWordTestMain.actList.size());
-
-					activity.finish();
+					LogTraceMin.I("ismain : " + isMain);
 
 
+					if(isMain) {
+						final DialogStudent mDialog = new DialogStudent(getContext());
+						mDialog.setDialogSize(DialogStudent.DIALOG_SIZE_SMALL);
+						mDialog.show();
+						mDialog.setButtonMsg("예", "아니오");
+						mDialog.setMessage("로그아웃 하시겠습니까?");
+						mDialog.setCancelable(true);
+						mDialog.setCanceledOnTouchOutside(true);
+						mDialog.setListener(new DialogStudent.ListenerDialogButton() {
+							@Override
+							public void onClick(Dialog dialog, int result) {
+								if(result == DIALOG_BTN_ON) {
+									logoutGoLoginActivity();
+								}else{
+									mDialog.dismiss();
+								}
+							}
+						});
+					}else {
+						activity.finish();
+					}
 
 
+//					activity.finish();
 
 
 //					for (int i = 0; i < ActivityWordTestMain.actList.size(); i++) {

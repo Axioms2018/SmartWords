@@ -647,6 +647,7 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 		bt_certificate = (LinearLayout) findViewById(R.id.bt_certificate);
 		DisplayUtil.setLayout(this, 140, 74, bt_certificate);
 		DisplayUtil.setLayoutMargin(this, 20, 20, 0, 0, bt_certificate);
+		DisplayUtil.setLayoutPadding(this,0,25,0,0,bt_certificate);
 		DisplayUtil.setLayout(this, 27, 33, findViewById(R.id.iv_icon_cert));
 		
 		bt_certificate.setVisibility(View.VISIBLE);

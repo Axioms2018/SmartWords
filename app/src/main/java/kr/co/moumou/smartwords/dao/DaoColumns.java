@@ -93,7 +93,18 @@ public class DaoColumns {
         public static final String EDITING_CHK  = "EDITING_CHK";
         public static final String EVAL_CHK  = "EVAL_CHK";
         public static final String EVAL_SCORE  = "EVAL_SCORE";
-        
+
+        //table name
+        public static final String T_DOWNLOAD_FILES     = "DOWNLOAD_FILE";
+        //column
+        public static final String C_DOWNLOAD_PCODE     = "PCODE";
+        public static final String C_DOWNLOAD_LESSON    = "LESSON";
+        public static final String C_DOWNLOAD_TYPE      = "TYPE";
+        public static final String C_DOWNLOAD_DECOMP    = "DECOMP";
+        public static final String C_DOWNLOAD_FILEURL   = "FILEURL";
+
+
+
     }
 
 }

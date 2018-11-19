@@ -86,7 +86,7 @@ public class ActivityWordsDownload extends ActivityBase {
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		int width = (int) (display.getWidth() * 0.40); // Display 사이즈의 70%
-		int height = (int) (display.getHeight() * 0.30); // Display 사이즈의 90%
+		int height = (int) (display.getHeight() * 0.38); // Display 사이즈의 90%
 		getWindow().getAttributes().width = width;
 		getWindow().getAttributes().height = height;
 

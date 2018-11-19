@@ -2,14 +2,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_pressed="true"
-        android:drawable="@color/template_btn_next_pressed" />
+        android:drawable="@color/menu_bg_selected" />
 
     <item android:state_enabled="true"
-        android:drawable="@color/template_btn_next_default" />
+        android:drawable="@color/menu_bg_default" />
     
     <item android:state_enabled="false"
         android:drawable="@color/template_btn_next_disable" />
     
-	<item android:drawable="@color/template_btn_next_default" />
+	<item android:drawable="@color/menu_bg_default" />
 	
 </selector>

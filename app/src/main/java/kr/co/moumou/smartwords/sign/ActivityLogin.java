@@ -10,8 +10,10 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -30,7 +32,7 @@ import kr.co.moumou.smartwords.vo.VoUserInfo;
  * Created by moumouna on 2018-09-21.
  */
 
-public class ActivityLogin extends AppCompatActivity implements View.OnKeyListener {
+public class ActivityLogin extends AppCompatActivity implements View.OnKeyListener, TextView.OnEditorActionListener {
 
 
 
@@ -67,13 +69,29 @@ public class ActivityLogin extends AppCompatActivity implements View.OnKeyListen
         mBtn_Sign = (Button) findViewById(R.id.btn_sign);
 
 
-        mEditPwd.setOnKeyListener(this);
+//        mEditPwd.setOnKeyListener(this);
+        mEditPwd.setOnEditorActionListener(this);
         mBtn_Sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 attemptLogin();
             }
         });
+
+
+//        mEditEmail.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                if((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)){
+//                    mEditEmail.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+//                    return true;
+//                }else {
+//                    return false;
+//                }
+//
+//            }
+//        });
+
 
 
         String userId = Preferences.getPref(ActivityLogin.this, Preferences.PREF_USER_ID, "");
@@ -89,9 +107,20 @@ public class ActivityLogin extends AppCompatActivity implements View.OnKeyListen
 
     }
 
+
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
-        if(keyCode == event.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP){
+        if(keyCode == event.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP ){
+            LogUtil.i("onKeyEnter");
+            attemptLogin();
+            LogUtil.i("onKeyEnter123");
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if(actionId == EditorInfo.IME_ACTION_DONE ){
             LogUtil.i("onKeyEnter");
             attemptLogin();
             LogUtil.i("onKeyEnter123");
@@ -175,17 +204,18 @@ public class ActivityLogin extends AppCompatActivity implements View.OnKeyListen
         }
 
         // Check for a valid password, if the user entered one.
-//        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
 
-//        if (TextUtils.isEmpty(password)) {
-//            inValidLogin(mEditPwd, getString(R.string.error_pwd_field_required));
-//            return;
-//        }
+            if (TextUtils.isEmpty(password)) {
+                inValidLogin(mEditPwd, getString(R.string.error_pwd_field_required));
+                return;
+            }
 //
 //        if (!isPasswordValid(password)) {
 //            inValidLogin(mEditPwd, getString(R.string.error_invalid_password));
 //            return;
 //        }
+        }
         apiLogin(email, password);
     }
     private void inValidLogin(View focusView, String errMsg) {

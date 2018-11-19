@@ -50,6 +50,11 @@ public abstract class ActivityBase extends Activity {
 	private LoadingDialog mLoadingDialog = null;
 
 
+	public static final int PERMISSIONS_REQUEST_PERMISSION = 1001;
+	public static final int PERMISSIONS_REQUEST_PERMISSION_FORCE = 1002;
+	public static final int PERMISSIONS_REQUEST_CHECK_EXIST = 1003;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -68,7 +73,7 @@ public abstract class ActivityBase extends Activity {
 		super.onStart();
 		
 //		AppUtil.addWaterMarkView(this);
-		
+
 	}
 
 	private class ServiceReceiver extends BroadcastReceiver {
@@ -93,11 +98,7 @@ public abstract class ActivityBase extends Activity {
 		}
 		IntentFilter completeFilter = new IntentFilter(BROADCAST_ACTION_WRING);
 		registerReceiver(waringReceiver, completeFilter);
-		
-//		serviceReceiver = new ServiceReceiver();
-//		IntentFilter intentFilter = new IntentFilter();
-//		intentFilter.addAction("SCREEN_WAIT_TIME");
-//		registerReceiver(serviceReceiver, intentFilter);
+
 	}
 
 	private BroadcastReceiver waringReceiver = new BroadcastReceiver(){
@@ -184,15 +185,7 @@ public abstract class ActivityBase extends Activity {
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
 	}
-//
-//	private void terminateApplication(){
-//		Intent intent = new Intent(ActivityBase.this, ActivityLogin.class);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//		intent.putExtra(Constant.IntentKeys.INTENT_TERMINATE_APP, true);
-//		startActivity(intent);
-//		finish();
-//	}
+
 
 	@Override
 	public void onBackPressed() {
@@ -314,34 +307,7 @@ public abstract class ActivityBase extends Activity {
 		});
 	}
 
-	public void recycleView(View view) {
 
-		if(view != null) {
-			Drawable bg = view.getBackground();
-			if(bg != null) {
-				if(((BitmapDrawable)bg).getBitmap() != null){
-					bg.setCallback(null);	
-					((BitmapDrawable)bg).getBitmap().recycle();
-				}
-				view.setBackgroundDrawable(null);
-			}	
-		}
-	}
-	private DecimalFormat format = new DecimalFormat("00");
-	public String getChaci(int chaci){
-		return format.format(chaci);
-	}
-
-	public String getChaci(String chaci){
-		String result = null;
-		try {
-			result = format.format(Integer.parseInt(chaci));
-		} catch (Exception e) {
-			chaci = chaci.replace(getString(R.string.chapter), "");
-			result = format.format(Integer.parseInt(chaci.trim()));
-		}
-		return result;
-	}
 
 	public abstract ViewTopMenu getTopManu();
 	public abstract int getTopMenuPos();

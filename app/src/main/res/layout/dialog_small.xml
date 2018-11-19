@@ -46,7 +46,7 @@
 	<View
 	    android:layout_width="match_parent"
 	    android:layout_height="1px"
-	    android:background="#f68500" />
+	    android:background="#478ea4" />
 	
 	<RelativeLayout
 	    android:id="@+id/lay_small_button"
@@ -82,7 +82,7 @@
 	    	<View
 		        android:layout_width="1px"
 		        android:layout_height="match_parent"
-		        android:background="#f68500" />
+		        android:background="#478ea4" />
 	    	
 	    	<LinearLayout 
 	    	    android:id="@+id/layoutNoDialogSmall"

@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 import kr.co.moumou.smartwords.dao.DBHelper.Table;
 import kr.co.moumou.smartwords.file.FileController;
+import kr.co.moumou.smartwords.util.LogUtil;
 
 public class DaoFileDownload extends BaseDao{
 
@@ -119,5 +120,68 @@ public class DaoFileDownload extends BaseDao{
 		SQLiteDatabase db =  DBHelper.getInstance(ctx);
 		db.delete(Table.T_DOWNLOAD_FILES, Columns.C_NAME_V + " = ? ", new String[]{name});
 	}
+
+	public boolean isDownload(String code, String lesson,  String type, String fileUrl) {
+
+		cursor = DBHelper.getReadableInstance(ctx).query(
+				DaoColumns.Columns.T_DOWNLOAD_FILES,
+				new String[]{DaoColumns.Columns.C_DOWNLOAD_PCODE, DaoColumns.Columns.C_DOWNLOAD_LESSON,
+						DaoColumns.Columns.C_DOWNLOAD_TYPE, DaoColumns.Columns.C_DOWNLOAD_FILEURL},
+				DaoColumns.Columns.C_DOWNLOAD_PCODE + "=? and "+ DaoColumns.Columns.C_DOWNLOAD_LESSON + "=? and "+
+						DaoColumns.Columns.C_DOWNLOAD_TYPE + "=?",
+				new String[]{code, lesson, type}, null, null, null);
+
+
+		if(cursor.getCount() > 0) {
+			cursor.moveToFirst();
+			String url = cursor.getString(cursor.getColumnIndex(DaoColumns.Columns.C_DOWNLOAD_FILEURL));
+
+			if (fileUrl.equals(url)) {
+				LogUtil.i("다운 안 받음" + url);
+				cursor.close();
+				return false;
+			}
+		}
+
+		LogUtil.i("다운 받음");
+		cursor.close();
+		return true;
+
+	}
+
+	public boolean isDecompressed(String code, String lesson, String type, String fileUrl) {
+
+		boolean result = false;
+
+		cursor = DBHelper.getReadableInstance(ctx).query(
+				DaoColumns.Columns.T_DOWNLOAD_FILES,
+				new String[]{DaoColumns.Columns.C_DOWNLOAD_PCODE, DaoColumns.Columns.C_DOWNLOAD_LESSON,
+						DaoColumns.Columns.C_DOWNLOAD_TYPE, DaoColumns.Columns.C_DOWNLOAD_FILEURL,
+						DaoColumns.Columns.C_DOWNLOAD_DECOMP},
+				DaoColumns.Columns.C_DOWNLOAD_PCODE + "=? and "+ DaoColumns.Columns.C_DOWNLOAD_LESSON + "=? and "+
+						DaoColumns.Columns.C_DOWNLOAD_TYPE + "=? and " + DaoColumns.Columns.C_DOWNLOAD_FILEURL + "=?",
+				new String[]{code, lesson, type, fileUrl}, null, null, null);
+
+		if(cursor.getCount() > 0) {
+			cursor.moveToFirst();
+			int decompress = cursor.getInt(cursor.getColumnIndex(DaoColumns.Columns.C_DOWNLOAD_DECOMP));
+			result = decompress == 0;
+		}
+		cursor.close();
+		return result;
+	}
+
+	public void insertDownloadFile(String code, String lesson, String type, String name, int decomp, String fileUrl) {
+		ContentValues values = new ContentValues();
+		values.put(DaoColumns.Columns.C_DOWNLOAD_PCODE, code);
+		values.put(DaoColumns.Columns.C_DOWNLOAD_LESSON, lesson);
+		values.put(DaoColumns.Columns.C_DOWNLOAD_TYPE, type);
+		values.put(DaoColumns.Columns.C_DOWNLOAD_DECOMP, decomp);
+		values.put(DaoColumns.Columns.C_DOWNLOAD_FILEURL, fileUrl);
+		DBHelper.getInstance(ctx).insertWithOnConflict(DaoColumns.Columns.T_DOWNLOAD_FILES, null,
+				values, SQLiteDatabase.CONFLICT_REPLACE);
+	}
+
+
 
 }

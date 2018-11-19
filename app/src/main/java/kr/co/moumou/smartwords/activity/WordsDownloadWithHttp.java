@@ -63,7 +63,11 @@ public class WordsDownloadWithHttp implements WordsDownloader {
 				if(file.exists()) {
 					file.delete();
 				}
-				file.createNewFile();
+				if(!file.exists()){
+					file.getParentFile().mkdirs();
+					file.createNewFile();
+				}
+
 				
 				InputStream is = urlConnection.getInputStream();
 				BufferedInputStream in = new BufferedInputStream(is);

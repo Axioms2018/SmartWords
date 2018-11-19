@@ -3,6 +3,7 @@ package kr.co.moumou.smartwords.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,6 +38,7 @@ import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.customview.CustomButton;
 import kr.co.moumou.smartwords.customview.CustomTextView;
+import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.Preferences;
@@ -140,22 +142,44 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 			@Override
 			public void onClick(View v) {
 
-				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-				builder.setTitle("로그아웃");
-				builder.setMessage(R.string.dialog_logout);
-				builder.setPositiveButton("예",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int which) {
-								logoutGoLoginActivity();
-							}
-						});
-				builder.setNegativeButton("아니오",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int which) {
-								return;
-							}
-						});
-				builder.show();
+//				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+//				builder.setTitle("로그아웃");
+//				builder.setMessage(R.string.dialog_logout);
+//				builder.setPositiveButton("예",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog, int which) {
+//								logoutGoLoginActivity();
+//							}
+//						});
+//				builder.setNegativeButton("아니오",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog, int which) {
+//								return;
+//							}
+//						});
+//				builder.show();
+
+
+				final DialogStudent mDialog = new DialogStudent(getContext());
+				mDialog.setDialogSize(DialogStudent.DIALOG_SIZE_SMALL);
+				mDialog.show();
+				mDialog.setButtonMsg("예", "아니오");
+				mDialog.setMessage("로그아웃 하시겠습니까?");
+				mDialog.setCancelable(true);
+				mDialog.setCanceledOnTouchOutside(true);
+				mDialog.setListener(new DialogStudent.ListenerDialogButton() {
+					@Override
+					public void onClick(Dialog dialog, int result) {
+
+						if(result == DIALOG_BTN_ON) {
+							logoutGoLoginActivity();
+						}else{
+							mDialog.dismiss();
+						}
+
+
+					}
+				});
 			}
 		});
 

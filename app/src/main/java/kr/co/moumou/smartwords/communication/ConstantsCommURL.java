@@ -65,6 +65,10 @@ public class ConstantsCommURL {
 	public final static String REQUEST_GET_MAXAPPVER = "GetMaxAppVer";                  //앱버전 체크
 	public final static String REQUEST_TAG_MAXAPPVER = "TagMaxAppVer";                      //앱버전 체크
 
+	//================================== 파일 관련 ==================================//
+	public static final String DATA_PATH = "data/data/";
+	public static final String DATA_FILE = "/files/";
+
 
 
 
@@ -113,6 +117,9 @@ public class ConstantsCommURL {
 		return (ISTEST ? REQUEST_TEST_DOMAIN : REQUEST_DOMAIN) + URL_USER  + request;
 	}
 
+	public static String getFilePath(String path){
+		return DATA_PATH + GlobalApplication.getInstance().getPackageName() + DATA_FILE + path;
+	}
 
 
 }

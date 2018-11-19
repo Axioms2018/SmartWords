@@ -1,13 +1,17 @@
 package kr.co.moumou.smartwords.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -30,6 +34,7 @@ import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
 import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.StringUtil;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
@@ -77,6 +82,7 @@ public class ActivityWordTestMain extends ActivityBase {
 		}
 		
 		view_top_menu = (ViewTopMenu)findViewById(R.id.view_top_menu);
+		view_top_menu.setaaa(true);
 		view_top_menu.setActivity(this);
 		
 		DisplayUtil.setLayoutHeight(this, 67, view_top_menu);
@@ -113,7 +119,17 @@ public class ActivityWordTestMain extends ActivityBase {
 	}
 	
 	boolean isAdmin = false;
-	
+	boolean isBack = false;
+	@SuppressLint("HandlerLeak")
+	Handler backPressedHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+
+			isBack = false;
+		}
+	};
+
 	private Handler testhandler = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
@@ -124,7 +140,13 @@ public class ActivityWordTestMain extends ActivityBase {
 	
 	@Override
 	public void onBackPressed() {
-		super.onBackPressed();
+			if(isBack)
+				super.onBackPressed();
+			else {
+				ToastUtil.show(this, "백버튼을 한번 더 누르면 앱을 종료합니다.");
+				isBack = true;
+				backPressedHandler.sendEmptyMessageDelayed(0, 1000);
+			}
 	}
 	
 	@Override

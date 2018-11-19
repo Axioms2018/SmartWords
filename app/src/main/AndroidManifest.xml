@@ -6,11 +6,20 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+
 
 
     <application
@@ -23,7 +32,6 @@
         tools:replace="android:theme"
         android:theme="@android:style/Theme.Light.NoTitleBar">
 
-
         <activity android:name="kr.co.moumou.smartwords.MainActivity"
                   android:screenOrientation="sensorLandscape">
             <intent-filter>
@@ -31,7 +39,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="action" android:scheme="testapp" />
+            </intent-filter>
+
         </activity>
+
+        <receiver android:name=".receiver.TestBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="kr.co.kcs.packagetestserver.client_one"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -93,7 +115,18 @@
             android:name="kr.co.moumou.smartwords.sign.ActivityLogin"
             android:theme="@style/Theme.AppCompat"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|navigation|touchscreen|uiMode"
-            android:screenOrientation="sensorLandscape" />
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 
