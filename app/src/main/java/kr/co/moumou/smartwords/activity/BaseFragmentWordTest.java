@@ -31,8 +31,10 @@ import java.util.Queue;
 
 import kr.co.moumou.smartwords.common.Constant;
 import kr.co.moumou.smartwords.R;
+import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.customview.ViewIndicator;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.ExceptionManager;
 import kr.co.moumou.smartwords.util.LogTraceMin;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.vo.VoQustList.VoQuest;
@@ -411,7 +413,7 @@ public abstract class BaseFragmentWordTest extends Fragment implements OnClickLi
 		String path = "";
 		
 		if(StringUtil.isNull(fileName)) {
-			//doException(null, "재생할 파일이 없습니다.\n" + fileName);
+			doException(null, "재생할 파일이 없습니다.\n" + fileName);
 			return;
 		}
 		
@@ -423,7 +425,7 @@ public abstract class BaseFragmentWordTest extends Fragment implements OnClickLi
 		LogTraceMin.I("path : " + path);
 		
 		if(!new File(path).exists()) {
-			//doException(null, "재생할 파일이 없습니다.\n" + fileName);
+			doException(null, "재생할 파일이 없습니다.\n" + fileName);
 			return;
 		}
 		
@@ -455,7 +457,7 @@ public abstract class BaseFragmentWordTest extends Fragment implements OnClickLi
 			mediaPlayer.setOnCompletionListener(mpCompleteListener);
 			
 		} catch (Exception e) {
-			//doException(null, fileName + " 음원을 재생하는데 오류가 생겼습니다.\n" + e.toString() + " / " + errStr);
+			doException(null, fileName + " 음원을 재생하는데 오류가 생겼습니다.\n" + e.toString() + " / " + errStr);
 		}
 	}
 	
@@ -485,7 +487,7 @@ public abstract class BaseFragmentWordTest extends Fragment implements OnClickLi
 					listener.OnCompleteMediaPlayer();
 				}
 			} catch (Exception e) {
-				//doException(e, "FragmentPractice mpCompleteListener");
+				doException(e, "FragmentPractice mpCompleteListener");
 			}
 				
 		}
@@ -510,37 +512,37 @@ public abstract class BaseFragmentWordTest extends Fragment implements OnClickLi
 		return voError;
 	}
 	
-//	/**
-//	 * 에러 Exception
-//	 * @param e
-//	 * @param msg
-//	 */
-//	protected void doException(Exception e, String msg) {
-//
-//		VoQuest voError = setExceptionInfo();
-//		voError.setSYSGB(ConstantsCommParameter.Values.SYSBG_MOUMOU_WORDS);
-//
-//		ExceptionManager.getInstance().doException(wordTestAcitivity, e, msg, voError, new OnExceptionListener() {
-//
-//			@Override
-//			public void onPrePared() {
-//				try {
-//					errResult();
-//				} catch (Exception e) {
-//					ExceptionManager.getInstance().doException(wordTestAcitivity, e);
-//				}
-//			}
-//
-//			@Override
-//			public void onComplete() {
-//				try {
-//					errResult();
-//				} catch (Exception e) {
-//					ExceptionManager.getInstance().doException(wordTestAcitivity, e);
-//				}
-//			}
-//		});
-//	}
+	/**
+	 * 에러 Exception
+	 * @param e
+	 * @param msg
+	 */
+	protected void doException(Exception e, String msg) {
+
+		VoQuest voError = setExceptionInfo();
+		voError.setSYSGB(ConstantsCommParameter.Values.SYSBG_MOUMOU_WORDS);
+
+		ExceptionManager.getInstance().doException(wordTestAcitivity, e, msg, voError, new ExceptionManager.OnExceptionListener() {
+
+			@Override
+			public void onPrePared() {
+				try {
+					errResult();
+				} catch (Exception e) {
+					ExceptionManager.getInstance().doException(wordTestAcitivity, e);
+				}
+			}
+
+			@Override
+			public void onComplete() {
+				try {
+					errResult();
+				} catch (Exception e) {
+					ExceptionManager.getInstance().doException(wordTestAcitivity, e);
+				}
+			}
+		});
+	}
 	
 	public void errResult() {
 		if (quizInfo != null) {

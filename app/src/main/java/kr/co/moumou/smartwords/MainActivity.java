@@ -3,8 +3,11 @@ package kr.co.moumou.smartwords;
 import android.*;
 import android.Manifest;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
@@ -42,7 +45,6 @@ import kr.co.moumou.smartwords.communication.GlobalApplication;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
 import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.dialog.DownloadDialog;
-import kr.co.moumou.smartwords.receiver.TestBroadcastReceiver;
 import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.sign.DoLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
@@ -58,6 +60,7 @@ public class MainActivity extends ActivityBase {
 
     private VoAppVer voAppVer;
     private boolean hasPemissionFileAccess;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +78,7 @@ public class MainActivity extends ActivityBase {
             }
         });
 
-        logininfo();
+        getlogininfoAxioms();
 
         checkUpdate();
 
@@ -107,23 +110,24 @@ public class MainActivity extends ActivityBase {
     }
 
 
-    private void logininfo() {
+    private void getlogininfoAxioms(){
         Intent intent = getIntent();
 
-        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-            Uri uri = intent.getData();
 
-            if (uri != null) {
-                String userid = uri.getQueryParameter("userid");
-                String userpwd = uri.getQueryParameter("userpwd");
+        Uri uri = intent.getData();
+        if(uri != null) {
+            String userid = uri.getQueryParameter("userid");
+            String userpwd = uri.getQueryParameter("userpwd");
 
-                Preferences.put(this,Preferences.PREF_USER_ID,userid);
-                Preferences.put(this,Preferences.PREF_USER_PW,userpwd);
+            Preferences.put(MainActivity.this,Preferences.PREF_USER_ID,userid);
+            Preferences.put(MainActivity.this,Preferences.PREF_USER_PW,userpwd);
 
-                if(!(Preferences.getPref(this, Preferences.PREF_USER_PW, null) == null) && !(Preferences.getPref(this, Preferences.PREF_USER_ID, null) == null)){
-                    Preferences.put(this,Preferences.PREF_IS_MEMBER,true);
-                }
+            if(!(Preferences.getPref(this, Preferences.PREF_USER_PW, null) == null) && !(Preferences.getPref(this, Preferences.PREF_USER_ID, null) == null)){
+                Preferences.put(this,Preferences.PREF_IS_MEMBER,true);
             }
+
+//        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+//            }
         }
     }
 

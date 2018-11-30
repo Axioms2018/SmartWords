@@ -174,19 +174,20 @@ public class ActivityWordsDownload extends ActivityBase {
 	}
 
 	private void downloadStart() {
-//		showLoadingProgress("다운로드 기다려주세요");
+		showLoadingProgress("다운로드 중입니다. 잠시만 기다려 주세요.");
 		WordsController.getInstance(this).setURL(download_path);
 		WordsController.getInstance(this).setListener(new WordsControllerProgress() {
 
 
 			@Override
 			public void onFileExist() {
-
+				hideProgress();
 				LogUtil.d(" FILE Exist ");
 			}
 
 			@Override
 			public void onException(String msg) {
+				hideProgress();
 				showDownloadState(" 에러 : " + msg);
 				showRetryButton();
 			}

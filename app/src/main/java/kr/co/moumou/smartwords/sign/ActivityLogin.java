@@ -202,21 +202,14 @@ public class ActivityLogin extends AppCompatActivity implements View.OnKeyListen
             inValidLogin(mEditEmail, getString(R.string.error_invalid_email));
             return;
         }
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-
-            if (TextUtils.isEmpty(password)) {
-                inValidLogin(mEditPwd, getString(R.string.error_pwd_field_required));
-                return;
-            }
-//
-//        if (!isPasswordValid(password)) {
-//            inValidLogin(mEditPwd, getString(R.string.error_invalid_password));
-//            return;
-//        }
+        if (TextUtils.isEmpty(password)) {
+            inValidLogin(mEditPwd, getString(R.string.error_pwd_field_required));
+            return;
         }
+
+
         apiLogin(email, password);
+
     }
     private void inValidLogin(View focusView, String errMsg) {
         focusView.requestFocus();

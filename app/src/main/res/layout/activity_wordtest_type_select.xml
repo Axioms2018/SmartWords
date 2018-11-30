@@ -12,7 +12,7 @@
         android:orientation="vertical" >
         
         <kr.co.moumou.smartwords.customview.ViewTopMenu
-            xmlns:custom="http://schemas.android.com/apk/res/kr.co.moumou.smartwords"
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
             android:id="@+id/view_top_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

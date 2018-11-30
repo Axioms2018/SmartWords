@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,7 +42,7 @@ import kr.co.moumou.smartwords.vo.VoCalFrame;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
 
-public class FragmentMyCal extends Fragment implements OnClickListener {
+public class FragmentMyCal extends Fragment {
 	
 	private final static int SMARTWORDS_START_YEAR = 2016;
 	public VoUserInfo mUserInfo;
@@ -65,16 +66,13 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
 	int now_month = mCal.get(Calendar.MONTH) + 1;
 	int change_year = mCal.get(Calendar.YEAR);
 	int change_month = mCal.get(Calendar.MONTH) + 1;
-	
-	LinearLayout ll_selyear;
-	LinearLayout ll_selmonth;
+
 	LinearLayout ll_margin;
 	TextView tv_year;
-	ImageView iv_year;
 	TextView tv_month;
-	ImageView iv_month;
 	TextView tv_day;
 	TextView tv_dayname[] = new TextView[7];
+	Button btn_prev,btn_next;
 	private ListPopupWindow year_popup;
 	private ListPopupWindow month_popup;
 	
@@ -112,14 +110,10 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
         
         yAdapter = new CalSelAdapter(wordsMain, year_array);
         mAdapter = new CalSelAdapter(wordsMain, month_array);
-        
-        ll_selyear = (LinearLayout) getView().findViewById(R.id.ll_selyear);
-        ll_selmonth = (LinearLayout) getView().findViewById(R.id.ll_selmonth);
+
         ll_margin = (LinearLayout) getView().findViewById(R.id.ll_margin);
         tv_year = (CustomTextView) getView().findViewById(R.id.tv_year);
-        iv_year = (ImageView) getView().findViewById(R.id.iv_year);
         tv_month = (CustomTextView) getView().findViewById(R.id.tv_month);
-        iv_month = (ImageView) getView().findViewById(R.id.iv_month);
         tv_dayname[0] = (CustomTextView) getView().findViewById(R.id.tv_dayname1);
         tv_dayname[1] = (CustomTextView) getView().findViewById(R.id.tv_dayname2);
         tv_dayname[2] = (CustomTextView) getView().findViewById(R.id.tv_dayname3);
@@ -128,12 +122,18 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
         tv_dayname[5] = (CustomTextView) getView().findViewById(R.id.tv_dayname6);
         tv_dayname[6] = (CustomTextView) getView().findViewById(R.id.tv_dayname7);
         mGridView = (GridView) getView().findViewById(R.id.gv_cal);
-        
-        DisplayUtil.setLayoutWidth(wordsMain, 88, ll_margin);
-        DisplayUtil.setLayoutHeight(wordsMain, 66, tv_year);
-        DisplayUtil.setLayoutMargin(wordsMain, 0, 0, 16, 0, tv_year);
-        DisplayUtil.setLayoutHeight(wordsMain, 66, tv_month);
-        DisplayUtil.setLayoutMargin(wordsMain, 0, 0, 16, 0, tv_month);
+
+        btn_prev = (Button) getView().findViewById(R.id.btn_prev);
+		btn_next = (Button) getView().findViewById(R.id.btn_next);
+
+		DisplayUtil.setLayoutMargin(wordsMain, 0, 0, 10, 0, btn_prev);
+		DisplayUtil.setLayoutMargin(wordsMain, 10, 0, 0, 0, btn_next);
+
+        DisplayUtil.setLayoutWidth(wordsMain, 0, ll_margin);
+        DisplayUtil.setLayoutHeight(wordsMain, 88, tv_year);
+        DisplayUtil.setLayoutMargin(wordsMain, 10, 0, 0, 0, tv_year);
+        DisplayUtil.setLayoutHeight(wordsMain, 88, tv_month);
+        DisplayUtil.setLayoutMargin(wordsMain, 10, 0, 0, 0, tv_month);
         DisplayUtil.setLayoutHeight(wordsMain, 50, tv_dayname[0]);
         DisplayUtil.setLayoutHeight(wordsMain, 50, tv_dayname[1]);
         DisplayUtil.setLayoutHeight(wordsMain, 50, tv_dayname[2]);
@@ -157,50 +157,50 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
         requestData(now_year, now_month);
         
         tv_year.setText(now_year + " 년");
-        ll_selyear.setOnClickListener(this);
         tv_month.setText(now_month + " 월");
-        ll_selmonth.setOnClickListener(this);
-        
-        year_popup = new ListPopupWindow(wordsMain);
-        year_popup.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        year_popup.setAdapter(yAdapter);
-        year_popup.setAnchorView(ll_selyear);
-        year_popup.setModal(true);
-        year_popup.setOnItemClickListener(new OnItemClickListener() {
 
+
+        btn_prev.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				LogTraceMin.I("position :::"  + position);
-				tv_year.setText(parent.getItemAtPosition(position) + " 년");
-				change_year = Integer.valueOf((String) parent.getItemAtPosition(position));
-				
-				requestData(change_year, change_month);
-				
-				year_popup.dismiss();
-				
+			public void onClick(View v) {
+				if(now_month <= 1){
+					now_month = 12;
+					change_year = now_year - 1;
+					change_month = now_month;
+					now_month = change_month;
+					now_year = change_year;
+					requestData(change_year,change_month);
+					tv_month.setText(now_month + " 월");
+					tv_year.setText(now_year + " 년");
+				}else {
+					change_month = now_month - 1;
+					now_month = change_month;
+					tv_month.setText(now_month + " 월");
+					requestData(now_year,change_month);
+				}
 			}
-        	
 		});
-        
-        month_popup = new ListPopupWindow(wordsMain);
-        month_popup.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        month_popup.setAdapter(mAdapter);
-        month_popup.setAnchorView(ll_selmonth);
-        month_popup.setModal(true);
-        month_popup.setOnItemClickListener(new OnItemClickListener() {
 
+
+		btn_next.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
-				tv_month.setText(parent.getItemAtPosition(position) + " 월");
-				change_month = Integer.valueOf((String) parent.getItemAtPosition(position));
-				
-				requestData(change_year, change_month);
-				
-				month_popup.dismiss();
-				
+			public void onClick(View v) {
+				if(now_month >= 12){
+					now_month = 1;
+					change_year = now_year + 1;
+					change_month = now_month;
+					now_month = change_month;
+					now_year = change_year;
+					requestData(change_year,change_month);
+					tv_month.setText(now_month + " 월");
+					tv_year.setText(now_year + " 년");
+				}else {
+					change_month = now_month + 1;
+					now_month = change_month;
+					tv_month.setText(now_month + " 월");
+					requestData(now_year,change_month);
+				}
 			}
-        	
 		});
 	}
 
@@ -308,23 +308,23 @@ public class FragmentMyCal extends Fragment implements OnClickListener {
 		});
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.ll_selyear :
-				year_popup.setAnimationStyle(-1);
-				year_popup.show();
-				break;
-			
-			case R.id.ll_selmonth :
-				month_popup.setAnimationStyle(-1);
-				month_popup.show();
-				break;
-
-			default:
-				break;
-		}
-		
-	}
+//	@Override
+//	public void onClick(View v) {
+//		switch (v.getId()) {
+//			case R.id.ll_selyear :
+//				year_popup.setAnimationStyle(-1);
+//				year_popup.show();
+//				break;
+//
+//			case R.id.ll_selmonth :
+//				month_popup.setAnimationStyle(-1);
+//				month_popup.show();
+//				break;
+//
+//			default:
+//				break;
+//		}
+//
+//	}
 
 }

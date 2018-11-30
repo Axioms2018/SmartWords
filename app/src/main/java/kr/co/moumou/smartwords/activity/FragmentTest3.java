@@ -45,7 +45,7 @@ public class FragmentTest3 extends BaseFragmentWordTest {
 		ll_cont_quiz = (LinearLayout) v.findViewById(R.id.ll_cont_quiz);
 		ll_quiz = (AutoLabelUI) v.findViewById(R.id.ll_quiz);
 		DisplayUtil.setLayoutMargin(wordTestAcitivity, 34, 0, 34, 0, ll_cont_quiz);
-		DisplayUtil.setLayoutPadding(wordTestAcitivity, 20, 20, 20, 20, ll_cont_quiz);
+		DisplayUtil.setLayoutPadding(wordTestAcitivity, 20, 20, 20, 10, ll_cont_quiz);
 		ll_answer = (LinearLayout) v.findViewById(R.id.ll_answer);
 
 		DisplayUtil.setLayoutMargin(wordTestAcitivity, 0, 15, 0, 0, ll_answer);

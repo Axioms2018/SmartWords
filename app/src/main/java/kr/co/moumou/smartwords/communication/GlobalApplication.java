@@ -141,8 +141,8 @@ public class GlobalApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //
-//        singleton = this;
-//        mContext = getApplicationContext();
+        singleton = this;
+        mContext = getApplicationContext();
 //
 //        Fabric.with(this, new Crashlytics());
 //
@@ -152,10 +152,10 @@ public class GlobalApplication extends Application {
 //
 //        Fabric.with(this, crashlyticsKit);
 //
-//        if (!BuildConfig.DEBUG) {
-//            mDefaultUEH = Thread.getDefaultUncaughtExceptionHandler();
-//            Thread.setDefaultUncaughtExceptionHandler(mCaughtExceptionHandler);
-//        }
+        if (!BuildConfig.DEBUG) {
+            mDefaultUEH = Thread.getDefaultUncaughtExceptionHandler();
+            Thread.setDefaultUncaughtExceptionHandler(mCaughtExceptionHandler);
+        }
     }
 
     private static Gson gson;

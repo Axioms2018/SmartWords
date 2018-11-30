@@ -11,63 +11,43 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@color/white" >
-        
-        <LinearLayout
-            android:id="@+id/ll_selyear"
+
+        <Button
+            android:id="@+id/btn_prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical" >
-            
-            <kr.co.moumou.smartwords.customview.CustomTextView
-                android:id="@+id/tv_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="@dimen/efont13" />
-            
-            <ImageView
-                android:id="@+id/iv_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/icon_calander_arrow" />
-            
-        </LinearLayout>
-        
+            android:background="@drawable/arrow_left_disable"
+            />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/efont15" />
+
+        <kr.co.moumou.smartwords.customview.CustomTextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/efont15" />
+
         <LinearLayout
             android:id="@+id/ll_margin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            
+            android:orientation="horizontal">
+
         </LinearLayout>
-        
-        <LinearLayout
-            android:id="@+id/ll_selmonth"
+
+        <Button
+            android:id="@+id/btn_next"
+            android:background="@drawable/arrow_right_disable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical" >
-            
-            <kr.co.moumou.smartwords.customview.CustomTextView
-                android:id="@+id/tv_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="@dimen/efont13" />
-            
-            <ImageView
-                android:id="@+id/iv_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/icon_calander_arrow" />
-            
-        </LinearLayout>
-        
+            />
+
     </LinearLayout>
     
     <LinearLayout
