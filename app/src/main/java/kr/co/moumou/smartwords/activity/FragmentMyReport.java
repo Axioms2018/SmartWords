@@ -43,6 +43,7 @@ import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.vo.VoBase;
+import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
 import kr.co.moumou.smartwords.vo.VoWordsReportData;
 import kr.co.moumou.smartwords.vo.VoWordsReportDetail;
@@ -58,6 +59,9 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 
 	VoWordsReportData voReportData;
 	ArrayList<VoWordsReportDetail> reportDetail;
+
+	VoUserInfo voUserInfo;
+
 	
 	LinearLayout ll_bg,ll_toggle;
 
@@ -69,7 +73,7 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 
 	LinearLayout ll_result;
 	TextView tv_step_t,tv_step,tv_line1,tv_day_t,tv_day,tv_line2,tv_total_t,tv_total,tv_line3,tv_known_t,tv_known,tv_line4,tv_unknown_t,tv_unknown,tv_line5,tv_score_t,tv_score,tv_line6,tv_line7,tv_name,tv_logout;
-	
+
 	private String Level;
 	private int Day = 0;
 	String lv_all;
@@ -262,8 +266,9 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 //		DisplayUtil.setLayoutHeight(getActivity(), height + 40, pg_unknown);
 		DisplayUtil.setLayoutMargin(getActivity(), 0, 0, 0, 22, pg_known);
 		DisplayUtil.setLayoutMargin(getActivity(), 0, 0, 0, 22, pg_unknown);
-		
+
 		requestData();
+		tv_name.setText(voUserInfo.getInstance().getUSERNM());
 	}
 	
 	private void setData(int position) {		
@@ -279,7 +284,7 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 		tv_known.setText(reportDetail.get(position).getRIGHT_CNT() + " 단어");
 		tv_unknown.setText(reportDetail.get(position).getWRONG_CNT() + " 단어");
 		tv_score.setText(reportDetail.get(position).getWORD_PER() + "%");
-		
+
 		setGraph(reportDetail.get(position));
 	}
 	
@@ -343,6 +348,10 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 
 				voReportData = ApplicationPool.getGson().fromJson(response, VoWordsReportData.class);
 				reportDetail = voReportData.getLEVELRPORT();
+
+				voUserInfo = ApplicationPool.getGson().fromJson(response, VoUserInfo.class);
+
+
 				setAble();
 				setSelect(0);
 			}
