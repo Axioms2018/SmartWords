@@ -147,14 +147,14 @@ public class ViewTopMenu extends LinearLayout {
 						mDialog.setDialogSize(DialogStudent.DIALOG_SIZE_SMALL);
 						mDialog.show();
 						mDialog.setButtonMsg("예", "아니오");
-						mDialog.setMessage("로그아웃 하시겠습니까?");
+						mDialog.setMessage("앱을 종료하시겠습니까?");
 						mDialog.setCancelable(true);
 						mDialog.setCanceledOnTouchOutside(true);
 						mDialog.setListener(new DialogStudent.ListenerDialogButton() {
 							@Override
 							public void onClick(Dialog dialog, int result) {
 								if(result == DIALOG_BTN_ON) {
-									logoutGoLoginActivity();
+									((Activity) context).finish();
 								}else{
 									mDialog.dismiss();
 								}

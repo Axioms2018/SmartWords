@@ -49,12 +49,6 @@
 
         </activity>
 
-        <receiver android:name=".receiver.TestBroadcastReceiver" >
-            <intent-filter>
-                <action android:name="com.example.moumouna.testreceiver" />
-            </intent-filter>
-        </receiver>
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="840bb2c06fc5bb73be6c03f95eb46149007196e3" />

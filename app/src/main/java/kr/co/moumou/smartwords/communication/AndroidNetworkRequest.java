@@ -119,7 +119,7 @@ public class AndroidNetworkRequest {
 //                        }
 
                         LogUtil.w("rescode : " + result.getRES_CODE());
-                        LogUtil.w("rescode : " + result.getRES_MSG());
+                        LogUtil.w("resmsg : " + result.getRES_MSG());
                         if(result.isSuccess()) {
                             listener.success(response);
                             return;

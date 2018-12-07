@@ -264,7 +264,7 @@ public class MainActivity extends ActivityBase {
 
         LogUtil.d("showDialog()");
 
-        showDialog();
+        //showDialog();
 
         new DoLogin(this, new DoLogin.DoLoginListener() {
 

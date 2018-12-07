@@ -380,4 +380,6 @@ public abstract class ActivityBase extends Activity {
 	}
 
 
+
+
 }

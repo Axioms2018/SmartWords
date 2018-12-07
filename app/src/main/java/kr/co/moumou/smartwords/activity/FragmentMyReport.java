@@ -349,9 +349,6 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 				voReportData = ApplicationPool.getGson().fromJson(response, VoWordsReportData.class);
 				reportDetail = voReportData.getLEVELRPORT();
 
-				voUserInfo = ApplicationPool.getGson().fromJson(response, VoUserInfo.class);
-
-
 				setAble();
 				setSelect(0);
 			}

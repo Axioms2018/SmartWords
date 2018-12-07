@@ -6,7 +6,7 @@ import android.util.Log;
 public class LogTraceMin {
 	public static String TAG = "EvilStorm";
 
-	private final static boolean SHOW_LOG = true;
+	private final static boolean SHOW_LOG = false;
 	
 //	private final static boolean SHOW_LOG = true;
 //	private final static boolean SHOW_LOG = false;
