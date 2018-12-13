@@ -50,7 +50,12 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 	
 	private ViewTopMenu view_top_menu;
 	private LinearLayout ll_test_type;
-	
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+		if(retry) reqQuizInfo();
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		ActivityWordTestMain.actList.add(this);
@@ -257,6 +262,9 @@ public class ActivityWordTestTypeSelect extends ActivityBase {
 	 * 퀴즈 정보 가져오기
 	 */
 	private void reqQuizInfo() {
+		if(!checkNetworking(false)) return;
+
+
 		LogTraceMin.I("정보 재실행");
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 

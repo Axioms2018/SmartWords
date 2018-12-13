@@ -37,7 +37,12 @@ public class ActivityCertificate extends ActivityBase implements OnClickListener
 	
 	private int[] certificateBg = {R.drawable.ic_certi_bg_a, R.drawable.ic_certi_bg_b, R.drawable.ic_certi_bg_c, R.drawable.ic_certi_bg_d, R.drawable.ic_certi_bg_e};
 	private int[] certificateColor = {R.color.words_certfi_lv1, R.color.words_certfi_lv2, R.color.words_certfi_lv3, R.color.words_certfi_lv4, R.color.words_certfi_lv5};
-	
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

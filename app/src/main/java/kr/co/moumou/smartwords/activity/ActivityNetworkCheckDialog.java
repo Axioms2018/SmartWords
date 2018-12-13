@@ -131,7 +131,7 @@ public class ActivityNetworkCheckDialog extends Activity implements OnClickListe
 		@Override
 		public void run() {
 			while (isRun) {
-				if(NetworkState.getInstance().isNetworkConnected(ActivityNetworkCheckDialog.this)){
+				if(NetworkState.getInstance(ActivityNetworkCheckDialog.this).isNetworkConnected(ActivityNetworkCheckDialog.this)){
 					finish();
 				}else{
 					try {

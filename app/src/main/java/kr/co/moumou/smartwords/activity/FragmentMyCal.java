@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 
@@ -35,7 +36,9 @@ import kr.co.moumou.smartwords.customview.CustomTextView;
 import kr.co.moumou.smartwords.customview.DateAdapter;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCalData;
 import kr.co.moumou.smartwords.vo.VoCalFrame;
@@ -288,43 +291,31 @@ public class FragmentMyCal extends Fragment {
 
 			@Override
 			public void systemcheck(String response) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void fail(VoBase base) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(wordsMain,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void dismissDialog() {
+				wordsMain.hideProgress();
 
 			}
 		});
 	}
 
-//	@Override
-//	public void onClick(View v) {
-//		switch (v.getId()) {
-//			case R.id.ll_selyear :
-//				year_popup.setAnimationStyle(-1);
-//				year_popup.show();
-//				break;
-//
-//			case R.id.ll_selmonth :
-//				month_popup.setAnimationStyle(-1);
-//				month_popup.show();
-//				break;
-//
-//			default:
-//				break;
-//		}
-//
-//	}
 
 }

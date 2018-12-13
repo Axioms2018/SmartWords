@@ -1,6 +1,8 @@
 package kr.co.moumou.smartwords.util;
 
 
+import com.Diotek.STT.EduEng.RecognitionResult;
+
 import kr.co.moumou.smartwords.customview.DialogLoding;
 
 /**
@@ -50,7 +52,15 @@ public class MediaDecibelReader {
     
     public interface DecibelCheckListener {
     	void getCheckVoiceDecibel(int mDb, int returnDecibel, int avgDecibel);
-    }
+
+		void onSTTRecoFail(RecognitionResult result);
+
+		void onSTTRecoError(RecognitionResult result);
+
+		void onSTTRecoSuccess(RecognitionResult result);
+
+		void onSTTCheckDecibel(int mDb, int returnDecibel, int avgDecibel);
+	}
     
     //데시벨 측정 시작
     public void doDecibelStart(DecibelCheckListener listener, boolean isRec, int level) {

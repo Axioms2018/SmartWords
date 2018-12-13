@@ -16,14 +16,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidnetworking.error.ANError;
+
 import butterknife.BindView;
 import kr.co.moumou.smartwords.MainActivity;
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.activity.ActivityWordTestMain;
+import kr.co.moumou.smartwords.activity.ActivityWordsDailyReport;
 import kr.co.moumou.smartwords.communication.GlobalApplication;
 import kr.co.moumou.smartwords.util.CommUtil;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoCertificate;
 import kr.co.moumou.smartwords.vo.VoCertificate1;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
@@ -258,32 +262,12 @@ public class ActivityLogin extends AppCompatActivity implements View.OnKeyListen
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
+
         }, userID, userPwd).run();
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // '뒤로' 버튼 클릭 시간과 현재 시간을 비교 게산한다.
-//
-//        // 마지막 '뒤로'버튼 클릭 시간이 이전 '뒤로'버튼 클릭시간과의 차이가 TIME_INTERVAL(여기서는 2초)보다 클 때 true
-//        if (System.currentTimeMillis() > backKeyPressedTime + TIME_INTERVAL) {
-//
-//            // 현재 시간을 backKeyPressedTime에 저장한다.
-//            backKeyPressedTime = System.currentTimeMillis();
-//
-//            // 종료 안내문구를 노출한다.
-//            showMessage();
-//        }else{
-//            // 마지막 '뒤로'버튼 클릭시간이 이전 '뒤로'버튼 클릭시간과의 차이가 TIME_INTERVAL(2초)보다 작을때
-//
-//            // Toast가 아직 노출중이라면 취소한다.
-//            toast.cancel();
-//
-//            // 앱을 종료한다.
-//            this.finish();
-//        }
-//    }
+
 
     public void showMessage() {
         toast = Toast.makeText(ActivityLogin.this, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);

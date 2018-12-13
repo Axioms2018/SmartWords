@@ -49,6 +49,12 @@ public class MainActivity extends ActivityBase {
 
 
     @Override
+    protected void onConnectedNetwork(boolean retry) {
+        if(retry) checkUpdate();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -120,8 +126,7 @@ public class MainActivity extends ActivityBase {
 
 
     private void checkUpdate() {
-
-//        if(!checkNetworking(true)) return;
+        if(!checkNetworking(true)) return;
         showDialog();
 
         String url = ConstantsCommURL.getAppUrl(ConstantsCommURL.REQUEST_GET_MAXAPPVER);
@@ -299,6 +304,7 @@ public class MainActivity extends ActivityBase {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
+
         }, Preferences.getPref(this, Preferences.PREF_USER_ID, null),
                 Preferences.getPref(this, Preferences.PREF_USER_PW, null)).run();
 

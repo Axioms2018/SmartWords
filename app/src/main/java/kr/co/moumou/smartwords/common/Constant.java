@@ -94,7 +94,10 @@ public class Constant {
 	public final static int BIC_VOICE_LEVEL_4 = 75;
 	public final static int BIC_VOICE_LEVEL_5 = 86;
 
-	
+	public final static int[] BIC_VOICE_LEVELS = new int[]{BIC_VOICE_LEVEL_1, BIC_VOICE_LEVEL_2, BIC_VOICE_LEVEL_3, BIC_VOICE_LEVEL_4, BIC_VOICE_LEVEL_5};
+	final public static String STT_RESOURCE_PATH = android.os.Environment.getExternalStorageDirectory().getPath() + "/STTEng/";
+
+
 	public static final String BROADCAST_ACTION_VOD_PLAYER_STATE 		= "BROADCAST_ACTION_VOD_PLAYER_STATE";
 	public static final String BROADCAST_ACTION_SLIDE_STATE 		= "BROADCAST_ACTION_SLIDE_STATE";
 

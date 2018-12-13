@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 import com.crashlytics.android.Crashlytics;
@@ -23,6 +24,7 @@ import kr.co.moumou.smartwords.communication.AndroidNetworkRequest;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.StringUtil;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
 
@@ -119,6 +121,7 @@ public class DoLogin extends Thread {
                     @Override
                     public void exception(ANError error) {
                         LogUtil.d("exception : " + error.toString());
+                        ToastUtil.show(mContext,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
                     }
 
                     @Override

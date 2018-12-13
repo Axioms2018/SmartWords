@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 
@@ -37,9 +38,11 @@ import kr.co.moumou.smartwords.customview.ViewTopMenu;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.SharedPrefData;
 import kr.co.moumou.smartwords.util.StringUtil;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCertificate;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
@@ -105,6 +108,12 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 	private String srFlag = "S";
 	private String stdWGb = "D";
 	private boolean hasTest3 = false;
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+//		if(retry) requestData();
+
+	}
 
 	@SuppressLint("NewApi")
 	@Override
@@ -269,6 +278,9 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 	};
 	
 	private void requestData() {
+
+//		if(!checkNetworking(false)) return;
+
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 
@@ -324,22 +336,25 @@ public class ActivityWordsDailyReport extends ActivityBase implements View.OnCli
 
 			@Override
 			public void systemcheck(String response) {
-
+				hideProgress();
 			}
 
 			@Override
 			public void fail(VoBase base) {
-
+				hideProgress();
 			}
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(ActivityWordsDailyReport.this,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
+				hideProgress();
 
 			}
 
 			@Override
 			public void dismissDialog() {
-
+				hideProgress();
 			}
 		});
 		

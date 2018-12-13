@@ -31,7 +31,12 @@ public class ActivityWordTestQuizSelect extends ActivityBase {
 	
 	private ImageButton btn_temp_close;
 	private LinearLayout ll_test_type;
-	
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		ActivityWordTestMain.actList.add(this);

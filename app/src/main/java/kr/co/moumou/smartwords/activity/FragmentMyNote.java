@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 
@@ -33,7 +34,9 @@ import kr.co.moumou.smartwords.customview.CustomTextView;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoNoteData;
@@ -223,21 +226,27 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 
 			@Override
 			public void systemcheck(String response) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void fail(VoBase base) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(wordsMain,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void dismissDialog() {
+				wordsMain.hideProgress();
 
 			}
 		});
@@ -304,11 +313,13 @@ public class FragmentMyNote extends Fragment implements OnClickListener {
 
 		@Override
 		public void fail() {
+			wordsMain.hideProgress();
 
 		}
 
 		@Override
 		public void exception() {
+			wordsMain.hideProgress();
 
 		}
 	

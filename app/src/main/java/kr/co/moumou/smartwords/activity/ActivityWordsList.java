@@ -73,6 +73,11 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
 	TextView tv_unknown;
 	ListView lv_unknown;
 
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+		if(retry) reqQuizInfo();
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -189,7 +194,10 @@ public class ActivityWordsList extends ActivityBase implements OnClickListener {
     };
 	
 	private void reqQuizInfo() {
-		
+
+
+		if(!checkNetworking(false)) return;
+
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_QUIZINFO);

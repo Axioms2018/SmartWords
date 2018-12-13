@@ -367,12 +367,15 @@ public class DialogStudent extends Dialog implements OnClickListener {
 		btn_ok_dialog_small.setText(left);
 		btn_no_dialog_small.setText(right);
 	}
+
+
 	
 	@Override
 	public void show() {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 		
 		switch (dialogSize) {
 		case DIALOG_SIZE_SMALL:

@@ -533,7 +533,7 @@ public class ApplicationPool extends Application {
 
 	private void initSingleTons(){
 
-		NetworkState.getInstance().setContext(getApplicationContext());
+		NetworkState.getInstance(ApplicationPool.this).setContext(getApplicationContext());
 	}
 
 	private static Gson gson;

@@ -51,7 +51,12 @@ public class ActivityWordTestMain extends ActivityBase {
 //	private StudyDataComm studyDataComm;
 	
 	private LinearLayout ll_low_level, ll_mid_level;
-	
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+		if(retry) reqWordsLevelinfo1();
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		actList.add(this);
@@ -173,6 +178,8 @@ public class ActivityWordTestMain extends ActivityBase {
 	}
 
 	private void reqWordsLevelinfo1(){
+
+		if(!checkNetworking(false)) return;
 
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 

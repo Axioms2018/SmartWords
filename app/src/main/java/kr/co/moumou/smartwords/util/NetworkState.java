@@ -18,16 +18,41 @@ public class NetworkState {
 
 	private static NetworkState current = null;
 	private Context context;
-	
-	public static NetworkState getInstance() {
-		if (current == null) {
-			current = new NetworkState();
+
+	public static NetworkState getInstance(Context context) {
+		if(current == null) {
+			current = new NetworkState(context);
 		}
 		return current;
 	}
-	
+	public NetworkState(Context context) {
+		this.context = context;
+	}
+
 	public void setContext(Context context){
 		this.context = context;
+	}
+
+	/**
+	 * check Network
+	 * @return
+	 */
+	public boolean checkNetworkState() {
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+		boolean isConnected = networkInfo != null && networkInfo.isConnectedOrConnecting();
+
+		if(networkInfo != null) {
+			String networkName = networkInfo.getTypeName();
+			LogUtil.d("networkName : " + networkName);
+		}
+
+//        NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+//        NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+//
+//        isConnected = (wifi != null && wifi.isConnected()) || (mobile != null && mobile.isConnected());
+
+		return isConnected;
 	}
 
 	/**
@@ -138,6 +163,6 @@ public class NetworkState {
 
 	    return ipAddressString;
 	}
-	
-	
+
+
 }

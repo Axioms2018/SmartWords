@@ -75,6 +75,11 @@ public class ActivityWordsDownload extends ActivityBase {
 		return -1;
 	}
 
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+		if(retry) downloadStart();
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +179,9 @@ public class ActivityWordsDownload extends ActivityBase {
 	}
 
 	private void downloadStart() {
+
+		if(!checkNetworking(false)) return;
+
 		showLoadingProgress("다운로드 중입니다. 잠시만 기다려 주세요.");
 		WordsController.getInstance(this).setURL(download_path);
 		WordsController.getInstance(this).setListener(new WordsControllerProgress() {

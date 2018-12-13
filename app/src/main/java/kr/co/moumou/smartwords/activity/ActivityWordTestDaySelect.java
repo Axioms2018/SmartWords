@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 import com.google.gson.Gson;
@@ -39,8 +40,10 @@ import kr.co.moumou.smartwords.dao.WordTestDownloadDao;
 import kr.co.moumou.smartwords.activity.SaveWords.SaveWordsComplete;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogTraceMin;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
 import kr.co.moumou.smartwords.util.StringUtil;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoCertificate;
 import kr.co.moumou.smartwords.vo.VoFileWordsDownload;
@@ -89,7 +92,12 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	private final int day_row_count = 10;	//한줄에 Day 수
 	
 	private boolean isSetDay = false;		//처음 Day 그릴때
-	
+
+	@Override
+	protected void onConnectedNetwork(boolean retry) {
+//		if(retry) reqDayInfo1(false);
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -558,6 +566,8 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	 * DayList 정보 가져오기
 	 */
 	private void reqDayInfo1(final boolean isReset){
+//		if(!checkNetworking(false)) return;
+
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 
@@ -593,6 +603,8 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(ActivityWordTestDaySelect.this,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
 				hideProgress();
 			}
 
@@ -729,6 +741,8 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(ActivityWordTestDaySelect.this,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
 				hideProgress();
 			}
 
@@ -770,7 +784,7 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 	 * 퀴즈 정보 풀러오기
 	 */
 	private void reqQuizInfo() {
-		
+
 		showLoadingProgress(getResources().getString(R.string.wait_for_data));
 
 		String url = ConstantsCommURL.getUrl(ConstantsCommURL.REQUEST_GET_QUIZINFO);
@@ -816,6 +830,9 @@ public class ActivityWordTestDaySelect extends ActivityBase {
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(ActivityWordTestDaySelect.this,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
+				hideProgress();
 
 			}
 

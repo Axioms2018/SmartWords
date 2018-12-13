@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
 
@@ -21,7 +22,9 @@ import kr.co.moumou.smartwords.communication.ConstantsCommCommand;
 import kr.co.moumou.smartwords.communication.ConstantsCommParameter;
 import kr.co.moumou.smartwords.communication.ConstantsCommURL;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoRankData;
@@ -168,21 +171,27 @@ public class FragmentMyRank extends Fragment {
 
 			@Override
 			public void systemcheck(String response) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void fail(VoBase base) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(wordsMain,"네트워크 연결 상태를 확인해주세요", Toast.LENGTH_SHORT);
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void dismissDialog() {
+				wordsMain.hideProgress();
 
 			}
 		});

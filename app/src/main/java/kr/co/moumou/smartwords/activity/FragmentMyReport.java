@@ -41,7 +41,9 @@ import kr.co.moumou.smartwords.customview.CustomTextView;
 import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.sign.ActivityLogin;
 import kr.co.moumou.smartwords.util.DisplayUtil;
+import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.Preferences;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoBase;
 import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
@@ -355,21 +357,28 @@ public class FragmentMyReport extends Fragment implements OnClickListener {
 
 			@Override
 			public void systemcheck(String response) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void fail(VoBase base) {
+				wordsMain.hideProgress();
 
 			}
 
 			@Override
 			public void exception(ANError error) {
+				LogUtil.i("reprot exception" + error);
+				ToastUtil.show(activity,"네트워크 연결 상태를 확인해주세요",Toast.LENGTH_SHORT);
+				wordsMain.hideProgress();
+
 
 			}
 
 			@Override
 			public void dismissDialog() {
+				wordsMain.hideProgress();
 
 			}
 		});

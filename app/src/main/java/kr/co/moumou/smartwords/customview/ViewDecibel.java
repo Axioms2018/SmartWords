@@ -14,10 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.Diotek.STT.EduEng.RecognitionResult;
+
 import java.io.File;
 
 import kr.co.moumou.smartwords.R;
 import kr.co.moumou.smartwords.common.Constant;
+import kr.co.moumou.smartwords.stt.DioSTTManager;
 import kr.co.moumou.smartwords.util.DisplayUtil;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.MediaDecibelReader;
@@ -28,7 +31,7 @@ import kr.co.moumou.smartwords.vo.VoMyInfo;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 
-public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.DecibelCheckListener {
+public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.DecibelCheckListener, DioSTTManager.OnSTTListener {
 
 	protected Activity activity;
 
@@ -85,9 +88,9 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 		super(activity);
 		this.activity = activity;
 		
-//		DioSTTManager.getInstance().setActivity(activity);
-//		DioSTTManager.getInstance().setOnSTTListener(this);
-//		DioSTTManager.getInstance().create();
+		DioSTTManager.getInstance().setActivity(activity);
+		DioSTTManager.getInstance().setOnSTTListener(this);
+		DioSTTManager.getInstance().create();
 		
 		init();
 		
@@ -100,9 +103,9 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 		this.isNoStt = isNoStt;
 		
 		if (!isNoStt) {
-//			DioSTTManager.getInstance().setActivity(activity);
-//			DioSTTManager.getInstance().setOnSTTListener(this);
-//			DioSTTManager.getInstance().create();
+			DioSTTManager.getInstance().setActivity(activity);
+			DioSTTManager.getInstance().setOnSTTListener(this);
+			DioSTTManager.getInstance().create();
 		}
 		
 		init();
@@ -117,9 +120,9 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 		this.templateCode = templateCode;
 		this.durationChangeListener = durationChangeListener;
 		
-//		DioSTTManager.getInstance().setActivity(activity);
-//		DioSTTManager.getInstance().setOnSTTListener(this);
-//		DioSTTManager.getInstance().create();
+		DioSTTManager.getInstance().setActivity(activity);
+		DioSTTManager.getInstance().setOnSTTListener(this);
+		DioSTTManager.getInstance().create();
 		
 		init();
 		setLayout();
@@ -225,13 +228,13 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 	// 데시벨 측정 시작
 	public void doDecibelStart() {
 		isStop = false;
-//		DioSTTManager.getInstance().mp3RecordStart(null);
+		DioSTTManager.getInstance().mp3RecordStart(null);
 	}
 	
 	// 데시벨 측정 시작
 	public void doDecibelStart(File recFile) {
 		isStop = false;
-//		DioSTTManager.getInstance().mp3RecordStart(recFile);
+		DioSTTManager.getInstance().mp3RecordStart(recFile);
 	}
 	
 	public void doDecibelStop() {
@@ -244,7 +247,7 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 			mWarningBigVoice();
 		}
 		
-//		DioSTTManager.getInstance().mp3RecordStop();
+		DioSTTManager.getInstance().mp3RecordStop();
 		
 		isBigVoice = false;
 		
@@ -316,7 +319,7 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 
 	
 	public void onPause() {
-//		DioSTTManager.getInstance().mp3RecordStop();
+		DioSTTManager.getInstance().mp3RecordStop();
 		isBigVoice = false;
 		isStop = true;
 		
@@ -411,36 +414,36 @@ public class ViewDecibel extends RelativeLayout implements MediaDecibelReader.De
 	}
 
 
-//	@Override
-//	public void onSTTRecoFail(RecognitionResult result) {
-//	}
-//
-//
-//	@Override
-//	public void onSTTRecoError(RecognitionResult result) {
-//	}
-//
-//
-//	@Override
-//	public void onSTTRecoSuccess(RecognitionResult result) {
-//	}
-//
-//
-//	@Override
-//	public void onSTTCheckDecibel(int mDb, int returnDecibel, int avgDecibel) {
-//		if (isStop)
-//			return;
-//
-//		if (requestAvgDecibelListener != null)
-//			requestAvgDecibelListener.requestAvgDecibel(avgDecibel);
-//
-//		showEqualizer(mDb);
-//
-//		if(mDb >= Constant.BIC_VOICE_LEVELS[(VoMyInfo.getInstance().getLoudLevel()-1)]){
-//			isBigVoice = true;
-//		}
-//
-//	}
+	@Override
+	public void onSTTRecoFail(RecognitionResult result) {
+	}
+
+
+	@Override
+	public void onSTTRecoError(RecognitionResult result) {
+	}
+
+
+	@Override
+	public void onSTTRecoSuccess(RecognitionResult result) {
+	}
+
+
+	@Override
+	public void onSTTCheckDecibel(int mDb, int returnDecibel, int avgDecibel) {
+		if (isStop)
+			return;
+
+		if (requestAvgDecibelListener != null)
+			requestAvgDecibelListener.requestAvgDecibel(avgDecibel);
+
+		showEqualizer(mDb);
+
+		if(mDb >= Constant.BIC_VOICE_LEVELS[(VoMyInfo.getInstance().getLoudLevel()-1)]){
+			isBigVoice = true;
+		}
+
+	}
 	
 	public void mWarningStartPlay() {
 		

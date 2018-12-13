@@ -31,12 +31,15 @@ import kr.co.moumou.smartwords.communication.DialogLoding;
 import kr.co.moumou.smartwords.communication.MouMouDialog;
 import kr.co.moumou.smartwords.communication.MouMouDialog.DialogButtonListener;
 import kr.co.moumou.smartwords.customview.ViewTopMenu;
+import kr.co.moumou.smartwords.dialog.DialogStudent;
 import kr.co.moumou.smartwords.dialog.LoadingDialog;
+import kr.co.moumou.smartwords.listener.ListenerDialog;
 import kr.co.moumou.smartwords.util.AppUtil;
 import kr.co.moumou.smartwords.util.LogUtil;
 import kr.co.moumou.smartwords.util.NetworkState;
 import kr.co.moumou.smartwords.util.StringUtil;
 import kr.co.moumou.smartwords.common.Constant;
+import kr.co.moumou.smartwords.util.ToastUtil;
 import kr.co.moumou.smartwords.vo.VoUserInfo;
 
 
@@ -50,6 +53,11 @@ public abstract class ActivityBase extends Activity {
 	private LoadingDialog mLoadingDialog = null;
 
 
+
+
+
+	protected abstract void onConnectedNetwork(boolean retry);
+
 	public static final int PERMISSIONS_REQUEST_PERMISSION = 1001;
 	public static final int PERMISSIONS_REQUEST_PERMISSION_FORCE = 1002;
 	public static final int PERMISSIONS_REQUEST_CHECK_EXIST = 1003;
@@ -60,18 +68,17 @@ public abstract class ActivityBase extends Activity {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		super.onCreate(savedInstanceState);
 
-
 		mUserInfo = VoUserInfo.getInstance();
 
 	}
 
 	ServiceReceiver serviceReceiver;
-	
+
 	// 2016 08 1st. 워터마크적용
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
+
 //		AppUtil.addWaterMarkView(this);
 
 	}
@@ -110,7 +117,7 @@ public abstract class ActivityBase extends Activity {
 		}
 	};
 
-	private MouMouDialog dialog;
+	private DialogStudent dialog;
 	public void showNetworkNotAvailablePopup(final String msg){
 		ActivityBase.this.runOnUiThread(new Runnable() {
 			public void run() {
@@ -120,41 +127,31 @@ public abstract class ActivityBase extends Activity {
 				}
 
 				new NetworkChecker().start();
-				dialog = new MouMouDialog(ActivityBase.this);
-				dialog.setSize(0.5, 0.4);
+				dialog = new DialogStudent(ActivityBase.this);
 				dialog.setCanceledOnTouchOutside(false);
 				dialog.setCancelable(false);
 				dialog.show();
-				dialog.setDescriptGravity(Gravity.CENTER);
-				dialog.setButtonText(getString(R.string.network_setting), getString(R.string.terminate));
-				if(StringUtil.isNull(msg)){
-					dialog.setDescript(getString(R.string.warning_not_available_network));	
-				}else{
-					dialog.setDescript(msg);
-				}
 
-				dialog.setListener(new DialogButtonListener() {
+				dialog.setButtonMsg(getString(R.string.terminate), getString(R.string.network_setting));
+				dialog.setMessage(getString(R.string.warning_not_available_network));
 
+				dialog.setListener(new DialogStudent.ListenerDialogButton() {
 					@Override
 					public void onClick(Dialog dialog, int result) {
-						switch (result) {
-						case DialogButtonListener.DIALOG_BTN_FIRST:
+						if(result == DIALOG_BTN_ON) {
+							dialog.dismiss();
+							finish();
+						}else{
+							dialog.dismiss();
 							launchWifiSetting();
-							break;
-						case DialogButtonListener.DIALOG_BTN_SECOND:
-//							terminateApplication();
-							break;
 
-						default:
-							break;
 						}
-						dialog.dismiss();
 					}
 				});
 			}
 		});
 	}
-	
+
 	private void setNetworkAvailable(){
 		if(dialog != null && dialog.isShowing()){
 			dialog.dismiss();
@@ -167,7 +164,7 @@ public abstract class ActivityBase extends Activity {
 		@Override
 		public void run() {
 			while (isRun) {
-				if(NetworkState.getInstance().isNetworkConnected(ActivityBase.this)){
+				if(NetworkState.getInstance(ActivityBase.this).isNetworkConnected(ActivityBase.this)){
 					setNetworkAvailable();
 					isRun = false;
 				}else{
@@ -221,7 +218,7 @@ public abstract class ActivityBase extends Activity {
 	}
 
 	public void showLoadingProgress(final String msg){
-		
+
 		this.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -242,7 +239,7 @@ public abstract class ActivityBase extends Activity {
 	}
 
 	public void showLoadingProgress(final int resID){
-		
+
 		this.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -266,7 +263,7 @@ public abstract class ActivityBase extends Activity {
 	protected void onPause() {
 		super.onPause();
 		unregisterReceiver(waringReceiver);
-		
+
 //		if (serviceReceiver != null)
 //			unregisterReceiver(serviceReceiver);
 	}
@@ -277,7 +274,7 @@ public abstract class ActivityBase extends Activity {
 		hideDialog();
 		super.onDestroy();
 	}
-	
+
 	protected void doubleLoginDetected() {
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -285,7 +282,7 @@ public abstract class ActivityBase extends Activity {
 		intent.putExtra(Constant.IntentKeys.INTENT_DOUBLE_LOGIN, true);
 		startActivity(intent);
 	}
-	
+
 	private void hideDialog(){
 		if(dialog != null && dialog.isShowing()){
 			dialog.dismiss();
@@ -336,9 +333,9 @@ public abstract class ActivityBase extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		
+
 		AppUtil.setScreenTouchTime(this);
-		
+
 		return super.dispatchTouchEvent(ev);
 	}
 
@@ -380,6 +377,104 @@ public abstract class ActivityBase extends Activity {
 	}
 
 
+	public boolean checkNetworking(boolean retry) {
+		if(!NetworkState.getInstance(this).checkNetworkState()) {
+			LogUtil.d("네트워크 연결 안됨");
+			showNetworkDialog();
+			checkingNetworks(retry);
+			return false;
+		}
+
+		LogUtil.d("checkNetworking true");
+		return true;
+	}
 
 
+
+	boolean isRun = false;
+
+	private void checkingNetworks(final boolean retry) {
+		isRun = true;
+		LogUtil.i("checkingNetworks");
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				while(isRun) {
+					if(NetworkState.getInstance(ActivityBase.this).checkNetworkState()) {
+						LogUtil.i("checkNetworks 연결됨");
+						setNetwordAvaiable(retry);
+						isRun = false;
+					}
+					else{
+						LogUtil.i("checkNetworks 연결안됨");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
+			}
+		}).start();
+	}
+
+	private Handler mHander = new Handler();
+
+	private void setNetwordAvaiable(final boolean retry) {
+		if(null != networkDialog &&  networkDialog.isShowing())
+			networkDialog.dismiss();
+
+		LogUtil.d("네트워크가 연결 됐습니다.");
+
+		mHander.post(new Runnable() {
+			@Override
+			public void run() {
+				ToastUtil.show(ActivityBase.this, "네트워크가 연결 되었습니다.");
+				onConnectedNetwork(retry);
+			}
+		});
+	}
+	private DialogStudent networkDialog;
+	public void showNetworkDialog() {
+
+		if(networkDialog != null) {
+			networkDialog.show();
+			return;
+		}
+
+		networkDialog = new DialogStudent(this);
+				networkDialog.setCanceledOnTouchOutside(false);
+				networkDialog.setCancelable(false);
+				networkDialog.show();
+				networkDialog.setButtonMsg(getString(R.string.terminate), getString(R.string.network_setting));
+				networkDialog.setMessage("네트워크가 연결되어있지 않습니다.");
+				networkDialog.setListener(new DialogStudent.ListenerDialogButton() {
+					@Override
+					public void onClick(Dialog dialog, int result) {
+
+						if(result == DIALOG_BTN_ON) {
+							LogUtil.i("DIALOG_BTN_FIRST");
+							isRun = false;
+							networkDialog.dismiss();
+							networkDialog = null;
+							finish();
+						}else{
+							LogUtil.i("DIALOG_BTN_SECOND");
+							launchWifiSetting();
+						}
+					}
+				});
+				networkDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+					@Override
+					public void onCancel(DialogInterface dialogInterface) {
+						LogUtil.i("OnBackPressed");
+						isRun = false;
+						networkDialog.dismiss();
+						networkDialog = null;
+						finish();
+					}
+				});
+	}
 }
