@@ -872,9 +872,10 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 			if (correctCheckMPlayer == null)
 				correctCheckMPlayer = new MediaPlayer();
 			else {
-				if (correctCheckMPlayer.isPlaying())
+				if (correctCheckMPlayer.isPlaying()){
 					correctCheckMPlayer.stop();
-				
+					correctCheckMPlayer.release();
+				}
 				correctCheckMPlayer.reset();
 			}
 			switch (playType) {
@@ -885,7 +886,6 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 				correctCheckMPlayer.setOnCompletionListener(inCorrectMPCompleteListener);
 				break;
 			}
-			
 			correctCheckMPlayer.setOnPreparedListener(new OnPreparedListener() {
 				
 				@Override
@@ -894,7 +894,6 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 					correctCheckMPlayer.start();
 				}
 			});
-			
 			String path = filePath;
 			Uri mUri = Uri.parse(path);
 			correctCheckMPlayer.setDataSource(this, mUri);
@@ -906,7 +905,6 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 			ToastUtil.show(this, "음원을 재생할 수 없습니다.");
 		}
 	}
-	
 	/**
      * 정답 음원 재생 완료 후 호출됨
      */
@@ -915,6 +913,7 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 		public void onCompletion(MediaPlayer mp) {
 			//정답 이미지 표시 숨기기
 			hideCorrentImg();
+
 			if(null != answerCompleteHandler) 
 				answerCompleteHandler.sendEmptyMessageDelayed(CORRECT_PROCESS_ALL, showAnswerTime * 1000); 
 		}
@@ -931,7 +930,6 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 			//오답 이미지 표시 숨기기
 			hideCorrentImg();
 			if(null == answerCompleteHandler) return;
-			
 			if(currentFragment.isPractice()) {	//Practice일 경우에만 한번 더 기회를 준다.
 				if(correntChance > 0){
 					//한번 더
@@ -1096,7 +1094,6 @@ public class FragmentActivityWordTest extends BaseFragmentActivity implements On
 			VoWordsTestList.getInstance().setCURR_ZONE(current_zone);
 			VoWordsTestList.getInstance().setCURR_QUST_NUM(1);
 		}
-		
 		if(TestType.Test1 == currentTestType) {
 			makePractice();
 			if(test1AllCorrect) {
